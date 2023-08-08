@@ -1,24 +1,14 @@
-# Jobs site using Python Flask stack with Dynamic Data for database management (BACKEND + FRONTEND)
+# Dev School: fictional coding school with blog by vanesascode
 
-In the link below you can see how it looks and what it does. Notice this app is still in development stage running on a local domain. It is a learning project and you can find all my notes during the process, which helped me understand everything better. 👇👇👇
+### Site using Python Flask stack and rendered with Vercel
 
-## https://dev-jobs-by-vanesascode.onrender.com/
+ONGOING project for a complete website in which I keep sharing new knowlege about programming and development.
 
-![Captura](https://github.com/vanesascode/jobs-site-python-flask-mysql-bootstrap/assets/131259155/d4ff4d32-e7f2-4ca2-815f-7bcf6bab9f1b)
-
-The combination of `Python, Flask, and Data` is commonly used in web development to create a full-stack application. Flask is a lightweight web framework in Python.
-
-Together, they allow developers to build dynamic and scalable web applications, handling both the front-end and back-end aspects of the application. 
-
-# To run the app:
-
-1. In the terminal run: `python app.py` If you are in VSCode, within the file app.py just click on the triangle button on the top right.
-2. Open http://localhost:4000/ in the browser.
-
-Here you can see the Database in JSON:
-http://localhost:4000/api/jobs
+See here the [PROGRESS](https://devschool-vanesascode.vercel.app/)
 
 # 💥 BACKEND 💥
+
+Flask is a lightweight web framework in Python.
 
 How to start:
 
@@ -34,6 +24,11 @@ if __name__ == "__main__":
 
 The previous code is checking if the current module is being run directly (as opposed to being imported by another module). If it is being run directly, it runs the Flask application with debug mode enabled and listens on port 4000.
 
+## To run the app in development:
+
+1. In the terminal run: `python app.py` If you are in VSCode, within the file app.py just click on the triangle button on the top right.
+2. Open http://localhost:4000/ in the browser.
+
 ## Route handlers
 
 This is our main route handler, since we only have a page in this app:
@@ -48,11 +43,42 @@ When a user accesses the root URL ("/"), the home() function is executed.
 
 The function returns the rendered template "home.html" using the render_template() function from Flask. It passes the JOBS variable (the name of the database, in fact) as a parameter to the template, which can be accessed within the template. Additionally, it passes the value "Dev" as the company_name parameter to the template.
 
-
 ## Deployment
 
-In order to deploy it into an Internet URL, I created a file called requirements.txt in which I indicate the apps that need to be installed for production stage, and added it to the project folder. Then, in [render.com](https://dashboard.render.com/) I uploaded the Github repository as a Web Service (free option). You set the Runtime as `Python 3`, the Build Command as `pip install -r requirements.txt` and the start command as `gunicorn app:app`.
+Prepare your Flask application:
 
+- [x] Fit everything in an API folder
+- [x] In the root folder create a requirements.txt file (inside write `flask`)
+- [x] In the root folder create a vercel.json file (make it look like the one in this project)
+
+Prepare Vercel:
+
+- [x] Create an account in Vercel.com
+- [x] Install the Now package in the terminal, globally: `npm install now -g`
+
+Sign in into the project:
+
+- [x] Run: `now` in the terminal, inside the root folder of the project.
+- [x] The terminal will ask you your email.
+- [x] Then, you'll receive an email in which you will have to verify your credentials.
+
+Deploy:
+
+- [x] Run: now again.
+- [x] It will ask you if you want to deploy. You say Y
+- [x] Asks the scope (your name)
+- [x] Asks if you want to link to existing project. You say N
+- [x] In which directory is your code located? If it's in the root folder just leave it like this: ./
+- [x] You want to override the settings? You say N
+- [x] You can now get the URL that is in the ✅ production line. It's live!
+
+Add new changes to the live URL
+
+- [x] Run: `now --prod` Then, changes are saved in the same URL you published before.
+
+## See all your pip packages installed so far and versions:
+
+- [x] Run: `py -m pip list`
 
 # 💥 FRONTEND 💥
 
@@ -114,7 +140,3 @@ href="mailto:devjobs@devjobs.com?subject=Application%20to%20{{ job['title']|urle
 - Mailto:devjobs@devjobs.com" specifies the recipient's email address (it is invented)
 - The "{{ job['title']|urlencode }}" part is a placeholder that will be replaced with the URL-encoded version of the job title.
 - "|urlencode" is used in URL encoding. It is used to ensure that URLs are properly formatted and can be transmitted correctly over the internet.
-
-## See all your pip packages installed and versions: 
-
-- [x] Run: `py -m pip list`
