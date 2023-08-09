@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <a
         class="nav-link me-5 fs-3"
-        href="#"
+        href="{{ url_for('school') }}"
         style="font-family: 'Josefin Sans', sans-serif; font-weight: 500"
         >Dev School</a
       >
@@ -29,17 +29,13 @@
         <div class="navbar-nav">
           <a
             class="nav-link text-dark mx-4 text-nowrap resaltar"
-            href="{{ url_for('devblog') }}"
+            href="{{ url_for('blog') }}"
             >Blog</a
           >
+
           <a
             class="nav-link text-dark mx-4 text-nowrap resaltar"
-            href="{{ url_for('devapply') }}"
-            >Apply</a
-          >
-          <a
-            class="nav-link text-dark mx-4 text-nowrap resaltar"
-            href="{{ url_for('devjobs') }}"
+            href="{{ url_for('jobs') }}"
             >Dev Jobs</a
           >
           <a

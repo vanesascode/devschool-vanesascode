@@ -45,63 +45,39 @@
 
   <body>
     <!--NAV-->
-    {% include "devschool/nav.html" %}
+    {% include "school/nav.html" %}
+
     <!--PRESENTATION-->
-    <div style="margin-top: 130px; margin-bottom: 150px">
-      {% include "devjobs/presentation.html" %}
+    <div style="margin-top: 150px; margin-bottom: 130px">
+      {% include "school/presentation.html" %}
     </div>
 
     <div style="background-color: rgb(20, 4, 110)">
       <!--DYNAMIC TITLE-->
-      <p id="opinions" style="color: rgb(20, 4, 110)">-</p>
+      <p id="topics" style="color: rgb(20, 4, 110)">-</p>
       <p style="color: rgb(20, 4, 110)">-</p>
       <div style="margin-bottom: 70px; padding-top: 30px">
-        {% include "devjobs/dynamic-title.html" %}
+        {% include "school/dynamic-title.html" %}
       </div>
-      <!--TESTIMONIALS-->
+      <!--TOPICS-->
       <div style="padding-bottom: 150px">
-        {% include "devjobs/testimonials.html" %}
+        {% include "school/topics.html" %}
       </div>
     </div>
 
-    <!--JOBS TITLE-->
+    <!--BLOG TITLE-->
     <div style="margin-bottom: 130px" class="container">
-      {% include "devjobs/jobs-title.html" %}
+      {% include "school/blog-title.html" %}
     </div>
-    <!--JOBS LIST-->
-    <div>
-      {% for job in jobs %} {% include "devjobs/jobitems.html" %} {% endfor %}
-    </div>
-
-    <!--ADVICE TITLE-->
-    <div class="container">
-      <div class="d-flex justify-content-center align-items-center flex-column">
-        <div style="margin-bottom: 130px">
-          {% include "devjobs/advice-title.html" %}
-        </div>
-      </div>
-    </div>
-    <!--CAREERS ADVICE-->
-    <div
-      style="
-        padding-bottom: 150px;
-        padding-top: 100px;
-        background-color: rgb(20, 4, 110);
-      "
-    >
-      <div class="container">{% include "devjobs/interviews.html" %}</div>
+    <!--BLOG BOXES-->
+    <div style="margin-bottom: 130px" class="container">
+      {% include "school/blog-boxes.html" %}
     </div>
 
-    <div style="padding-top: 100px; padding-bottom: 150px" class="bg-warning">
-      <div class="container">{% include "devjobs/advice.html" %}</div>
-    </div>
-
-    <!--PERSONAL HELP-->
-    <div class="container" style="margin-bottom: 130px">
-      {% include "devjobs/personal-help.html" %}
-    </div>
+    <!--LEARN WIHT ME-->
+    <div style="margin-top: 150px">{% include "school/hello.html" %}</div>
 
     <!--FOOTER-->
-    {% include "devjobs/footer.html" %}
+    {% include "footer.html" %}
   </body>
 </html>

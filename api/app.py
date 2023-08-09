@@ -43,20 +43,24 @@ JOBS = [
 
 
 @app.route("/")
-def devschool():
-    return render_template("devschool/devschool.html")
+def school():
+    return render_template("school/index-school.html")
 
 @app.route("/jobs")
-def devjobs():
-    return render_template("devjobs/devjobs.html", jobs=JOBS)
+def jobs():
+    return render_template("jobs/index-jobs.html", jobs=JOBS)
 
 @app.route("/blog")
-def devblog():
-    return render_template("devblog/devblog.html", jobs=JOBS)
+def blog():
+    return render_template("blog/index-blog.html")
+
+@app.route("/blog/javascript-interview-questions")
+def javascriptinterviewquestions():
+    return render_template("javascript/javascript-interview-questions.html")
 
 @app.route("/apply")
-def devapply():
-    return render_template("devapply/devapply.html", jobs=JOBS)
+def apply():
+    return render_template("apply/index-apply.html")
 
 
 @app.route("/api/jobs")
