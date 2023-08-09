@@ -43,8 +43,20 @@ JOBS = [
 
 
 @app.route("/")
-def home():
-    return render_template("home.html", jobs=JOBS, company_name="Dev")
+def devschool():
+    return render_template("devschool/devschool.html")
+
+@app.route("/jobs")
+def devjobs():
+    return render_template("devjobs/devjobs.html", jobs=JOBS)
+
+@app.route("/blog")
+def devblog():
+    return render_template("devblog/devblog.html", jobs=JOBS)
+
+@app.route("/apply")
+def devapply():
+    return render_template("devapply/devapply.html", jobs=JOBS)
 
 
 @app.route("/api/jobs")

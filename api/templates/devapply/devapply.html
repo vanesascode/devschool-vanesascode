@@ -45,10 +45,10 @@
 
   <body>
     <!--NAV-->
-    {% include "nav.html" %}
+    {% include "devschool/nav.html" %}
     <!--PRESENTATION-->
     <div style="margin-top: 130px; margin-bottom: 150px">
-      {% include "presentation.html" %}
+      {% include "devjobs/presentation.html" %}
     </div>
 
     <div style="background-color: rgb(20, 4, 110)">
@@ -56,26 +56,28 @@
       <p id="opinions" style="color: rgb(20, 4, 110)">-</p>
       <p style="color: rgb(20, 4, 110)">-</p>
       <div style="margin-bottom: 70px; padding-top: 30px">
-        {% include "dynamic-title.html" %}
+        {% include "devjobs/dynamic-title.html" %}
       </div>
       <!--TESTIMONIALS-->
-      <div style="padding-bottom: 150px">{% include "testimonials.html" %}</div>
+      <div style="padding-bottom: 150px">
+        {% include "devjobs/testimonials.html" %}
+      </div>
     </div>
 
     <!--JOBS TITLE-->
     <div style="margin-bottom: 130px" class="container">
-      {% include "jobs-title.html" %}
+      {% include "devjobs/jobs-title.html" %}
     </div>
     <!--JOBS LIST-->
     <div>
-      {% for job in jobs %} {% include "jobitems.html" %} {% endfor %}
+      {% for job in jobs %} {% include "devjobs/jobitems.html" %} {% endfor %}
     </div>
 
     <!--ADVICE TITLE-->
     <div class="container">
       <div class="d-flex justify-content-center align-items-center flex-column">
         <div style="margin-bottom: 130px">
-          {% include "advice-title.html" %}
+          {% include "devjobs/advice-title.html" %}
         </div>
       </div>
     </div>
@@ -87,19 +89,19 @@
         background-color: rgb(20, 4, 110);
       "
     >
-      <div class="container">{% include "interviews.html" %}</div>
+      <div class="container">{% include "devjobs/interviews.html" %}</div>
     </div>
 
     <div style="padding-top: 100px; padding-bottom: 150px" class="bg-warning">
-      <div class="container">{% include "advice.html" %}</div>
+      <div class="container">{% include "devjobs/advice.html" %}</div>
     </div>
 
     <!--PERSONAL HELP-->
     <div class="container" style="margin-bottom: 130px">
-      {% include "personal-help.html" %}
+      {% include "devjobs/personal-help.html" %}
     </div>
 
     <!--FOOTER-->
-    {% include "footer.html" %}
+    {% include "devjobs/footer.html" %}
   </body>
 </html>
