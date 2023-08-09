@@ -1,16 +1,13 @@
 <div class="container my-5 pt-md-0">
   <div class="row mt-5 d-flex align-items-center">
     <!--CAROUSEL WHEN SCREEN BIG-->
-    <div class="d-none d-lg-block col-lg-6 mt-5">
+    <div class="d-none d-lg-block col-lg-5">
       <div class="d-flex justify-content-center">
         <img
-          name="slide"
-          alt="computers"
+          src="../../static/devschool/diving-into-coding.jpg"
           class="img-fluid"
           style="
-            box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            height: 380px;
+            height: 400px;
             max-width: 100%;
             object-fit: cover;
             padding: auto;
@@ -21,7 +18,7 @@
 
     <!--TEXT-->
 
-    <div class="d-block col-lg-6 mt-5 px-5">
+    <div class="d-block col-lg-7 mt-5 px-5">
       <p
         class="text-lg-start text-center mb-4"
         style="
@@ -31,12 +28,13 @@
           line-height: 1.1;
         "
       >
-        Learn to code with me
+        Diving into the world of coding
       </p>
       <p class="fs-4 mb-4 text-lg-start text-center">
-        This is an ongoing portfolio site for learning to code professional
-        websites. Since I create lots of notes and materials while learning, I
-        decided to mix this fictional school with my blog.
+        Learning to code is a rewarding journey that offers creativity,
+        problem-solving skills, career opportunities, continuous learning,
+        collaboration within a community, and the ability to make a positive
+        impact through innovation.
       </p>
 
       <div class="d-flex justify-content-center justify-content-lg-start">
@@ -53,52 +51,10 @@
       class="d-flex justify-content-center d-lg-none d-lx-none d-sm-block mx-auto mt-5"
     >
       <img
-        name="slide2"
-        alt="computers"
+        src="../../static/devschool/diving-into-coding.jpg"
         class="img-fluid"
-        style="
-          box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-          border-radius: 5px;
-          height: 300px;
-          width: 90%;
-          object-fit: cover;
-        "
+        style="height: 380px; max-width: 100%; object-fit: cover; padding: auto"
       />
     </div>
   </div>
-
-  <!--SCRIPTS-->
-  <script>
-    let i = 0; // Start Point
-    let images = []; // Images Array
-    let time = 2000; // Time Between Switch
-
-    // Image List
-    images[0] = "/static/developer1.jpg";
-    images[1] = "/static/developer2.jpg";
-    images[2] = "/static/developer3.jpg";
-    images[3] = "/static/developer4.jpg";
-    images[4] = "/static/developer5.jpg";
-
-    // Change Image
-    function changeImg() {
-      document.slide.src = images[i];
-      document.slide2.src = images[i];
-
-      // Check If Index Is Under Max
-      if (i < images.length - 1) {
-        // Add 1 to Index
-        i++;
-      } else {
-        // Reset Back To O
-        i = 0;
-      }
-
-      // Run function every x seconds
-      setTimeout("changeImg()", time);
-    }
-
-    // Run function when page loads
-    window.onload = changeImg;
-  </script>
 </div>

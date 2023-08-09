@@ -46,14 +46,15 @@
   <body>
     <!--NAV-->
     {% include "devschool/nav.html" %}
+
     <!--PRESENTATION-->
-    <div style="margin-top: 130px; margin-bottom: 150px">
+    <div style="margin-top: 150px; margin-bottom: 130px">
       {% include "devschool/presentation.html" %}
     </div>
 
     <div style="background-color: rgb(20, 4, 110)">
       <!--DYNAMIC TITLE-->
-      <p id="opinions" style="color: rgb(20, 4, 110)">-</p>
+      <p id="topics" style="color: rgb(20, 4, 110)">-</p>
       <p style="color: rgb(20, 4, 110)">-</p>
       <div style="margin-bottom: 70px; padding-top: 30px">
         {% include "devschool/dynamic-title.html" %}
@@ -73,7 +74,10 @@
       {% include "devschool/blog-boxes.html" %}
     </div>
 
+    <!--LEARN WIHT ME-->
+    <div style="margin-top: 150px">{% include "devschool/hello.html" %}</div>
+
     <!--FOOTER-->
-    {% include "devjobs/footer.html" %}
+    {% include "footer.html" %}
   </body>
 </html>
