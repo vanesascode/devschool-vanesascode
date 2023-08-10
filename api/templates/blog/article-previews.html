@@ -1,7 +1,7 @@
 <!--SECTION TITLE - JAVASCRIPT-->
 
-<div class="container">
-  <p class="my-5">
+<div class="container" style="padding-top: 100px; padding-bottom: 100px">
+  <p>
     <a href="#" class="text-secondary" style="text-decoration: none"
       >Blog home</a
     ><b class="text-secondary"> &#8594; </b><span>Javascript</span>
@@ -19,25 +19,32 @@
   </h2>
 </div>
 
-<div class="bg-danger p-5">
-  <div class="container">
-    <div class="row">
+<!--PREVIEW ARTICLES - JAVASCRIPT-->
+
+<div class="bg-danger">
+  <div class="container" style="padding-top: 130px; padding-bottom: 130px">
+    <div class="row px-4 px-md-0">
       <!--article 1-->
-      <div class="col-12 col-md-4 d-flex justify-content-center">
-        <a href="{{ url_for('javascriptinterviewquestions') }}">
-          <div class="card mb-3 mb-xl-0">
+      <div class="col-12 col-md-3 d-flex justify-content-center">
+        <a
+          href="{{ url_for('javascriptinterviewquestions') }}"
+          style="text-decoration: none"
+        >
+          <div class="card mb-5 mb-md-0">
             <img
-              src="../../static/blog/javascript-interview-questions.jpg"
+              src="../../static/blog/preview-javascript-interview-questions.jpg"
               class="card-img-top"
               alt="..."
             />
             <div class="card-body" style="min-height: 155px">
-              <p class="card-text">"UNDER CONSTRUCTION"</p>
+              <p class="card-text pt-3 pb-3 px-3">
+                "Javascript Interview Questions" <br />
+                <b class="fs-4">UNDER CONSTRUCTION</b>
+              </p>
             </div>
           </div>
         </a>
       </div>
-      <!--article 2-->
     </div>
   </div>
 </div>

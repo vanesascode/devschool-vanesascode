@@ -46,18 +46,21 @@
   <body>
     <!--NAV-->
     {% include "jobs/nav.html" %}
+
     <!--PRESENTATION-->
-    <div style="margin-top: 130px; margin-bottom: 150px">
+    <div style="padding-top: 200px; padding-bottom: 150px">
       {% include "jobs/presentation.html" %}
     </div>
 
     <div style="background-color: rgb(20, 4, 110)">
-      <!--DYNAMIC TITLE-->
+      <!--ID LOCATION FOR DYNAMIC TITLE-->
       <p id="opinions" style="color: rgb(20, 4, 110)">-</p>
-      <p style="color: rgb(20, 4, 110)">-</p>
-      <div style="margin-bottom: 70px; padding-top: 30px">
+
+      <!--DYNAMIC TITLE-->
+      <div style="padding-top: 50px; padding-bottom: 70px">
         {% include "jobs/dynamic-title.html" %}
       </div>
+
       <!--TESTIMONIALS-->
       <div style="padding-bottom: 150px">
         {% include "jobs/testimonials.html" %}
@@ -65,39 +68,41 @@
     </div>
 
     <!--JOBS TITLE-->
-    <div style="margin-bottom: 130px" class="container">
+    <div style="padding-top: 130px; padding-bottom: 130px" class="container">
       {% include "jobs/jobs-title.html" %}
     </div>
     <!--JOBS LIST-->
-    <div>
+    <div style="overflow-y: scroll; height: 500px" class="container border">
       {% for job in jobs %} {% include "jobs/jobitems.html" %} {% endfor %}
     </div>
 
     <!--ADVICE TITLE-->
-    <div class="container">
-      <div class="d-flex justify-content-center align-items-center flex-column">
-        <div style="margin-bottom: 130px">
-          {% include "jobs/advice-title.html" %}
-        </div>
-      </div>
+
+    <div
+      style="padding-top: 130px; padding-bottom: 130px"
+      class="container"
+      id="advice"
+    >
+      {% include "jobs/advice-title.html" %}
     </div>
-    <!--CAREERS ADVICE-->
+
+    <!--CAREERS ADVICE CARROUSELS-->
     <div
       style="
-        padding-bottom: 150px;
-        padding-top: 100px;
+        padding-bottom: 130px;
+        padding-top: 130px;
         background-color: rgb(20, 4, 110);
       "
     >
       <div class="container">{% include "jobs/interviews.html" %}</div>
     </div>
 
-    <div style="padding-top: 100px; padding-bottom: 150px" class="bg-warning">
+    <div style="padding-top: 130px; padding-bottom: 130px" class="bg-warning">
       <div class="container">{% include "jobs/advice.html" %}</div>
     </div>
 
     <!--PERSONAL HELP-->
-    <div class="container" style="margin-bottom: 130px">
+    <div style="padding-top: 130px; padding-bottom: 130px" class="container">
       {% include "jobs/personal-help.html" %}
     </div>
 
