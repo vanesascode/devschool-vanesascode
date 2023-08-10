@@ -1,4 +1,4 @@
-# Dev School: fictional coding school with blog by vanesascode
+# Dev School: fictional coding school with blog by vanesascode (UNDER CONSTRUCTION) 
 
 ### Site using Python Flask stack and rendered with Vercel
 
