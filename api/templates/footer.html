@@ -8,49 +8,7 @@
     style="background-color: rgb(38, 38, 39); color: white"
     id="about-us"
   >
-    <div class="px-3 py-5">
-      <li class="nav-item" style="list-style: none">
-        <p
-          class="nav-link fw-bold mb-5"
-          style="
-            font-family: 'Josefin Sans', sans-serif;
-            text-transform: uppercase;
-          "
-        >
-          For Job Seekers
-        </p>
-        <a
-          href="#job"
-          class="nav-link link-left mb-4"
-          style="color: rgb(178, 177, 177)"
-          >Browse Jobs</a
-        >
-        <a
-          href="#advice"
-          class="nav-link link-left mb-4"
-          style="color: rgb(178, 177, 177)"
-          >Careers Advice</a
-        >
-        <a
-          href="#help"
-          class="nav-link link-left mb-4"
-          style="color: rgb(178, 177, 177)"
-          >Personal help</a
-        >
-        <a
-          href="#help"
-          class="nav-link link-left mb-4"
-          style="color: rgb(178, 177, 177)"
-          >Writing CVs</a
-        >
-        <a
-          href="#help"
-          class="nav-link link-left mb-4"
-          style="color: rgb(178, 177, 177)"
-          >Help</a
-        >
-      </li>
-    </div>
+    
 
     <div class="px-3 py-5">
       <li class="nav-item" style="list-style: none">
@@ -61,28 +19,73 @@
             text-transform: uppercase;
           "
         >
-          For Employers
+          Dev School
         </p>
         <a
-          href="#about-us"
+          href="{{ url_for('school') }}"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
-          >Products</a
+          >What coding offers</a
         >
         <a
-          href="#about-us"
+          href="{{ url_for('school') }}#learning-flow"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
-          >Pricing
+          >Learning flow
         </a>
         <a
-          href="#about-us"
+          href="{{ url_for('school') }}"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
           >Resources
         </a>
         <a
-          href="#help"
+          href="{{ url_for('school') }}#topics"
+          class="nav-link link-left mb-4"
+          style="color: rgb(178, 177, 177)"
+          >Topics</a
+        >
+        <a
+          href="{{ url_for('school') }}#about-me"
+          class="nav-link link-left mb-4"
+          style="color: rgb(178, 177, 177)"
+          >About</a
+        >
+      </li>
+    </div>
+    
+    <div class="px-3 py-5">
+      <li class="nav-item" style="list-style: none">
+        <p
+          class="nav-link fw-bold mb-5"
+          style="
+            font-family: 'Josefin Sans', sans-serif;
+            text-transform: uppercase;
+          "
+        >
+          Dev Jobs
+        </p>
+        <a
+          href="{{ url_for('jobs') }}#job"
+          class="nav-link link-left mb-4"
+          style="color: rgb(178, 177, 177)"
+          >Browse Jobs</a
+        >
+        <a
+          href="{{ url_for('jobs') }}#advice"
+          class="nav-link link-left mb-4"
+          style="color: rgb(178, 177, 177)"
+          >Careers Tips</a
+        >
+        <a
+          href="{{ url_for('jobs') }}#help"
+          class="nav-link link-left mb-4"
+          style="color: rgb(178, 177, 177)"
+          >Personal Advice</a
+        >
+      
+        <a
+          href="{{ url_for('jobs') }}#help"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
           >Help</a
@@ -99,34 +102,41 @@
             text-transform: uppercase;
           "
         >
-          Helpful Resources
+          Blog
         </p>
         <a
           href="#about-us"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
-          >Terms of Use
+          >Javascript
         </a>
         <a
           href="#about-us"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
-          >FAQs</a
+          >Typescript</a
         >
         <a
           href="#about-us"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
-          >Blog</a
+          >Git</a
         >
         <a
           href="#about-us"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
-          >Community</a
+          >Tailwind</a
+        >
+        <a
+          href="#about-us"
+          class="nav-link link-left mb-4"
+          style="color: rgb(178, 177, 177)"
+          >Next JS</a
         >
       </li>
     </div>
+
     <div class="px-3 py-5">
       <li class="nav-item" style="list-style: none">
         <p
@@ -136,29 +146,41 @@
             text-transform: uppercase;
           "
         >
-          Get to know us
+          Contact
         </p>
         <a
-          href="#about-us"
+          href="{{ url_for('school') }}#about-me"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
-          >About Dev Jobs</a
+          >About Me</a
         >
         <a
-          href="#about-us"
+          href="https://www.linkedin.com/in/vanesajuarezparis/"
+          target="_blank"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
-          >Work with us</a
+          >Linkedin</a
         >
 
         <a
-          href="mailto:devjobs@devjobs.com?subject=Question%20about%20Dev%20Jobs&body=My%20name%3A%0D%0A%0D%0AMy%20question%3A"
+          href="https://github.com/vanesascode"
+          target="_blank"
           class="nav-link link-left mb-4"
           style="color: rgb(178, 177, 177)"
-          >Contact us</a
+          >Github</a
         >
+        <a
+        href="mailto:namotoninja@gmail.com?subject=&body="
+        class="nav-link link-left mb-4"
+        style="color: rgb(178, 177, 177)"
+        >Contact Me</a
+      >
       </li>
     </div>
+
+
+    <!-- href="mailto:namotoninja@gmail.com?subject=Question%20about%20Dev%20Jobs&body=My%20name%3A%0D%0A%0D%0AMy%20question%3A" -->
+
   </div>
 
   <!--BOTTOM LINKS-->
@@ -168,7 +190,7 @@
   >
     <div class="px-3 py-4">
       <i class="fa-solid fa-location-dot" style="color: #f8f9fa"></i>
-      <a style="text-decoration: none"> With love, from Broto</a>
+      <a style="text-decoration: none"> With love, from Broto 🏔</a>
     </div>
 
     <div class="px-3 py-4">
@@ -178,7 +200,18 @@
         href="https://github.com/vanesascode"
         style="text-decoration: none"
         class="nav-link image-up"
-        >&copy; By vanesascode - freepik pics
+        >&copy; By vanesascode 
+      </a>
+    </div>
+
+    <div class="px-3 py-4">
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.freepik.es/"
+        style="text-decoration: none"
+        class="nav-link image-up"
+        >Images from Freepik
       </a>
     </div>
 
@@ -203,6 +236,7 @@
             class="ms-md-4 image-up"
         /></a>
       </div>
+
       <div class="px-3 py-4">
         <a href="https://play.google.com/store/games target="_blank"
         rel="noreferrer"">

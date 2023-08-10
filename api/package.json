@@ -1,7 +1,7 @@
 {
-  "name": "first-project-with-flask",
+  "name": "devschool-vanesascode",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fictional school website for developers with a real learning blog",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
