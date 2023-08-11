@@ -132,9 +132,10 @@ body {
 
 @media (max-width: 576px) {
   .presentation-subtitle {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.1;
+    font-family: system-ui, -apple-system, "Segoe UI";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
     text-align: center;
   }
 }
@@ -153,6 +154,23 @@ body {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 500;
     line-height: 1;
+  }
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .subtitle {
+    font-family: system-ui, -apple-system, "Segoe UI";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
   }
 }
 
