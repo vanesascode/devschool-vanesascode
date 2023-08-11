@@ -41,6 +41,11 @@
       type="text/css"
       href="{{ url_for('static', filename='styles.css') }}"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='responsive.css') }}"
+    />
   </head>
 
   <body>
@@ -48,18 +53,12 @@
     {% include "blog/nav.html" %}
 
     <!--BLOG TITLE-->
-    <div style="padding-top: 200px; padding-bottom: 150px">
-      {% include "school/blog-title.html" %}
-    </div>
+    <div class="pt-200 pb-100">{% include "school/blog-title.html" %}</div>
     <!--BLOG BOXES-->
-    <div style="margin-bottom: 130px" class="container">
-      {% include "school/blog-boxes.html" %}
-    </div>
+    <div class="container pb-130">{% include "school/blog-boxes.html" %}</div>
 
     <!--BLOG ARTICLES PREVIEWS-->
-    <div style="margin-bottom: 130px">
-      {% include "blog/article-previews.html" %}
-    </div>
+    <div class="mt-130">{% include "blog/article-previews.html" %}</div>
 
     <!--FOOTER-->
     {% include "footer.html" %}

@@ -1,20 +1,10 @@
-body {
-  overflow-y: scroll;
-}
-
-@media (max-width: 768px) {
-  body {
-    scrollbar-width: none;
-  }
-}
-
 /*TRANSITIONS*/
 
-.link-left {
+.move-right {
   transition: all 0.4s;
 }
 
-.link-left:hover {
+.move-right:hover {
   transform: translateX(5px);
 }
 

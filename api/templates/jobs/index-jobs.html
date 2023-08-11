@@ -41,6 +41,12 @@
       type="text/css"
       href="{{ url_for('static', filename='styles.css') }}"
     />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='responsive.css') }}"
+    />
   </head>
 
   <body>
@@ -48,27 +54,21 @@
     {% include "jobs/nav.html" %}
 
     <!--PRESENTATION-->
-    <div style="padding-top: 200px; padding-bottom: 150px">
-      {% include "jobs/presentation.html" %}
-    </div>
+    <div class="pt-200 pb-150">{% include "jobs/presentation.html" %}</div>
 
     <div style="background-color: rgb(20, 4, 110)">
       <!--ID LOCATION FOR DYNAMIC TITLE-->
       <p id="opinions" style="color: rgb(20, 4, 110)">-</p>
 
       <!--DYNAMIC TITLE-->
-      <div style="padding-top: 50px; padding-bottom: 70px">
-        {% include "jobs/dynamic-title.html" %}
-      </div>
+      <div class="pt-50 pb-80">{% include "jobs/dynamic-title.html" %}</div>
 
       <!--TESTIMONIALS-->
-      <div style="padding-bottom: 150px">
-        {% include "jobs/testimonials.html" %}
-      </div>
+      <div class="pb-150">{% include "jobs/testimonials.html" %}</div>
     </div>
 
     <!--JOBS TITLE-->
-    <div style="padding-top: 130px; padding-bottom: 130px" class="container">
+    <div class="container pt-130 pb-130">
       {% include "jobs/jobs-title.html" %}
     </div>
     <!--JOBS LIST-->
@@ -78,31 +78,23 @@
 
     <!--ADVICE TITLE-->
 
-    <div
-      style="padding-top: 130px; padding-bottom: 130px"
-      class="container"
-      id="advice"
-    >
+    <div class="container pt-130 pb-130" id="advice">
       {% include "jobs/advice-title.html" %}
     </div>
 
     <!--CAREERS ADVICE CARROUSELS-->
-    <div
-      style="
-        padding-bottom: 130px;
-        padding-top: 130px;
-        background-color: rgb(20, 4, 110);
-      "
-    >
-      <div class="container">{% include "jobs/interviews.html" %}</div>
+    <div style="background-color: rgb(20, 4, 110)">
+      <div class="container pb-130 pt-130">
+        {% include "jobs/interviews.html" %}
+      </div>
     </div>
 
-    <div style="padding-top: 130px; padding-bottom: 130px" class="bg-warning">
+    <div class="bg-warning pt-130 pb-130">
       <div class="container">{% include "jobs/advice.html" %}</div>
     </div>
 
     <!--PERSONAL HELP-->
-    <div style="padding-top: 130px; padding-bottom: 130px" class="container">
+    <div class="container pt-130 pb-130">
       {% include "jobs/personal-help.html" %}
     </div>
 

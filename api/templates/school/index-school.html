@@ -41,6 +41,11 @@
       type="text/css"
       href="{{ url_for('static', filename='styles.css') }}"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='responsive.css') }}"
+    />
   </head>
 
   <body>
@@ -48,31 +53,23 @@
     {% include "school/nav.html" %}
 
     <!--PRESENTATION-->
-    <div style="padding-top: 200px; padding-bottom: 150px">
-      {% include "school/presentation.html" %}
-    </div>
+    <div class="pt-200 pb-150">{% include "school/presentation.html" %}</div>
 
     <div style="background-color: rgb(20, 4, 110)">
       <!--ID LOCATION FOR DYNAMIC TITLE-->
       <p id="learning-flow" style="color: rgb(20, 4, 110)">-</p>
 
       <!--DYNAMIC TITLE-->
-      <div style="padding-top: 50px; padding-bottom: 70px">
-        {% include "school/dynamic-title.html" %}
-      </div>
+      <div class="pt-50 pb-80">{% include "school/dynamic-title.html" %}</div>
 
       <!--LEARNING FLOW-->
-      <div style="padding-bottom: 150px" id="learning-flow">
+      <div class="pb-150" id="learning-flow">
         {% include "school/learning-flow.html" %}
       </div>
     </div>
 
     <!--BLOG TITLE-->
-    <div
-      style="padding-top: 130px; padding-bottom: 80px"
-      class="container"
-      id="topics"
-    >
+    <div class="container pt-130 pb-80" id="topics">
       {% include "school/blog-title.html" %}
     </div>
 
@@ -81,20 +78,16 @@
 
     <!--ADVICE TITLE-->
 
-    <div
-      style="padding-top: 130px; padding-bottom: 80px"
-      class="container"
-      id="resources"
-    >
+    <div class="container pt-130 pb-80" id="resources">
       {% include "school/resources-title.html" %}
     </div>
     <!--RESOURCES CARROUSEL-->
-    <div style="padding-top: 130px; padding-bottom: 130px" class="bg-warning">
+    <div class="bg-warning pt-130 pb-130">
       <div class="container">{% include "school/resources.html" %}</div>
     </div>
 
     <!--LEARN WIHT ME-->
-    <div style="padding-top: 130px">
+    <div class="pt-130">
       <div id="about-me">{% include "school/hello.html" %}</div>
     </div>
     <!--FOOTER-->

@@ -1,0 +1,167 @@
+body {
+  overflow-y: scroll;
+}
+
+@media (max-width: 768px) {
+  body {
+    scrollbar-width: none;
+  }
+}
+
+/*Paddings Y*/
+
+.pt-200 {
+  padding-top: 200px;
+}
+
+.pb-200 {
+  padding-bottom: 200px;
+}
+
+.pt-150 {
+  padding-top: 150px;
+}
+
+.pb-150 {
+  padding-bottom: 150px;
+}
+
+.pt-130 {
+  padding-top: 130px;
+}
+
+.pb-130 {
+  padding-bottom: 130px;
+}
+
+.pt-100 {
+  padding-top: 100px;
+}
+
+.pb-100 {
+  padding-bottom: 100px;
+}
+
+.pt-80 {
+  padding-top: 80px;
+}
+
+.pb-80 {
+  padding-bottom: 80px;
+}
+
+.pt-50 {
+  padding-top: 50px;
+}
+
+.pb-50 {
+  padding-bottom: 50px;
+}
+
+@media (max-width: 576px) {
+  .pt-200 {
+    padding-top: 130px;
+  }
+
+  .pb-200 {
+    padding-bottom: 150px;
+  }
+
+  .pt-150 {
+    padding-top: 100px;
+  }
+
+  .pb-150 {
+    padding-bottom: 100px;
+  }
+
+  .pt-130 {
+    padding-top: 80px;
+  }
+
+  .pb-130 {
+    padding-bottom: 80px;
+  }
+
+  .pt-100 {
+    padding-top: 50px;
+  }
+
+  .pb-100 {
+    padding-bottom: 50px;
+  }
+
+  .pt-80 {
+    padding-top: 30px;
+  }
+
+  .pb-80 {
+    padding-bottom: 30px;
+  }
+
+  .pt-50 {
+    padding-top: 0;
+  }
+
+  .pb-50 {
+    padding-bottom: 0;
+  }
+}
+
+/* Titles */
+
+.presentation-title {
+  font-size: 70px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+@media (max-width: 576px) {
+  .presentation-title {
+    font-size: 50px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 500;
+    line-height: 1;
+  }
+}
+
+.presentation-subtitle {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .presentation-subtitle {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.1;
+    text-align: center;
+  }
+}
+
+.title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 40px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 500;
+    line-height: 1;
+  }
+}
+
+.topic-box-title {
+  font-size: 25px;
+}
+
+@media (max-width: 576px) {
+  .topic-box-title {
+    font-size: 18px;
+  }
+}
