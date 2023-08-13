@@ -1,4 +1,4 @@
-# Dev School: fictional coding school with blog by vanesascode (UNDER CONSTRUCTION) 
+# Dev School: fictional coding school with blog by vanesascode (UNDER CONSTRUCTION)
 
 ### Site using Python Flask stack and rendered with Vercel
 
@@ -10,7 +10,21 @@ See here the [PROGRESS](https://devschool-vanesascode.vercel.app/)
 
 Flask is a lightweight web framework in Python.
 
-How to start:
+## Creating a new Flask app:
+
+First you have to have Python installed.
+
+Install pip:
+
+- [x] `python -m pip install --upgrade pip`
+
+Then, you create an environment (imagine you want to call it 'myenv'):
+
+- [x] run: `pip install pipenv
+- [x] `pipenv shell` (it creates a `pipfile`)
+- [x] `pipenv install` (Install all dependencies of your project)
+
+Then, you install and set Flask:
 
 - [x] run: `pip install Flask`
 - [ ] import Flask in app.py: `from flask import Flask`
@@ -24,10 +38,20 @@ if __name__ == "__main__":
 
 The previous code is checking if the current module is being run directly (as opposed to being imported by another module). If it is being run directly, it runs the Flask application with debug mode enabled and listens on port 4000.
 
+To see all the pip packages installed in the environment run:
+
+- [x] `pip freeze`
+
+If you don't have an environment:
+
+- [x] `pip list`
+
 ## To run the app in development:
 
 1. In the terminal run: `python app.py` If you are in VSCode, within the file app.py just click on the triangle button on the top right.
 2. Open http://localhost:4000/ in the browser.
+
+## To know all the pip
 
 ## Route handlers
 

@@ -41,145 +41,190 @@
       type="text/css"
       href="{{ url_for('static', filename='styles.css') }}"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='responsive.css') }}"
+    />
   </head>
 
   <body>
     <!--NAV-->
     {% include "jobs/nav.html" %}
 
-    <div style="margin-bottom: 130px" class="container">
-      <h1>Typical JavaScript interview questions:</h1>
+    <!--breadcrumb navigation-->
+    <div class="container pt-150 pb-80 px-5">
+      <p>
+        <a href="#" class="text-secondary" style="text-decoration: none"
+          >Blog home</a
+        ><b class="text-secondary"> &#8594; </b><span>Javascript</span
+        ><b class="text-secondary"> &#8594; </b
+        ><span>Typical JavaScript interview questions</span>
+      </p>
+    </div>
+    <!--ARTICLE-->
+    <div class="row">
+      <div class="col-12 col-md-7 mx-auto px-5">
+        <h1 class="presentation-title">
+          Typical JavaScript interview questions
+        </h1>
+        <p class="fs-5">
+          So this is a list of questions that you could be asked in an
+          interview. Try to answer them first. Then, follow me below:
+        </p>
+        <img
+          src="../../static/blog/javascript-interview-questions.jpg"
+          alt="interview"
+          class="img-fluid"
+        />
 
-      <h2>Questions</h2>
+        <div class="border my-5">
+          <p>1. What is JavaScript and what are its key features?</p>
+          <p>
+            2. What is the difference between `null` and `undefined` in
+            JavaScript?
+          </p>
+          <p>3. What is the purpose of closures in JavaScript?</p>
+          <p>4. How does prototypal inheritance work in JavaScript?</p>
+          <p>5. What is the event loop in JavaScript and how does it work?</p>
+          <p>6. Explain the concept of hoisting in JavaScript.</p>
+          <p>
+            7. What are some ways to handle asynchronous operations in
+            JavaScript?
+          </p>
+          <p>8. How does the this keyword work in JavaScript?</p>
+          <p>
+            9. What are some common methods for manipulating arrays in
+            JavaScript?
+          </p>
+          <p>
+            10. Explain the concept of function scope versus block scope in
+            JavaScript.
+          </p>
+        </div>
 
-      <ul>
-        <h3>1. What is JavaScript and what are its key features?</h3>
-        <h3>
+        <p class="fs-5">Let's dive into them:</p>
+
+        <h4 class="my-5">
+          1. What is JavaScript and what are its key features?
+        </h4>
+
+        <p class="fs-5">
+          JavaScript is a high-level, interpreted programming language that is
+          primarily used for web development. Its key features include being:
+
+          <b>lightweight</b>,
+
+          <b>versatile</b>, and
+          <b>capable of running on both the client-side and server-side.</b>
+        </p>
+
+        <h4 class="my-5">
           2. What is the difference between `null` and `undefined` in
           JavaScript?
-        </h3>
-        <h3>3. What is the purpose of closures in JavaScript?</h3>
-        <h3>4. How does prototypal inheritance work in JavaScript?</h3>
-        <h3>5. What is the event loop in JavaScript and how does it work?</h3>
-        <h3>6. Explain the concept of hoisting in JavaScript.</h3>
-        <h3>
+        </h4>
+
+        <p class="fs-5">
+          NULL represents the <b>intentional absence of any object value</b>
+          <br /><br />
+
+          UNDEFINED represents
+          <b
+            >a variable that has been declared but has not been assigned a
+            value.</b
+          >
+          <br /><br />
+          In other words, null is a value that can be assigned to a variable,
+          while undefined typically indicates an uninitialized variable.
+        </p>
+        <br />
+
+        <script src="https://gist.github.com/vanesascode/3d1800f2337e6e3362c44dda26ea4802.js"></script>
+        <h4 class="my-5">3. What is the purpose of closures in JavaScript?</h4>
+
+        Closures are functions that have access to variables from their outer
+        lexical environment, even after the outer function has finished
+        executing. They allow for data encapsulation, private variables, and
+        creating functions with persistent state.
+
+        <h4 class="my-5">
+          4. How does prototypal inheritance work in JavaScript?
+        </h4>
+
+        <p>
+          Prototypal inheritance in JavaScript is based on objects. Each object
+          has a prototype object from which it inherits properties and methods.
+          When a property or method is accessed on an object, JavaScript looks
+          for it in the object itself, and if not found, it looks up the
+          prototype chain until it finds the property or method.
+        </p>
+
+        <h4 class="my-5">
+          5. What is the event loop in JavaScript and how does it work?
+        </h4>
+
+        <p>
+          The event loop is a mechanism in JavaScript that handles asynchronous
+          operations. It continuously checks the call stack and the task queue.
+          If the call stack is empty, it takes the next task from the queue and
+          pushes it onto the call stack for execution.
+        </p>
+
+        <h4>6. Explain the concept of hoisting in JavaScript.</h4>
+
+        <p>
+          Hoisting is a JavaScript behavior where variable and function
+          declarations are moved to the top of their containing scope during the
+          compilation phase. However, only the declarations are hoisted, not the
+          initializations.
+        </p>
+
+        <h4 class="my-5">
           7. What are some ways to handle asynchronous operations in JavaScript?
-        </h3>
-        <h3>8. How does the this keyword work in JavaScript?</h3>
-        <h3>
+        </h4>
+
+        <p>
+          Asynchronous operations in JavaScript can be handled using callbacks,
+          promises, or async/await. Callbacks are functions passed as arguments
+          to other functions and invoked once the asynchronous operation
+          completes. Promises provide a more structured way of handling
+          asynchronous operations, allowing chaining and error handling.
+          Async/await is a syntax introduced in ES2017 that allows writing
+          asynchronous code in a more synchronous-like manner.
+        </p>
+
+        <h4 class="my-5">8. How does the this keyword work in JavaScript?</h4>
+
+        <p>
+          The this keyword in JavaScript refers to the object that is executing
+          the current function. Its value is determined by how a function is
+          called, and it can be influenced by the context in which the function
+          is invoked.
+        </p>
+
+        <h4 class="my-5">
           9. What are some common methods for manipulating arrays in JavaScript?
-        </h3>
-        <h3>
+        </h4>
+
+        <p>
+          JavaScript provides several built-in methods for manipulating arrays,
+          such as push() , pop() , shift() , unshift() , splice() , slice() ,
+          concat() , forEach() , map() , filter() , reduce() , and many more.
+        </p>
+
+        <h4 class="my-5">
           10. Explain the concept of function scope versus block scope in
           JavaScript.
-        </h3>
-      </ul>
+        </h4>
 
-      <h2>Answers</h2>
-
-      <h3>1. What is JavaScript and what are its key features?</h3>
-
-      <p>
-        JavaScript is a high-level, interpreted programming language that is
-        primarily used for web development. Its key features include being
-        lightweight, versatile, and capable of running on both the client-side
-        and server-side.
-      </p>
-
-      <h3>
-        2. What is the difference between `null` and `undefined` in JavaScript?
-      </h3>
-
-      <p>
-        null represents the <b>intentional absence of any object value</b>,
-        while `undefined` represents a variable that has been declared but has
-        not been assigned a value. In other words, null is a value that can be
-        assigned to a variable, while undefined typically indicates an
-        uninitialized variable.
-      </p>
-
-      ``` let x = null; console.log(x); // Output: null let y; console.log(y);
-      // Output: undefined ```
-      <h3>3. What is the purpose of closures in JavaScript?</h3>
-
-      Closures are functions that have access to variables from their outer
-      lexical environment, even after the outer function has finished executing.
-      They allow for data encapsulation, private variables, and creating
-      functions with persistent state.
-
-      <h3>4. How does prototypal inheritance work in JavaScript?</h3>
-
-      <p>
-        Prototypal inheritance in JavaScript is based on objects. Each object
-        has a prototype object from which it inherits properties and methods.
-        When a property or method is accessed on an object, JavaScript looks for
-        it in the object itself, and if not found, it looks up the prototype
-        chain until it finds the property or method.
-      </p>
-
-      <h3>5. What is the event loop in JavaScript and how does it work?</h3>
-
-      <p>
-        The event loop is a mechanism in JavaScript that handles asynchronous
-        operations. It continuously checks the call stack and the task queue. If
-        the call stack is empty, it takes the next task from the queue and
-        pushes it onto the call stack for execution.
-      </p>
-
-      <h3>6. Explain the concept of hoisting in JavaScript.</h3>
-
-      <p>
-        Hoisting is a JavaScript behavior where variable and function
-        declarations are moved to the top of their containing scope during the
-        compilation phase. However, only the declarations are hoisted, not the
-        initializations.
-      </p>
-
-      <h3>
-        7. What are some ways to handle asynchronous operations in JavaScript?
-      </h3>
-
-      <p>
-        Asynchronous operations in JavaScript can be handled using callbacks,
-        promises, or async/await. Callbacks are functions passed as arguments to
-        other functions and invoked once the asynchronous operation completes.
-        Promises provide a more structured way of handling asynchronous
-        operations, allowing chaining and error handling. Async/await is a
-        syntax introduced in ES2017 that allows writing asynchronous code in a
-        more synchronous-like manner.
-      </p>
-
-      <h3>8. How does the this keyword work in JavaScript?</h3>
-
-      <p>
-        The this keyword in JavaScript refers to the object that is executing
-        the current function. Its value is determined by how a function is
-        called, and it can be influenced by the context in which the function is
-        invoked.
-      </p>
-
-      <h3>
-        9. What are some common methods for manipulating arrays in JavaScript?
-      </h3>
-
-      <p>
-        JavaScript provides several built-in methods for manipulating arrays,
-        such as push() , pop() , shift() , unshift() , splice() , slice() ,
-        concat() , forEach() , map() , filter() , reduce() , and many more.
-      </p>
-
-      <h3>
-        10. Explain the concept of function scope versus block scope in
-        JavaScript.
-      </h3>
-
-      <p>
-        In JavaScript, variables declared with var have function scope, meaning
-        they are accessible throughout the entire function in which they are
-        declared. On the other hand, variables declared with let and const have
-        block scope, meaning they are only accessible within the block they are
-        defined in (e.g., within a loop or if statement).
-      </p>
+        <p>
+          In JavaScript, variables declared with var have function scope,
+          meaning they are accessible throughout the entire function in which
+          they are declared. On the other hand, variables declared with let and
+          const have block scope, meaning they are only accessible within the
+          block they are defined in (e.g., within a loop or if statement).
+        </p>
+      </div>
     </div>
 
     <!--FOOTER-->

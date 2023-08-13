@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify
 
+# Flask instance
 app = Flask(__name__)
 
 JOBS = [
@@ -41,7 +42,7 @@ JOBS = [
     },
 ]
 
-
+# route decorators: 
 @app.route("/")
 def school():
     return render_template("school/index-school.html")
@@ -57,6 +58,12 @@ def blog():
 @app.route("/blog/javascript-interview-questions")
 def javascriptinterviewquestions():
     return render_template("javascript/javascript-interview-questions.html")
+
+@app.route("/blog/javascript-classes-booklist")
+def javascriptclassesbooklist():
+    return render_template("javascript/javascript-classes-booklist.html")
+
+
 
 @app.route("/apply")
 def apply():

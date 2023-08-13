@@ -16,6 +16,10 @@
   transform: translateY(-5px);
 }
 
+.underline:hover {
+  text-decoration: underline;
+}
+
 .resaltar:hover {
   color: black;
   font-weight: 700px;

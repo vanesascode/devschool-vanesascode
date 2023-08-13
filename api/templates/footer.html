@@ -42,7 +42,7 @@
           >Topics</a
         >
         <a
-          href="{{ url_for('school') }}#about-me"
+          href="{{ url_for('school') }}#about"
           class="nav-link move-right mb-4"
           style="color: rgb(178, 177, 177)"
           >About</a
@@ -107,25 +107,25 @@
           >Javascript
         </a>
         <a
-          href="#about-us"
+          href="{{ url_for('blog') }}#javascript"
           class="nav-link move-right mb-4"
           style="color: rgb(178, 177, 177)"
           >Typescript</a
         >
         <a
-          href="#about-us"
+          href="#"
           class="nav-link move-right mb-4"
           style="color: rgb(178, 177, 177)"
           >Git</a
         >
         <a
-          href="#about-us"
+          href="#"
           class="nav-link move-right mb-4"
           style="color: rgb(178, 177, 177)"
           >Tailwind</a
         >
         <a
-          href="#about-us"
+          href="#"
           class="nav-link move-right mb-4"
           style="color: rgb(178, 177, 177)"
           >Next JS</a
@@ -145,7 +145,7 @@
           Contact
         </p>
         <a
-          href="{{ url_for('school') }}#about-me"
+          href="{{ url_for('school') }}#about"
           class="nav-link move-right mb-4"
           style="color: rgb(178, 177, 177)"
           >About Me</a
@@ -194,7 +194,7 @@
         href="https://github.com/vanesascode"
         style="text-decoration: none"
         class="nav-link image-up"
-        >Site by vanesascode
+        >Site by vanesascode, <span id="year"></span>
       </a>
     </div>
 
@@ -246,3 +246,16 @@
     </div>
   </div>
 </footer>
+
+<script>
+  //YEAR:
+
+  //easy way:
+  // document.getElementById("year").innerHTML = new Date().getFullYear();
+
+  //complex way:
+  const year = document.getElementById("year");
+  const thisYear = new Date().getFullYear();
+  year.setAttribute("data-year", thisYear); //It sets the "data-year" attribute of the "year" element to the value of "thisYear" (not really necessary, just to learn)
+  year.textContent = thisYear;
+</script>
