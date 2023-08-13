@@ -48,7 +48,7 @@
     />
   </head>
 
-  <body>
+  <body style="overflow-x: hidden">
     <!--NAV-->
     {% include "school/nav.html" %}
 
@@ -398,14 +398,14 @@
         <br /><br />
         <div class="bg-info p-5 rounded">
           <p class="fs-5">
-            👉 <b>removeButton.dataset.action = "remove";</b> sets a custom data
+            👉<b>removeButton.dataset.action = "remove";</b> sets a custom data
             attribute called "action" on the <b>removeButton</b>. Data
             attributes are a way to store additional information on HTML
             elements. In this case, the <b>action</b> attribute is being set to
             the string value "remove". This attribute can be accessed later to
             determine the action to be performed when the button is clicked.
             <br /><br />
-            👉 <b>removeButton.dataset.index = index;</b> sets another custom
+            👉<b>removeButton.dataset.index = index;</b> sets another custom
             data attribute called "index" on the <b>removeButton</b>. Here, the
             <b>index</b> attribute is being set to the value of the index
             variable, which represents the current index in the loop. This
@@ -437,9 +437,11 @@
         <script src="https://gist.github.com/vanesascode/fb34398c59e7c6960c9ae81598a148be.js"></script>
       </div>
     </div>
+
     <!--FOOTER-->
-    {% include "footer.html" %}
+    {% include "javascript/footer.html" %}
   </body>
+
   <script>
     class Library {
       constructor() {
