@@ -2,7 +2,10 @@
 
 <div class="container pt-100 pb-80 px-5" id="javascript">
   <p>
-    <a href="#" class="text-secondary" style="text-decoration: none"
+    <a
+      href="{{ url_for('blog') }}"
+      class="text-secondary"
+      style="text-decoration: none"
       ><span class="underline">Blog home</span></a
     ><b class="text-secondary"> &#8594; </b
     ><a href="{{ url_for('blog') }}#javascript" style="text-decoration: none"
@@ -16,7 +19,6 @@
       font-weight: 500;
       font-size: 60px;
     "
-    class="mb-5"
   >
     Javascript
   </h2>
@@ -25,7 +27,7 @@
 <!--PREVIEW ARTICLES - JAVASCRIPT-->
 
 <div class="bg-danger">
-  <div class="container pt-130 pb-130">
+  <div class="container pt-100 pb-100">
     <div class="row px-4 px-md-0">
       <!--article 1-->
 
@@ -67,7 +69,7 @@
         >
           <div class="card mb-5 mb-md-0">
             <img
-              src="../../static/blog/preview-javascript-interview-questions.jpg"
+              src="../../static/devschool/learning.jpg"
               class="card-img-top"
               alt="..."
             />
@@ -80,6 +82,72 @@
                 >
                 <p class="fs-5 fw-bold my-2">
                   Javascript Classes. Practical Example: a Booklist.
+                </p>
+
+                <p class="fs-6">Vanesascode | 08.2023</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--breadcrumb navigation - TYPESCRIPT-->
+
+<div class="container pt-100 pb-80 px-5" id="typescript">
+  <p>
+    <a
+      href="{{ url_for('blog') }}"
+      class="text-secondary"
+      style="text-decoration: none"
+      ><span class="underline">Blog home</span></a
+    ><b class="text-secondary"> &#8594; </b
+    ><a href="{{ url_for('blog') }}#typescript" style="text-decoration: none"
+      ><span class="underline">Typescript</span></a
+    >
+  </p>
+
+  <h2
+    style="
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 500;
+      font-size: 60px;
+    "
+  >
+    Typescript
+  </h2>
+</div>
+
+<!--PREVIEW ARTICLES - TYPESCRIPT-->
+
+<div class="bg-danger">
+  <div class="container pt-100 pb-100">
+    <div class="row px-4 px-md-0">
+      <!--article 1-->
+
+      <div class="col-12 col-md-3 d-flex justify-content-center">
+        <a
+          href="{{ url_for('typescriptindexsignatures') }}"
+          style="text-decoration: none"
+        >
+          <div class="card mb-5 mb-md-0">
+            <img
+              src="../../static/devschool/learning.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body" style="min-height: 155px">
+              <div class="card-text pt-3 pb-3 px-3">
+                <a
+                  href="{{ url_for('blog') }}#typescript"
+                  style="text-decoration: none"
+                  ><span class="underline">Typescript</span></a
+                >
+                <p class="fs-5 fw-bold my-2">
+                  Typescript Index Signatures. Practical Example: a Product
+                  Catalog accessing properties dynamically
                 </p>
 
                 <p class="fs-6">Vanesascode | 08.2023</p>

@@ -63,6 +63,9 @@ def javascriptinterviewquestions():
 def javascriptclassesbooklist():
     return render_template("javascript/javascript-classes-booklist.html")
 
+@app.route("/blog/typescript-index-signatures")
+def typescriptindexsignatures():
+    return render_template("typescript/typescript-index-signatures.html")
 
 
 @app.route("/apply")

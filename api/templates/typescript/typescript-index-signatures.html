@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dev Blog</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--FAVICON ICO-->
+    <link rel="icon" type="image/x-icon" href="../static/favicon.ico2.jpg" />
+    <!--BOOTSTRAP-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!--FONTAWESOME-->
+    <script
+      src="https://kit.fontawesome.com/b3cb0b9144.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='transitions.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='responsive.css') }}"
+    />
+  </head>
+
+  <body style="overflow-x: hidden">
+    <!--NAV-->
+    {% include "school/nav.html" %}
+
+    <!--breadcrumb navigation-->
+    <div class="container pt-150 pb-80 px-5">
+      <p>
+        <a
+          href="{{ url_for('blog') }}"
+          class="text-secondary"
+          style="text-decoration: none"
+          ><span class="underline">Blog home</span></a
+        ><b class="text-secondary"> &#8594; </b
+        ><a
+          href="{{ url_for('blog') }}#typescript"
+          style="text-decoration: none"
+          ><span class="underline text-secondary">Typescript</span></a
+        ><b class="text-secondary"> &#8594; </b
+        ><span
+          >Typescript Index Signatures. Practical Example: a Product Catalog
+          accessing properties dynamically</span
+        >
+      </p>
+    </div>
+    <!--ARTICLE-->
+    <div class="row pb-100">
+      <div class="col-12 col-md-7 mx-auto px-5">
+        <h1 class="blog-title">
+          Typescript Index Signatures. Practical Example: a Product Catalog
+          accessing properties dynamically
+        </h1>
+        <br /><br />
+        <p class="fs-5">
+          In this article I am going to show an example of how to use an Index
+          Signature in TypeScript to access properties of an object dynamically
+          in a product catalog
+        </p>
+        <br /><br />
+
+        <h2 class="blog-subtitle">What is an Index Signature?</h2>
+
+        <br /><br />
+        <p class="fs-5">
+          In TypeScript, if you attempt to access an object property dynamically
+          using bracket notation (e.g., object[property] ), you need to provide
+          an index signature to ensure type safety. An index signature
+          <b
+            >defines the types for all possible keys of an object that are not
+            explicitly defined.</b
+          >
+          <br /><br />
+        </p>
+
+        <p class="fs-5">Here's an example:</p>
+        <br /><br />
+        <script src="https://gist.github.com/vanesascode/3b3aefefd83922b50a021cf3ece3701c.js"></script>
+        <br /><br />
+
+        <p class="fs-5">
+          In the above example, we define an interface MyObject with an index
+          signature <b>[key: string]: any</b>. This means that <b>obj</b> can
+          have any string key, and the corresponding value can be of any type (
+          <b>any</b> in this case). By providing the index signature, TypeScript
+          allows us to access <b>obj</b> dynamically using bracket notation
+          without any compilation errors.
+        </p>
+        <br /><br />
+
+        <p class="fs-5">
+          Without the index signature, TypeScript would throw a compilation
+          error because accessing properties dynamically can potentially lead to
+          runtime errors if the property does not exist on the object. The index
+          signature helps TypeScript ensure type safety by allowing dynamic
+          property access while still enforcing type checks.
+        </p>
+
+        <br /><br />
+
+        <h2 class="blog-subtitle">A product catalog with dynamic properties</h2>
+        <br /><br />
+
+        <p class="fs-5">
+          Let's say you have a product catalog for an e-commerce website. Each
+          product has different attributes, and you want to allow users to
+          filter products based on these attributes dynamically. However, the
+          available attributes can vary for different products.
+        </p>
+
+        <br /><br />
+
+        <p class="fs-5">
+          In this case, you can use dynamic property access to handle the
+          filtering of products. Here you can try the product catalog by
+          yourself:
+        </p>
+        <br /><br />
+
+        <div class="container bg-warning p-5 rounded">
+          <div id="bookForm">
+            <div class="row">
+              <div class="col-12 col-lg-6">
+                <p class="blog-subtitle">Product Catalog</p>
+                <p class="pe-5">
+                  You can search for a product by its property and value (see
+                  table).
+                </p>
+              </div>
+              <div class="col-12 col-md-6">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Product</th>
+                      <th scope="col">Color</th>
+                      <th scope="col">Size</th>
+                      <th scope="col">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">T-shirt</td>
+                      <td>Red</td>
+                      <td>Small</td>
+                      <td>7.99</td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Skirt</td>
+                      <td>Blue</td>
+                      <td>Medium</td>
+                      <td>12.99</td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Trousers</td>
+                      <td>Green</td>
+                      <td>Large</td>
+                      <td>19.99</td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Shoes</td>
+                      <td>Black</td>
+                      <td>-</td>
+                      <td>20.99</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <label for="property" class="form-label fs-5 fw-bold"
+                >Property:</label
+              >
+              <input type="text" id="property" class="form-control" />
+              <label for="value" class="form-label fs-5 fw-bold mt-3"
+                >Value:</label
+              >
+              <input type="text" id="value" class="form-control" />
+              <div class="d-flex justify-content-end">
+                <button
+                  onclick="filterProducts()"
+                  class="btn btn-dark btn-lg mt-4"
+                >
+                  Filter
+                </button>
+              </div>
+            </div>
+            <ul id="productList"></ul>
+          </div>
+
+          <ul id="bookList"></ul>
+        </div>
+        <br /><br /><br />
+
+        <h3 class="blog-subtitle">Html section:</h3>
+        <br /><br />
+        <p class="fs-5">
+          Here you can see the Html part of the product catalog:
+        </p>
+        <br /><br />
+        <script src="https://gist.github.com/vanesascode/94a252d17e42a803f8fa85615ccb77b5.js"></script>
+        <br /><br />
+
+        <p class="fs-5">
+          Notice the IDs, which will be important when working with the
+          Typescript part.
+        </p>
+        <br /><br />
+        <!--TYPESCRIPT SECTION-->
+        <h3 class="blog-subtitle">Typescript section:</h3>
+        <br /><br />
+        <p class="fs-5">Let's go with parts on the Typescript part.</p>
+        <br /><br />
+        <h3 class="fw-bold">The "interface" and the array of products:</h3>
+        <br /><br />
+        <script src="https://gist.github.com/vanesascode/15241670a98aba0235f831b8cccd21df.js"></script>
+        <br /><br />
+        <p class="fs-5">
+          The Product interface is defined with properties id , product , and
+          price , and an <b>index signature [key: string]:any</b> to allow for
+          additional properties (in this case, color and size). The products
+          array is defined and contains a list of products with their respective
+          properties.
+        </p>
+        <br /><br />
+        <h3 class="fw-bold">The "filterProducts" function:</h3>
+        <br /><br />
+        <script src="https://gist.github.com/vanesascode/d32d93aaa7000e2aa11507bf3f04878d.js"></script>
+        <br /><br />
+        <p class="fs-5">
+          It <b>retrieves</b> the property and value inputs from HTML elements
+          with the IDs "property" and "value", respectively.
+        </p>
+        <br /><br />
+
+        <div class="bg-info p-5 rounded">
+          <p class="fs-5">
+            👉 <b>Type assertions</b> are a way to override the inferred or
+            existing type of a value and treat it as a different type. In the
+            case of <b>as HTMLInputElement</b>, it asserts that the value
+            returned by getElementById is an HTMLInputElement (otherwise, the
+            inferred types that Typescript would give to "propertyInput" and
+            "valueInput" would be <b>"HTMLElement | null"</b>). <br /><br />
+          </p>
+
+          <p class="fs-5">
+            It allows you to access the specific properties and methods of an
+            input element without TypeScript raising any type-related errors.
+          </p>
+        </div>
+
+        <br /><br />
+
+        <p class="fs-5">
+          The inputs retrieved are converted to <b>lowercase</b> and stored in
+          the variables "property" and "value".
+        </p>
+        <br /><br />
+        <p class="fs-5">
+          Then, the function calls the filterProductsByProperty() function (see
+          below), passing in the "products" array, the "property" variable, and
+          the "value" variable. The result is stored in the "filteredProducts"
+          variable.
+        </p>
+        <br /><br />
+        <p class="fs-5">
+          The function then calls the renderProducts() function, passing in the
+          "filteredProducts" array to <b>render</b> the filtered products on the
+          HTML page.
+        </p>
+        <br /><br />
+        <p class="fs-5">
+          Finally, the "property" and "value" input elements are cleared by
+          setting their values to an empty string.
+        </p>
+        <br /><br />
+        <h3 class="fw-bold">The "filterProductsByProperty" function:</h3>
+
+        <br /><br />
+        <script src="https://gist.github.com/vanesascode/fc412e9ec8e95088ac79d221afc78048.js"></script>
+
+        <br /><br />
+        <p class="fs-5">
+          It takes in the array of products, a property, and a value as
+          parameters, and then uses the filter() method on the products array to
+          filter the products based on the given property and value. It checks
+          if the value of the property in each product is equal to the given
+          value. The filtered products are returned as an array.
+        </p>
+        <br /><br />
+        <h3 class="fw-bold">The "renderProducts" function:</h3>
+        <br /><br />
+        <script src="https://gist.github.com/vanesascode/dc6cfd631ae425191668ddb7dc165055.js"></script>
+        <br /><br />
+        <p class="fs-5">
+          It takes in an array of products as a parameter (in our case it will
+          be our filtered products), and <b>retrieves</b> the HTML element with
+          the ID "productList" and stores it in the "productList" variable.
+        </p>
+        <br /><br />
+
+        <p class="fs-5">
+          If the element does not exist, the function returns. If it does exist,
+          the inner HTML of the "productList" element is first <b>cleared</b> to
+          leave space to the new list items.
+        </p>
+        <br /><br />
+        <p class="fs-5">
+          The function uses the forEach() method to iterate over each product in
+          the array. And for each product, a new list item element is
+          <b>created</b>
+          and its text content is set to display the product name and price.
+          Finally, the list item element is <b>appended</b> to the "productList"
+          element.
+        </p>
+        <br /><br />
+
+        <h2 class="blog-subtitle">Conclusion</h2>
+        <br /><br />
+
+        <p class="fs-5">
+          So, as you can see, by using an index signature, you can access and
+          manipulate these dynamically added properties using bracket notation (
+          product[attribute] ) in Typescript, something that otherwise would
+          give you an error. This is particularly useful when dealing with
+          scenarios where the specific attributes or properties of an object may
+          vary.
+        </p>
+        <br /><br />
+        <div class="bg-info p-5 rounded">
+          <p class="fs-5">
+            👉 However, it's important to exercise <b>caution</b> while using
+            index signatures, as they bypass some of TypeScript's static type
+            checks. It's recommended to use them judiciously and ensure proper
+            validation and handling of dynamic properties to maintain type
+            safety and avoid potential runtime errors.
+          </p>
+        </div>
+
+        <br /><br />
+        <p class="fs-5">Here is the complete code of the Typescript part:</p>
+        <br /><br />
+        <script src="https://gist.github.com/vanesascode/ffec9adf55f23aecb1bd6ae6955ca69a.js"></script>
+      </div>
+    </div>
+
+    <!--FOOTER-->
+    {% include "javascript/footer.html" %}
+  </body>
+
+  <script>
+    "use strict";
+    const products = [
+      { id: 1, product: "t-shirt", price: "12.99", color: "red" },
+      { id: 2, product: "skirt", price: "19.99", size: "large" },
+      { id: 3, product: "skirt", price: "12.99", size: "medium" },
+      { id: 4, product: "shoes", price: "19.99", color: "green" },
+      { id: 5, product: "trousers", price: "7.99", color: "blue" },
+      { id: 5, product: "trousers", price: "20.99", color: "black" },
+      { id: 5, product: "shoes", price: "20.99", size: "small" },
+      { id: 5, product: "t-shirt", price: "7.99", color: "red" },
+    ];
+    function filterProducts() {
+      const propertyInput = document.getElementById("property");
+      const valueInput = document.getElementById("value");
+      const property = propertyInput.value.toLowerCase();
+      const value = valueInput.value.toLowerCase();
+      const filteredProducts = filterProductsByProperty(
+        products,
+        property,
+        value
+      );
+      renderProducts(filteredProducts);
+      propertyInput.value = "";
+      valueInput.value = "";
+    }
+    function filterProductsByProperty(products, property, value) {
+      return products.filter((product) => product[property] === value);
+    }
+    function renderProducts(products) {
+      const productList = document.getElementById("productList");
+      if (!productList) {
+        return;
+      }
+      productList.innerHTML = "";
+      products.forEach((product) => {
+        const li = document.createElement("li");
+        li.textContent = `Product: ${product.product} - Price: $${product.price}`;
+        productList.appendChild(li);
+      });
+    }
+  </script>
+</html>
