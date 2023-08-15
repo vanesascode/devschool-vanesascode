@@ -469,6 +469,19 @@
             checks if the value of the property in each product is equal to the
             given value. The filtered products are returned as an array.
           </p>
+          <p class="fs-5">
+            It is in here where we are accessing properties of an object
+            dynamically, specifically in the
+            <b
+              >return products.filter((product) => product[property] === value);
+            </b>
+            line.
+          </p>
+          <p class="fs-5">
+            Here, <b>product[property]</b> is accessing the property of the
+            product object dynamically based on the value of the property
+            variable.
+          </p>
           <br /><br />
           <h3 class="fw-bold">The "renderProducts" function:</h3>
           <br /><br />
@@ -504,10 +517,10 @@
           <p class="fs-5">
             So, as you can see, by using an index signature, you can access and
             manipulate these dynamically added properties using bracket notation
-            ( product[attribute] ) in Typescript, something that otherwise would
-            give you an error. This is particularly useful when dealing with
-            scenarios where the specific attributes or properties of an object
-            may vary.
+            <b>(product[property])</b> in Typescript, something that otherwise
+            would give you an error. This is particularly useful when dealing
+            with scenarios where the specific attributes or properties of an
+            object may vary.
           </p>
           <br /><br />
           <div class="bg-info p-5 rounded">
