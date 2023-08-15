@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Dev Blog</title>
+    <title>Javascript Classes. Practical Example: a Booklist | Dev Blog</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--Open Graph tags-->
+    <meta property="og:type" content="article" />
+    <meta
+      name="title"
+      property="og:title"
+      content="Javascript Classes. Practical Example: a Booklist"
+    />
+    <meta
+      name="description"
+      property="og:description"
+      content="In this article I am going to show an example of how to use a javascript class to implement a simple booklist"
+    />
+    <meta property="og:article:author" content="vanesascode" />
+    <meta property="og:article:published_time" content="2023-08-13T09:00:00Z" />
+
+    <!--structured data markup-->
+    <script type="application/ld+json">
+      {
+        "@context": "https://devschool-vanesascode.vercel.app/blog/typescript-index-signatures",
+        "@type": "typescript tutorial",
+        "name": "Typescript Index Signatures. Practical Example: a Product Catalog
+        accessing properties dynamically",
+        "author": {
+          "@type": "Person",
+          "name": "vanesascode"
+        },
+        "datePublished": "2023-08-14",
+        "description": "Typescript Index Signatures. Practical Example: a Product Catalog
+        accessing properties dynamically",
+      }
+    </script>
+
     <!--FAVICON ICO-->
     <link rel="icon" type="image/x-icon" href="../static/favicon.ico2.jpg" />
+
     <!--BOOTSTRAP-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -18,6 +52,7 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+
     <!--GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,11 +60,13 @@
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
     <!--FONTAWESOME-->
     <script
       src="https://kit.fontawesome.com/b3cb0b9144.js"
       crossorigin="anonymous"
     ></script>
+
     <!--CSS-->
     <link
       rel="stylesheet"
@@ -52,393 +89,514 @@
     <!--NAV-->
     {% include "school/nav.html" %}
 
-    <!--breadcrumb navigation-->
-    <div class="container pt-150 pb-80 px-5">
-      <p>
-        <a
-          href="{{ url_for('blog') }}"
-          class="text-secondary"
-          style="text-decoration: none"
-          ><span class="underline">Blog home</span></a
-        ><b class="text-secondary"> &#8594; </b
-        ><a
-          href="{{ url_for('blog') }}#javascript"
-          style="text-decoration: none"
-          ><span class="underline text-secondary">Javascript</span></a
-        ><b class="text-secondary"> &#8594; </b
-        ><span>Javascript Classes. Practical Example: a Booklist</span>
-      </p>
-    </div>
-    <!--ARTICLE-->
-    <div class="row pb-100">
-      <div class="col-12 col-md-7 mx-auto px-5">
-        <h1 class="blog-title">
-          Javascript Classes. Practical Example: a Booklist
-        </h1>
-        <br /><br />
-        <p class="fs-5">
-          I have been studying classes in JavaScript and recently also in
-          Typescript. However, I hadn't yet visualized their use in real
-          projects.
+    <div class="container px-4 pt-150">
+      <!--breadcrumb navigation-->
+      <div class="pb-80">
+        <p>
+          <a
+            href="{{ url_for('blog') }}"
+            class="text-secondary"
+            style="text-decoration: none"
+            ><span class="underline">Blog home</span></a
+          ><b class="text-secondary"> &#8594; </b
+          ><a
+            href="{{ url_for('blog') }}#javascript"
+            style="text-decoration: none"
+            ><span class="underline text-secondary">Javascript</span></a
+          ><b class="text-secondary"> &#8594; </b
+          ><span>Javascript Classes. Practical Example: a Booklist</span>
+        </p>
+      </div>
+
+      <div class="row pb-100 gap-5">
+        <!--ARTICLE DESCRIPTION WHEN BIG-->
+        <div class="d-none d-md-block col-2 px-3">
+          <div>
+            <div class="pb-3">
+              <p><b>9 min read</b></p>
+            </div>
+
+            <div class="pb-3">
+              <p class="mb-0"><b>Published</b></p>
+              <p>13 Aug 2023</p>
+            </div>
+
+            <a
+              href="{{ url_for('school') }}#about"
+              style="text-decoration: none"
+            >
+              <div class="underline pb-3">
+                <p class="mb-0"><b>Author</b></p>
+                <p>vanesascode</p>
+              </div>
+            </a>
+
+            <a
+              href="{{ url_for('blog') }}#javascript"
+              style="text-decoration: none"
+            >
+              <div class="underline pb-3">
+                <p class="mb-0"><b>Category</b></p>
+                <p>Javascript</p>
+              </div>
+            </a>
+          </div>
+          <div class="pt-5">{% include "blog/latest-articles-bar.html" %}</div>
+        </div>
+
+        <!--ARTICLE CONTENT-->
+
+        <div class="col-12 col-md-8 px-md-4">
+          <h1 class="blog-title">
+            Javascript Classes.
+            <span class="d-none d-md-block">Practical Example: a Booklist</span>
+            <span class="d-block d-md-none fs-1 mt-3"
+              >Practical Example: a Booklist</span
+            >
+          </h1>
+
+          <!--ARTICLE DESCRIPTION WHEN SMALL-->
+          <div class="d-block d-md-none pt-4">
+            <div class="pb-md-3">
+              <p><b>9 min read</b></p>
+            </div>
+            <div class="d-flex gap-5">
+              <div class="pb-md-3">
+                <p class="mb-0"><b>Published</b></p>
+                <p>13 Aug 2023</p>
+              </div>
+
+              <a
+                href="{{ url_for('school') }}#about"
+                style="text-decoration: none"
+              >
+                <div class="underline pb-md-3">
+                  <p class="mb-0"><b>Author</b></p>
+                  <p>vanesascode</p>
+                </div>
+              </a>
+            </div>
+            <a
+              href="{{ url_for('blog') }}#javascript"
+              style="text-decoration: none"
+            >
+              <div class="underline">
+                <p class="mb-0"><b>Category</b></p>
+                <p>Javascript</p>
+              </div>
+            </a>
+          </div>
+          <!--ARTICLE CONTINUES-->
           <br /><br />
-        </p>
+          <p class="fs-5">
+            In this article I am going to show an example of how to use a class
+            in Javascript to create a simple booklist.
+          </p>
+          <br /><br />
+          <img
+            src="../../static/blog/booklist.JPG"
+            alt="product catalog"
+            class="img-fluid"
+            max-height="400px"
+          />
 
-        <p class="fs-5">
-          I am a person that needs real life examples in order to dive into the
-          abstract...
-        </p>
-        <br /><br />
+          <div class="d-flex gap-3 my-5">
+            <a
+              href="https://twitter.com/intent/tweet?url={{ request.url }}"
+              target="_blank"
+            >
+              <i class="fa-brands fa-twitter fa-xl" style="color: #000000"></i>
+            </a>
 
-        <p class="fs-5">
-          If this is the case for you too, stay with me, since today I am going
-          to see how to implement a simple booklist with a class.
-        </p>
-        <br /><br />
+            <a
+              href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.url }}"
+              target="_blank"
+            >
+              <i class="fa-brands fa-linkedin fa-xl" style="color: #000000"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}"
+              target="_blank"
+            >
+              <i class="fa-brands fa-facebook fa-xl" style="color: #000000"></i>
+            </a>
+          </div>
+          <br /><br />
 
-        <p class="fs-5">
-          This is an easy feature but it shows the potential of classes in order
-          to keep motivated to keep studying them!
-        </p>
+          <!--ARTICLE CONTINUES-->
 
-        <br /><br />
+          <p class="fs-5">
+            I have been studying classes in JavaScript and recently also in
+            Typescript. However, I hadn't yet visualized their use in real
+            projects.
+            <br /><br />
+          </p>
 
-        <!-- <img
+          <p class="fs-5">
+            I am a person that needs real life examples in order to dive into
+            the abstract...
+          </p>
+
+          <br /><br />
+
+          <p class="fs-5">
+            If this is the case for you too, stay with me, since today I am
+            going to see how to implement a simple booklist with a class.
+          </p>
+          <br /><br />
+
+          <p class="fs-5">
+            This is an easy feature but it shows the potential of classes in
+            order to keep motivated to keep studying them!
+          </p>
+
+          <br /><br />
+
+          <!-- <img
           src="../../static/blog/javascript-interview-questions.jpg"
           alt="interview"
           class="img-fluid"
         /> -->
 
-        <p class="fs-5">Here you can try the booklist by yourself:</p>
-        <br /><br />
+          <p class="fs-5">Here you can try the booklist by yourself:</p>
+          <br /><br />
 
-        <div class="container bg-warning p-5 rounded">
-          <form id="bookForm">
-            <label for="titleInput" class="form-label fs-5 fw-bold"
-              >Book Title:</label
-            >
-            <input type="text" id="titleInput" class="form-control" />
+          <div class="container bg-warning p-5 rounded">
+            <form id="bookForm">
+              <label for="titleInput" class="form-label fs-5 fw-bold"
+                >Book Title:</label
+              >
+              <input type="text" id="titleInput" class="form-control" />
 
-            <label for="authorInput" class="form-label fs-5 fw-bold mt-3"
-              >Author:</label
-            >
-            <input type="text" id="authorInput" class="form-control" />
+              <label for="authorInput" class="form-label fs-5 fw-bold mt-3"
+                >Author:</label
+              >
+              <input type="text" id="authorInput" class="form-control" />
 
-            <div class="d-flex justify-content-end">
-              <button type="submit" class="btn btn-dark btn-lg mt-4">
-                Add Book
-              </button>
-            </div>
-          </form>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-dark btn-lg mt-4">
+                  Add Book
+                </button>
+              </div>
+            </form>
 
-          <ul id="bookList"></ul>
-        </div>
-        <br /><br /><br />
+            <ul id="bookList"></ul>
+          </div>
+          <br /><br /><br />
 
-        <h2 class="blog-subtitle">Why a class?</h2>
-        <br /><br />
-        <p class="fs-5">
-          Everytime you add a book, you are creating an instance of the class
-          created for this book list. Only one class, unlimited instances with
-          the same properties and methods.
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          Using a class in a library list app like this improves code
-          organization, reusability, modularity, and readability
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          <b>Organization and encapsulation:</b> Classes allow you to organize
-          related data and functions together. In this app, the Library class
-          encapsulates all the methods and properties related to managing the
-          library. This improves the code's readability and maintainability by
-          keeping related functionality in one place.
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          <b>Reusability:</b> With a class, you can create multiple instances of
-          the same structure. In this case, you can create multiple library
-          instances if needed. Each instance will have its own set of books and
-          can be managed independently.
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          <b> Code organization and readability: </b> By encapsulating related
-          functionality within a class, you can easily reuse it in other parts
-          of your application or extend it with additional features. This
-          promotes code modularity and helps in building scalable and
-          maintainable applications.
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          <b>Code modularity: </b> Classes provide a clear structure for your
-          code. The methods and properties of the class are self-contained and
-          can be easily understood and navigated. This makes it easier for other
-          developers to understand and work with the code.
-        </p>
-        <br /><br />
-        <p class="fs-5">Now let's take a look at the code.</p>
-        <br /><br />
-        <h3 class="blog-subtitle">Html section:</h3>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/2c7de3578efbb9535aee22b7f58700c6.js"></script>
-        <br /><br />
-        <p class="fs-5">
-          In here you can see the HTML part of the library list. It is a form
-          and an empty unordered list element in which the books we create are
-          visualized.
-        </p>
-        <br /><br />
-
-        <p class="fs-5">
-          Notice the IDs, which will be important when working with the
-          Javascript part.
-        </p>
-        <br /><br />
-        <h3 class="blog-subtitle">Javascript section:</h3>
-        <br /><br />
-        <p class="fs-5">
-          Let's go with parts on the JavaScript part. You'll see its
-          organization is appropiate even when you have to explain it.
-        </p>
-        <br /><br />
-        <h3 class="fw-bold">The "constructor":</h3>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/390156e4cae645318e74404508659278.js"></script>
-        <br /><br />
-        <p class="fs-5">
-          The class "Library" is defined with a constructor function. Inside the
-          constructor, it initializes various properties by selecting elements
-          from the form using their respective IDs.
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          The constructor also adds event listeners to the
-          <b>bookForm</b> and <b>bookList</b> elements.
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          The <b>handleAddBook</b> method is bound to the submit event of the
-          bookForm, and the "handleBookAction" method is bound to the click
-          event of the bookList.
-        </p>
-        <br /><br />
-        <div class="bg-info p-5 rounded">
+          <h2 class="blog-subtitle">Why a class?</h2>
+          <br /><br />
           <p class="fs-5">
-            👉 When the <b>this</b> value inside a callback function is not
-            properly bound, it can cause issues when trying to access the
-            properties and methods of the class. For example, without proper
-            binding, <b>this</b> may refer to the element that triggered the
-            event or some other unintended context. This can cause errors when
-            trying to access class-specific properties or methods. <br /><br />
-            <b
-              >By using the bind() method, you can avoid these issues and ensure
-              that your callback functions have access to the class properties
-              and methods they need.</b
-            >
+            Everytime you add a book, you are creating an instance of the class
+            created for this book list. Only one class, unlimited instances with
+            the same properties and methods.
           </p>
-        </div>
-        <br /><br />
-        <h3 class="fw-bold">The "handleAddBook" method:</h3>
-        <br /><br />
-        <p class="fs-5">So, what happens when the book form is submitted?</p>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/1c2ef70d2883ed6b52540242e4bc34d9.js"></script>
-
-        <br /><br />
-        <p class="fs-5">
-          The "handleAddBook" method is called, and it
-          <b>prevents</b> the default form submission behavior.
-        </p>
-        <br /><br />
-        <div class="bg-info p-5 rounded">
+          <br /><br />
           <p class="fs-5">
-            👉 When a form is submitted, the browser reloads the page or
-            navigates to a new URL, which is the default behavior. However, in
-            this case, preventing the default behavior is necessary because
-            <b
-              >the goal is to add a book to the library without reloading the
-              page or navigating to a new URL.</b
-            >
+            Using a class in a library list app like this improves code
+            organization, reusability, modularity, and readability
           </p>
-        </div>
-        <br /><br />
-        <p class="fs-5">
-          The handleAddBook method then retrieves the values of the title and
-          author inputs, <b>adds</b> the book to the library using the "addBook"
-          method (will see it below), <b>displays</b> the updated list of books
-          using the "displayBooks" method (will see it below), and
-          <b>clears</b> the form inputs using the "clearForm" method (will see
-          it below).
-        </p>
-        <br /><br />
-        <h3 class="fw-bold">The "handleBookAction" method:</h3>
-
-        <br /><br />
-        <p class="fs-5">
-          So, what happens when you click on the
-          <b>Remove</b> or the <b>Edit</b> buttons that are inside the book item
-          you just created?
-        </p>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/024718a3cea82e5f349e0bcbc31ac9ae.js"></script>
-        <br /><br />
-        <p class="fs-5">
-          The "handleBookAction" method is called when a button inside the book
-          item is clicked: <br /><br />
-          - It checks if the target element of the event is a button by
-          comparing the tagName property of the target to the string "BUTTON".
-          <b>.tagName</b> is a property of the target element that provides the
-          tag name of the element in uppercase letters. <br /><br />
-          - If it is, it <b>retrieves</b> the action and index data
-          <b>attributes</b> from the button. It is necessary for the next step.
-        </p>
-        <br /><br />
-        <div class="bg-info p-5 rounded">
+          <br /><br />
           <p class="fs-5">
-            👉 Remember that <b>event.target</b> represents the element that
-            triggered the event.
+            <b>Organization and encapsulation:</b> Classes allow you to organize
+            related data and functions together. In this app, the Library class
+            encapsulates all the methods and properties related to managing the
+            library. This improves the code's readability and maintainability by
+            keeping related functionality in one place.
           </p>
-        </div>
-
-        <br /><br />
-        <p class="fs-5">
-          - With an "if conditional statement" and the data attributes from
-          before, it performs the corresponding <b> action</b> (remove or edit)
-          on the book using the "removeBook" or "editBook" methods.
-        </p>
-        <br /><br />
-        <div class="bg-info p-5 rounded">
+          <br /><br />
           <p class="fs-5">
-            👉 The <b>dataset property</b> is part of the DOM (Document Object
-            Model) API, which provides access to the structured representation
-            of an HTML document. <br /><br />
-            The dataset property of an HTML element returns a
-            <b>DOMStringMap object</b> containing all the custom data attributes
-            (prefixed with "data-") of the element, such as the "action" and the
-            "index" ones we define in the "displayBooks" method (see below).
+            <b>Reusability:</b> With a class, you can create multiple instances
+            of the same structure. In this case, you can create multiple library
+            instances if needed. Each instance will have its own set of books
+            and can be managed independently.
           </p>
-        </div>
-        <br /><br />
-        <p class="fs-5">
-          Finally, it <b>displays</b> the updated list of books again using the
-          "displayBooks" method.
-        </p>
-        <br /><br />
-        <h3 class="fw-bold">The "addBook" method:</h3>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/b08ecd75c887b9029142c5c2b9bc84a8.js"></script>
-        <br /><br />
-        <p class="fs-5">
-          The "addBook" method takes the title and author as parameters,
-          <b>creates a book object</b> with the given title and author, and adds
-          it to the <b>"books" array</b> we saw first in the constructor.
-        </p>
-        <br /><br />
-        <h3 class="fw-bold">The "removeBook" method:</h3>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/ca734c39e5cca2dbe4b30ef8657721aa.js"></script>
-        <br /><br />
-        <p class="fs-5">
-          The "removeBook" method takes an <b>index</b> as a parameter and
-          removes the book at that index from the "books" array using the
-          <b>splice method</b>.
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          Remember it is used in the "handleBookAction" method after it
-          retrieves the index of the button.
-        </p>
-
-        <br /><br />
-        <h3 class="fw-bold">The "editBook" method:</h3>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/b777d86747c10ce50249a4f1c623dd80.js"></script>
-        <br /><br />
-        <p class="fs-5">
-          The "editBook" method takes an <b>index</b> as a parameter and
-          <b>prompts</b> the user to enter a new title and author for the book
-          at that index. If the user provides both a new title and author, the
-          method <b>updates</b> the corresponding properties of the book in the
-          "books" array.
-        </p>
-        <br /><br />
-        <h3 class="fw-bold">The "displayBooks" method</h3>
-        <br /><br />
-        <p class="fs-5">Now we'll see how the book items are shown!</p>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/f28d4509b193e518c27a9a88c3890257.js"></script>
-        <br /><br />
-        <p class="fs-5">
-          Everytime the list is updated, the "displayBooks" method
-          <b>clears</b> the inner HTML of the bookList element (where the list
-          appears) and then
-          <b>iterates over the "books" array</b>
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          For each book, it <b>creates</b> a new list item element (we have the
-          < ul > tag in the HTML and now will be creating the < li > tags for
-          each book item).It then sets its text content to the book's title and
-          author.
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          Next to it, it creates the remove and the edit buttons with
-          corresponding data attributes.
-        </p>
-        <br /><br />
-        <p class="fs-5" removeButton>
-          Then, it <b>appends</b> the buttons to the list item, and appends the
-          list item to the bookList. Nice!
-        </p>
-        <br /><br />
-        <p class="fs-5">
-          I know the dataset property is a bit confusing, so let's go in depth
-          with them. Have a look at the ones of the "removeButton" (the ones of
-          the "editButton" are very similar):
-        </p>
-        <br /><br />
-        <div class="bg-info p-5 rounded">
+          <br /><br />
           <p class="fs-5">
-            👉<b>removeButton.dataset.action = "remove";</b> sets a custom data
-            attribute called "action" on the <b>removeButton</b>. Data
-            attributes are a way to store additional information on HTML
-            elements. In this case, the <b>action</b> attribute is being set to
-            the string value "remove". This attribute can be accessed later to
-            determine the action to be performed when the button is clicked.
-            <br /><br />
-            👉<b>removeButton.dataset.index = index;</b> sets another custom
-            data attribute called "index" on the <b>removeButton</b>. Here, the
-            <b>index</b> attribute is being set to the value of the index
-            variable, which represents the current index in the loop. This
-            attribute is used to identify the specific book associated with the
-            button when it is clicked or interacted with.
+            <b> Code organization and readability: </b> By encapsulating related
+            functionality within a class, you can easily reuse it in other parts
+            of your application or extend it with additional features. This
+            promotes code modularity and helps in building scalable and
+            maintainable applications.
           </p>
+          <br /><br />
+          <p class="fs-5">
+            <b>Code modularity: </b> Classes provide a clear structure for your
+            code. The methods and properties of the class are self-contained and
+            can be easily understood and navigated. This makes it easier for
+            other developers to understand and work with the code.
+          </p>
+          <br /><br />
+          <p class="fs-5">Now let's take a look at the code.</p>
+          <br /><br />
+          <h3 class="blog-subtitle">Html section:</h3>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/2c7de3578efbb9535aee22b7f58700c6.js"></script>
+          <br /><br />
+          <p class="fs-5">
+            In here you can see the HTML part of the library list. It is a form
+            and an empty unordered list element in which the books we create are
+            visualized.
+          </p>
+          <br /><br />
+
+          <p class="fs-5">
+            Notice the IDs, which will be important when working with the
+            Javascript part.
+          </p>
+          <br /><br />
+          <h3 class="blog-subtitle">Javascript section:</h3>
+          <br /><br />
+          <p class="fs-5">
+            Let's go with parts on the JavaScript part. You'll see its
+            organization is appropiate even when you have to explain it.
+          </p>
+          <br /><br />
+          <h3 class="fw-bold">The "constructor":</h3>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/390156e4cae645318e74404508659278.js"></script>
+          <br /><br />
+          <p class="fs-5">
+            The class "Library" is defined with a constructor function. Inside
+            the constructor, it initializes various properties by selecting
+            elements from the form using their respective IDs.
+          </p>
+          <br /><br />
+          <p class="fs-5">
+            The constructor also adds event listeners to the
+            <b>bookForm</b> and <b>bookList</b> elements.
+          </p>
+          <br /><br />
+          <p class="fs-5">
+            The <b>handleAddBook</b> method is bound to the submit event of the
+            bookForm, and the "handleBookAction" method is bound to the click
+            event of the bookList.
+          </p>
+          <br /><br />
+          <div class="bg-info p-5 rounded">
+            <p class="fs-5">
+              👉 When the <b>this</b> value inside a callback function is not
+              properly bound, it can cause issues when trying to access the
+              properties and methods of the class. For example, without proper
+              binding, <b>this</b> may refer to the element that triggered the
+              event or some other unintended context. This can cause errors when
+              trying to access class-specific properties or methods.
+              <br /><br />
+              <b
+                >By using the bind() method, you can avoid these issues and
+                ensure that your callback functions have access to the class
+                properties and methods they need.</b
+              >
+            </p>
+          </div>
+          <br /><br />
+          <h3 class="fw-bold">The "handleAddBook" method:</h3>
+          <br /><br />
+          <p class="fs-5">So, what happens when the book form is submitted?</p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/1c2ef70d2883ed6b52540242e4bc34d9.js"></script>
+
+          <br /><br />
+          <p class="fs-5">
+            The "handleAddBook" method is called, and it
+            <b>prevents</b> the default form submission behavior.
+          </p>
+          <br /><br />
+          <div class="bg-info p-5 rounded">
+            <p class="fs-5">
+              👉 When a form is submitted, the browser reloads the page or
+              navigates to a new URL, which is the default behavior. However, in
+              this case, preventing the default behavior is necessary because
+              <b
+                >the goal is to add a book to the library without reloading the
+                page or navigating to a new URL.</b
+              >
+            </p>
+          </div>
+          <br /><br />
+          <p class="fs-5">
+            The handleAddBook method then retrieves the values of the title and
+            author inputs, <b>adds</b> the book to the library using the
+            "addBook" method (will see it below), <b>displays</b> the updated
+            list of books using the "displayBooks" method (will see it below),
+            and <b>clears</b> the form inputs using the "clearForm" method (will
+            see it below).
+          </p>
+          <br /><br />
+          <h3 class="fw-bold">The "handleBookAction" method:</h3>
+
+          <br /><br />
+          <p class="fs-5">
+            So, what happens when you click on the
+            <b>Remove</b> or the <b>Edit</b> buttons that are inside the book
+            item you just created?
+          </p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/024718a3cea82e5f349e0bcbc31ac9ae.js"></script>
+          <br /><br />
+          <p class="fs-5">
+            The "handleBookAction" method is called when a button inside the
+            book item is clicked: <br /><br />
+            - It checks if the target element of the event is a button by
+            comparing the tagName property of the target to the string "BUTTON".
+            <b>.tagName</b> is a property of the target element that provides
+            the tag name of the element in uppercase letters. <br /><br />
+            - If it is, it <b>retrieves</b> the action and index data
+            <b>attributes</b> from the button. It is necessary for the next
+            step.
+          </p>
+          <br /><br />
+          <div class="bg-info p-5 rounded">
+            <p class="fs-5">
+              👉 Remember that <b>event.target</b> represents the element that
+              triggered the event.
+            </p>
+          </div>
+
+          <br /><br />
+          <p class="fs-5">
+            - With an "if conditional statement" and the data attributes from
+            before, it performs the corresponding <b> action</b> (remove or
+            edit) on the book using the "removeBook" or "editBook" methods.
+          </p>
+          <br /><br />
+          <div class="bg-info p-5 rounded">
+            <p class="fs-5">
+              👉 The <b>dataset property</b> is part of the DOM (Document Object
+              Model) API, which provides access to the structured representation
+              of an HTML document. <br /><br />
+              The dataset property of an HTML element returns a
+              <b>DOMStringMap object</b> containing all the custom data
+              attributes (prefixed with "data-") of the element, such as the
+              "action" and the "index" ones we define in the "displayBooks"
+              method (see below).
+            </p>
+          </div>
+          <br /><br />
+          <p class="fs-5">
+            Finally, it <b>displays</b> the updated list of books again using
+            the "displayBooks" method.
+          </p>
+          <br /><br />
+          <h3 class="fw-bold">The "addBook" method:</h3>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/b08ecd75c887b9029142c5c2b9bc84a8.js"></script>
+          <br /><br />
+          <p class="fs-5">
+            The "addBook" method takes the title and author as parameters,
+            <b>creates a book object</b> with the given title and author, and
+            adds it to the <b>"books" array</b> we saw first in the constructor.
+          </p>
+          <br /><br />
+          <h3 class="fw-bold">The "removeBook" method:</h3>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/ca734c39e5cca2dbe4b30ef8657721aa.js"></script>
+          <br /><br />
+          <p class="fs-5">
+            The "removeBook" method takes an <b>index</b> as a parameter and
+            removes the book at that index from the "books" array using the
+            <b>splice method</b>.
+          </p>
+          <br /><br />
+          <p class="fs-5">
+            Remember it is used in the "handleBookAction" method after it
+            retrieves the index of the button.
+          </p>
+
+          <br /><br />
+          <h3 class="fw-bold">The "editBook" method:</h3>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/b777d86747c10ce50249a4f1c623dd80.js"></script>
+          <br /><br />
+          <p class="fs-5">
+            The "editBook" method takes an <b>index</b> as a parameter and
+            <b>prompts</b> the user to enter a new title and author for the book
+            at that index. If the user provides both a new title and author, the
+            method <b>updates</b> the corresponding properties of the book in
+            the "books" array.
+          </p>
+          <br /><br />
+          <h3 class="fw-bold">The "displayBooks" method</h3>
+          <br /><br />
+          <p class="fs-5">Now we'll see how the book items are shown!</p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/f28d4509b193e518c27a9a88c3890257.js"></script>
+          <br /><br />
+          <p class="fs-5">
+            Everytime the list is updated, the "displayBooks" method
+            <b>clears</b> the inner HTML of the bookList element (where the list
+            appears) and then
+            <b>iterates over the "books" array</b>
+          </p>
+          <br /><br />
+          <p class="fs-5">
+            For each book, it <b>creates</b> a new list item element (we have
+            the < ul > tag in the HTML and now will be creating the < li > tags
+            for each book item).It then sets its text content to the book's
+            title and author.
+          </p>
+          <br /><br />
+          <p class="fs-5">
+            Next to it, it creates the remove and the edit buttons with
+            corresponding data attributes.
+          </p>
+          <br /><br />
+          <p class="fs-5" removeButton>
+            Then, it <b>appends</b> the buttons to the list item, and appends
+            the list item to the bookList. Nice!
+          </p>
+          <br /><br />
+          <p class="fs-5">
+            I know the dataset property is a bit confusing, so let's go in depth
+            with them. Have a look at the ones of the "removeButton" (the ones
+            of the "editButton" are very similar):
+          </p>
+          <br /><br />
+          <div class="bg-info p-5 rounded">
+            <p class="fs-5">
+              👉<b>removeButton.dataset.action = "remove";</b> sets a custom
+              data attribute called "action" on the <b>removeButton</b>. Data
+              attributes are a way to store additional information on HTML
+              elements. In this case, the <b>action</b> attribute is being set
+              to the string value "remove". This attribute can be accessed later
+              to determine the action to be performed when the button is
+              clicked. <br /><br />
+              👉<b>removeButton.dataset.index = index;</b> sets another custom
+              data attribute called "index" on the <b>removeButton</b>. Here,
+              the <b>index</b> attribute is being set to the value of the index
+              variable, which represents the current index in the loop. This
+              attribute is used to identify the specific book associated with
+              the button when it is clicked or interacted with.
+            </p>
+          </div>
+          <br /><br />
+          <h3 class="fw-bold">The "clearForm" method</h3>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/34609ba28e79ccb36d9c7e10a1d6daa0.js"></script>
+          <br /><br />
+          <p class="fs-5">
+            The "clearForm" method clears the values of the title and author
+            inputs by setting their values to an empty string.
+          </p>
+          <br /><br />
+          <h3 class="fw-bold">Class instance</h3>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/88b02e80c95404f77535e15c860706a7.js"></script>
+          <br /><br />
+          <p class="fs-5">
+            Finally, an <b>instance</b> of the Library class is created and
+            assigned to the "library" variable.
+          </p>
+          <br /><br />
+          <p class="fs-5">And here is the complete code of the class:</p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/fb34398c59e7c6960c9ae81598a148be.js"></script>
         </div>
-        <br /><br />
-        <h3 class="fw-bold">The "clearForm" method</h3>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/34609ba28e79ccb36d9c7e10a1d6daa0.js"></script>
-        <br /><br />
-        <p class="fs-5">
-          The "clearForm" method clears the values of the title and author
-          inputs by setting their values to an empty string.
-        </p>
-        <br /><br />
-        <h3 class="fw-bold">Class instance</h3>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/88b02e80c95404f77535e15c860706a7.js"></script>
-        <br /><br />
-        <p class="fs-5">
-          Finally, an <b>instance</b> of the Library class is created and
-          assigned to the "library" variable.
-        </p>
-        <br /><br />
-        <p class="fs-5">And here is the complete code of the class:</p>
-        <br /><br />
-        <script src="https://gist.github.com/vanesascode/fb34398c59e7c6960c9ae81598a148be.js"></script>
       </div>
+    </div>
+    <!--LATEST ARTICLES BAR-->
+    <div class="p-5 container bg-warning d-block d-md-none">
+      {% include "blog/latest-articles-bar.html" %}
     </div>
 
     <!--FOOTER-->
