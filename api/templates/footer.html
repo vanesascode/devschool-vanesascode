@@ -165,7 +165,7 @@
           >Github</a
         >
         <a
-          href="mailto:namotoninja@gmail.com?subject=&body="
+          href="mailto:vanesascode@gmail.com?subject=&body="
           class="nav-link move-right mb-4"
           style="color: rgb(178, 177, 177)"
           >Contact Me</a
@@ -201,7 +201,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
-            <div id="emailHelp" class="form-text">
+            <div id="emailHelp" class="form-text text-secondary">
               We'll never share your email with anyone else.
             </div>
           </div>
@@ -211,12 +211,21 @@
               type="checkbox"
               class="form-check-input"
               id="exampleCheck1"
+              required
             />
             <label class="form-check-label" for="exampleCheck1"
-              >I accept the <a href="">privacy policy</a></label
+              >I accept the
+              <a
+                href="{{ url_for('privacypolicy') }}"
+                target="_blank"
+                rel="noreferrer"
+                class="text-warning"
+                style="text-decoration: none"
+                ><span class="underline">privacy policy</span></a
+              ></label
             >
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary image-up">Submit</button>
         </form>
       </li>
     </div>
@@ -259,7 +268,12 @@
     </div>
 
     <div class="px-3 py-4">
-      <a href="#" class="nav-link image-up" style="text-decoration: none"
+      <a
+        href="{{ url_for('privacypolicy') }}"
+        class="nav-link image-up"
+        style="text-decoration: none"
+        target="_blank"
+        rel="noreferrer"
         >Privacy Policy</a
       >
     </div>
@@ -272,7 +286,7 @@
       <div class="px-3 py-4">
         <a href="https://www.apple.com/" target="_blank" rel="noreferrer"
           ><img
-            src="./static/appstore.png"
+            src="../static/appstore.webp"
             alt="appstore"
             style="height: 40px"
             class="ms-md-4 image-up"
@@ -286,7 +300,7 @@
           rel="noreferrer"
         >
           <img
-            src="./static/googleplay.png"
+            src="../static/googleplay.webp"
             alt="appstore"
             style="height: 40px"
             class="ms-md-4 image-up mb-4 mb-md-0"

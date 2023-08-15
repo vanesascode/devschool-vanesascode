@@ -72,6 +72,10 @@ def typescriptindexsignatures():
 def apply():
     return render_template("apply/index-apply.html")
 
+@app.route("/privacy-policy")
+def privacypolicy():
+    return render_template("privacy-policy.html")
+
 
 @app.route("/api/jobs")
 def list_jobs():
