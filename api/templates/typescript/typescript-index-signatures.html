@@ -109,10 +109,7 @@
             style="text-decoration: none"
             ><span class="underline text-secondary">Typescript</span></a
           ><b class="text-secondary"> &#8594; </b
-          ><span
-            >Typescript Index Signatures. Practical Example: a Product Catalog
-            accessing properties dynamically</span
-          >
+          ><span>Typescript Index Signatures: a Practical Example.</span>
         </p>
       </div>
 
@@ -155,15 +152,7 @@
 
         <div class="col-12 col-md-8 px-md-4">
           <h1 class="blog-title">
-            Typescript Index Signatures.
-            <span class="d-none d-md-block"
-              >Practical Example: a product catalog accessing properties
-              dynamically</span
-            >
-            <span class="d-block d-md-none fs-1 mt-3"
-              >Practical Example: a product catalog accessing properties
-              dynamically</span
-            >
+            Typescript Index Signatures: a Practical Example.
           </h1>
 
           <!--ARTICLE DESCRIPTION WHEN SMALL-->
@@ -244,8 +233,8 @@
           <p class="fs-5">
             In TypeScript, if you attempt to access an object property
             dynamically using bracket notation (e.g., object[property] ), you
-            need to provide an index signature to ensure type safety. An index
-            signature
+            may need to provide an index signature to ensure type safety. An
+            index signature
             <b
               >defines the types for all possible keys of an object that are not
               explicitly defined.</b
@@ -262,10 +251,18 @@
             In the above example, we define an interface MyObject with an index
             signature <b>[key: string]: any</b>. This means that <b>obj</b> can
             have any string key, and the corresponding value can be of any type
-            ( <b>any</b> in this case). By providing the index signature,
-            TypeScript allows us to access <b>obj</b> dynamically using bracket
-            notation without any compilation errors.
+            ( <b>any</b> in this case).
           </p>
+          <br /><br />
+          <div class="bg-info p-5 rounded">
+            <p class="fs-5">
+              👉 By providing the index signature, TypeScript allows us to
+              access "obj" dynamically using bracket notation without having to
+              define the properties beforehand and without having to worry about
+              any compilation errors.
+            </p>
+          </div>
+
           <br /><br />
 
           <p class="fs-5">
@@ -286,16 +283,36 @@
           <p class="fs-5">
             Let's say you have a product catalog for an e-commerce website. Each
             product has different attributes, and you want to allow users to
-            filter products based on these attributes dynamically. However, the
-            available attributes can vary for different products.
+            filter products based on these attributes dynamically.
+            <b
+              >However, the available attributes can vary for different products
+              and you want to avoid possible compilation errors</b
+            >
           </p>
 
           <br /><br />
 
           <p class="fs-5">
-            In this case, you can use dynamic property access to handle the
-            filtering of products. Here you can try the product catalog by
-            yourself:
+            So, for this catalog, we'll define the "id", "product" and "price"
+            in the interface, which are properties that every product is going
+            to have for sure, but we'll also add an index signature so we can
+            also search for a product by its "color", "size", "quantity" and any
+            other properties each product may have.
+          </p>
+          <br /><br />
+          <div class="bg-info p-5 rounded">
+            <p class="fs-5">
+              👉 We could also define the "color", "size", "quantity" and
+              "brand" properties as <b>optional properties</b>. But in case we
+              are adding more properties in the future, we are save with the
+              index signature.
+            </p>
+          </div>
+          <br /><br />
+          <p class="fs-5">
+            Here you can try the product catalog by yourself. For the purpose of
+            being able to try it successfully, we have provided a list of the
+            current available properties for each product:
           </p>
           <br /><br />
 
