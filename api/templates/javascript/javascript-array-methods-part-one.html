@@ -25,7 +25,7 @@
     <!--structured data markup-->
     <script type="application/ld+json">
       {
-        "@context": "https://devschool-vanesascode.vercel.app/blog/typescript-index-signatures",
+        "@context": "https://devschool-vanesascode.vercel.app/blog/javascript-array-methods-part-one",
         "@type": "javascript tutorial",
         "name": "Learn Javascript Array Methods Interactively - Part 1",
         "author": {
@@ -81,7 +81,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='responsive.css') }}"
+      href="{{ url_for('static', filename='colors-responsive.css') }}"
     />
   </head>
 
@@ -250,7 +250,7 @@
           </p>
           <br /><br />
 
-          <div class="bg-info p-5 rounded">
+          <div class="p-5 rounded info-boxes-color">
             <p class="fs-5">
               👉 The <b>Array.prototype</b> object in JavaScript is the
               prototype object for all arrays. It contains properties and
@@ -259,7 +259,7 @@
             </p>
             <br /><br />
             <p class="fs-5">
-              When you create an array using the array literal syntax ([]) or
+              When you create an array using the array literal syntax ([ ]) or
               the Array constructor, the newly created array object inherits
               properties and methods from the Array.prototype object. This means
               that you can access and use those properties and methods on any
@@ -286,14 +286,12 @@
           </p>
           <br /><br />
 
-          <div class="container bg-warning p-5 rounded text-center">
+          <div class="container bg-success p-5 rounded text-center">
             <p class="form-label fs-5 fw-bold">
               <span>let</span>
-              <span style="color: blue">numbersArray</span> = [<span
-                id="numbersArray"
-                style="color: rgb(227, 59, 87)"
-              ></span
-              >]
+              <span style="color: blue">numbersArray</span><span> = [ </span>
+              <span id="numbersArray" style="color: rgb(227, 59, 87)"></span
+              ><span> ] </span>
             </p>
 
             <button onclick="popMethodExecute()" class="btn btn-dark mt-4 me-2">
@@ -315,14 +313,12 @@
           <p class="fs-5">SHIFT and UNSHIFT, wellknown as well!</p>
           <br /><br />
 
-          <div class="container bg-warning p-5 rounded text-center">
+          <div class="container bg-success p-5 rounded text-center">
             <p class="form-label fs-5 fw-bold">
               <span>let</span>
-              <span style="color: blue">namesArray</span> = [<span
-                id="namesArray"
-                style="color: rgb(227, 59, 87)"
-              ></span
-              >]
+              <span style="color: blue">namesArray</span><span> = [ </span>
+              <span id="namesArray" style="color: rgb(227, 59, 87)"></span
+              ><span> ] </span>
             </p>
 
             <button
@@ -335,7 +331,7 @@
               onclick="unshiftMethodExecute()"
               class="btn btn-dark mt-4 me-2"
             >
-              namesArray.unshift('Clara')
+              namesArray.unshift('clara')
             </button>
           </div>
           <br /><br /><br />
@@ -344,6 +340,7 @@
           <h3 class="fw-bold">
             3. Create a new array that contains a shallow copy of a portion of
             an existing array.
+            <br /><br />
             <span style="text-decoration: underline"
               >It does not modify the original array.</span
             >
@@ -371,23 +368,25 @@
           </p>
           <br /><br />
           <!--original array-->
-          <div class="container bg-warning p-5 rounded text-center">
+          <div class="container bg-success p-5 rounded text-center">
             <p class="form-label fs-5 fw-bold mb-5">
               <span>let</span>
-              <span style="color: blue">originalArray</span> = [<span
+              <span style="color: blue">originalArray</span><span> = [ </span
+              ><span
                 id="originalSliceArray"
                 style="color: rgb(227, 59, 87)"
               ></span
-              >]
+              ><span> ]</span>
             </p>
             <!--copy one array-->
             <p class="form-label fs-5 fw-bold">
               let
-              <span style="color: blue">copyArrayOneParameter</span> = [<span
+              <span style="color: blue">copyArrayOneParameter</span> = [
+              <span
                 id="copySliceArrayOne"
                 style="color: rgb(227, 59, 87)"
-              ></span
-              >]
+              ></span>
+              ]
             </p>
             <div class="d-flex justify-content-center">
               <button onclick="sliceMethodExecuteOne()" class="btn btn-dark">
@@ -397,17 +396,17 @@
                 type="number"
                 id="sliceParameterOneOne"
                 style="max-width: 50px; border-radius: 5px"
-                class="bg-dark text-white border border-warning"
+                class="bg-dark text-white border border-success"
               /><span class="fw-bold fs-4">)</span>
             </div>
             <!--copy two array-->
             <p class="form-label fs-5 fw-bold mt-5">
-              let <span style="color: blue">copyArrayTwoParameters</span> =
-              [<span
+              let <span style="color: blue">copyArrayTwoParameters</span> = [
+              <span
                 id="copySliceArrayTwo"
                 style="color: rgb(227, 59, 87)"
-              ></span
-              >]
+              ></span>
+              ]
             </p>
             <div class="d-flex justify-content-center">
               <button onclick="sliceMethodExecuteTwo()" class="btn btn-dark">
@@ -416,21 +415,21 @@
               ><input
                 type="number"
                 id="sliceParameterTwoOne"
-                class="bg-dark text-white border border-warning"
+                class="bg-dark text-white border border-success"
                 style="max-width: 50px; border-radius: 5px"
               /><span class="fw-bold fs-4">,</span
               ><input
                 type="number"
                 id="sliceParameterTwoTwo"
-                class="bg-dark text-white border border-warning"
+                class="bg-dark text-white border border-success"
                 style="max-width: 50px; border-radius: 5px"
               /><span class="fw-bold fs-4">)</span>
             </div>
           </div>
           <br /><br /><br />
 
-          <div class="bg-info p-5 rounded">
-            <p class="fs-5">
+          <div class="info-boxes-color p-5 rounded">
+            <p class="fs-5 mb-4">
               👉 In programming, the term <b>shallow</b> refers to a type of
               copy or clone that creates a new object or array, but the values
               within that object or array are still references to the original
@@ -449,7 +448,7 @@
           <h3 class="fw-bold">
             4. Change the contents of an array by removing, replacing, or adding
             elements in place.
-            <span style="text-decoration: underline">
+            <br /><br /><span style="text-decoration: underline">
               It modifies the original array and returns a new array containing
               the removed elements.</span
             >
@@ -470,22 +469,24 @@
           <br /><br />
 
           <!--one parameter-->
-          <div class="container bg-warning p-5 rounded text-center">
+          <div class="container bg-success p-5 rounded text-center">
             <p class="fs-3 mb-5">One parameter:</p>
             <p class="form-label fs-5 fw-bold mb-3">
               let
-              <span style="color: blue">originalArray</span> = [<span
+              <span style="color: blue">originalArray</span> = [
+              <span
                 id="originalSpliceArrayOne"
                 style="color: rgb(227, 59, 87)"
-              ></span
-              >]
+              ></span>
+              ]
             </p>
             <p class="form-label fs-5 fw-bold mb-5">
-              let <span style="color: blue">newArray</span> = [<span
+              let <span style="color: blue">newArray</span> = [
+              <span
                 id="newArraySpliceOneParameter"
                 style="color: rgb(227, 59, 87)"
-              ></span
-              >]
+              ></span>
+              ]
             </p>
             <div class="d-flex justify-content-center">
               <button onclick="SpliceMethodExecuteOne()" class="btn btn-dark">
@@ -495,28 +496,30 @@
                 type="number"
                 id="spliceParameterOneOne"
                 style="max-width: 50px; border-radius: 5px"
-                class="bg-dark text-white border border-warning"
+                class="bg-dark text-white border border-success"
               /><span class="fw-bold fs-4">)</span>
             </div>
           </div>
-          <br /><br /><br />
+          <br /><br />
           <!--two parameter-->
-          <div class="container bg-warning p-5 rounded text-center">
+          <div class="container bg-success p-5 rounded text-center">
             <p class="fs-3 mb-5">Two parameters:</p>
             <p class="form-label fs-5 fw-bold mb-3">
               let
-              <span style="color: blue">originalArray</span> = [<span
+              <span style="color: blue">originalArray</span> = [
+              <span
                 id="originalSpliceArrayTwo"
                 style="color: rgb(227, 59, 87)"
-              ></span
-              >]
+              ></span>
+              ]
             </p>
             <p class="form-label fs-5 fw-bold mb-5">
-              let <span style="color: blue">newArray</span> = [<span
+              let <span style="color: blue">newArray</span> = [
+              <span
                 id="newArraySpliceTwoParameters"
                 style="color: rgb(227, 59, 87)"
-              ></span
-              >]
+              ></span>
+              ]
             </p>
             <div class="d-flex justify-content-center">
               <button onclick="SpliceMethodExecuteTwo()" class="btn btn-dark">
@@ -526,13 +529,13 @@
                 type="number"
                 id="spliceParameterTwoOne"
                 style="max-width: 50px; border-radius: 5px"
-                class="bg-dark text-white border border-warning"
+                class="bg-dark text-white border border-success"
               /><span class="fw-bold fs-4">,</span
               ><input
                 type="number"
                 id="spliceParameterTwoTwo"
                 style="max-width: 50px; border-radius: 5px"
-                class="bg-dark text-white border border-warning"
+                class="bg-dark text-white border border-success"
               /><span class="fw-bold fs-4">)</span>
             </div>
           </div>
@@ -540,7 +543,7 @@
 
           <!--three or more parameter-->
           <div
-            class="container bg-warning rounded text-center py-5 px-2 p-md-5"
+            class="container bg-success rounded text-center py-5 px-2 p-md-5"
           >
             <div class="px-5 px-md-0">
               <p class="fs-3">Three or more parameters:</p>
@@ -549,18 +552,20 @@
               </p>
               <p class="form-label fs-5 fw-bold mb-3">
                 let
-                <span style="color: blue">originalArray</span> = [<span
+                <span style="color: blue">originalArray</span> = [
+                <span
                   id="originalSpliceArrayThree"
                   style="color: rgb(227, 59, 87)"
-                ></span
-                >]
+                ></span>
+                ]
               </p>
               <p class="form-label fs-5 fw-bold mb-5">
-                let <span style="color: blue">newArray</span> = [<span
+                let <span style="color: blue">newArray</span> = [
+                <span
                   id="newArraySpliceFourParameters"
                   style="color: rgb(227, 59, 87)"
-                ></span
-                >]
+                ></span>
+                ]
               </p>
             </div>
             <div class="d-flex justify-content-center flex-wrap">
@@ -571,25 +576,25 @@
                 type="number"
                 id="spliceParameterFourOne"
                 style="max-width: 50px; border-radius: 5px"
-                class="bg-dark text-white border border-warning"
+                class="bg-dark text-white border border-success"
               /><span class="fw-bold fs-4">,</span
               ><input
                 type="number"
                 id="spliceParameterFourTwo"
                 style="max-width: 50px; border-radius: 5px"
-                class="bg-dark text-white border border-warning"
+                class="bg-dark text-white border border-success"
               /><span class="fw-bold fs-4">,</span
               ><input
                 type="text"
                 id="spliceParameterFourThree"
                 style="max-width: 80px; border-radius: 5px"
-                class="bg-dark text-white border border-warning mt-3 mt-md-0"
+                class="bg-dark text-white border border-success mt-3 mt-md-0"
               /><span class="fw-bold fs-4 mt-3 mt-md-0">,</span
               ><input
                 type="text"
                 id="spliceParameterFourFour"
                 style="max-width: 80px; border-radius: 5px"
-                class="bg-dark text-white border border-warning mt-3 mt-md-0"
+                class="bg-dark text-white border border-success mt-3 mt-md-0"
               /><span class="fw-bold fs-4 mt-3 mt-md-0">)</span>
             </div>
           </div>
@@ -607,7 +612,7 @@
           <br /><br />
 
           <div
-            class="container bg-warning py-5 px-2 p-md-5 rounded text-center"
+            class="container bg-success py-5 px-2 p-md-5 rounded text-center"
           >
             <p class="form-label fs-5 fw-bold px-5 px-md-0">
               <span>let</span>
@@ -656,11 +661,10 @@
           </p>
         </div>
       </div>
-
-      <!--LATEST ARTICLES BAR-->
-      <div class="p-5 container bg-warning d-block d-md-none">
-        {% include "blog/latest-articles-bar.html" %}
-      </div>
+    </div>
+    <!--LATEST ARTICLES BAR-->
+    <div class="p-5 container bg-warning d-block d-md-none">
+      {% include "blog/latest-articles-bar.html" %}
     </div>
     <!--FOOTER-->
     {% include "footer.html" %}
@@ -719,7 +723,7 @@
 
     //SHIFT/UNSHIFT
 
-    const namesArray = ["'walter'", "'liz'", "'alice'", "'amy'", "'sara'"];
+    const namesArray = ["'walter'", "'lis'", "'alice'", "'amy'", "'sara'"];
 
     document.getElementById("namesArray").innerHTML = namesArray.join(", ");
 
@@ -729,7 +733,7 @@
     }
 
     function unshiftMethodExecute() {
-      namesArray.unshift("Clara");
+      namesArray.unshift("'clara'");
       document.getElementById("namesArray").innerHTML = namesArray.join(", ");
     }
 

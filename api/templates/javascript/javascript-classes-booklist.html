@@ -23,7 +23,7 @@
     <!--structured data markup-->
     <script type="application/ld+json">
       {
-        "@context": "https://devschool-vanesascode.vercel.app/blog/typescript-index-signatures",
+        "@context": "https://devschool-vanesascode.vercel.app/blog/javascript-classes-booklist",
         "@type": "typescript tutorial",
         "name": "Typescript Index Signatures. Practical Example: a Product Catalog
         accessing properties dynamically",
@@ -32,8 +32,7 @@
           "name": "vanesascode"
         },
         "datePublished": "2023-08-14",
-        "description": "Typescript Index Signatures. Practical Example: a Product Catalog
-        accessing properties dynamically",
+        "description": "In this article I am going to show an example of how to use a javascript class to implement a simple booklist",
       }
     </script>
 
@@ -81,7 +80,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='responsive.css') }}"
+      href="{{ url_for('static', filename='colors-responsive.css') }}"
     />
   </head>
 
@@ -252,12 +251,6 @@
 
           <br /><br />
 
-          <!-- <img
-          src="../../static/blog/javascript-interview-questions.jpg"
-          alt="interview"
-          class="img-fluid"
-        /> -->
-
           <p class="fs-5">Here you can try the booklist by yourself:</p>
           <br /><br />
 
@@ -373,7 +366,7 @@
             event of the bookList.
           </p>
           <br /><br />
-          <div class="bg-info p-5 rounded">
+          <div class="info-boxes-color p-5 rounded">
             <p class="fs-5">
               👉 When the <b>this</b> value inside a callback function is not
               properly bound, it can cause issues when trying to access the
@@ -402,7 +395,7 @@
             <b>prevents</b> the default form submission behavior.
           </p>
           <br /><br />
-          <div class="bg-info p-5 rounded">
+          <div class="info-boxes-color p-5 rounded">
             <p class="fs-5">
               👉 When a form is submitted, the browser reloads the page or
               navigates to a new URL, which is the default behavior. However, in
@@ -446,7 +439,7 @@
             step.
           </p>
           <br /><br />
-          <div class="bg-info p-5 rounded">
+          <div class="info-boxes-color p-5 rounded">
             <p class="fs-5">
               👉 Remember that <b>event.target</b> represents the element that
               triggered the event.
@@ -460,7 +453,7 @@
             edit) on the book using the "removeBook" or "editBook" methods.
           </p>
           <br /><br />
-          <div class="bg-info p-5 rounded">
+          <div class="info-boxes-color p-5 rounded">
             <p class="fs-5">
               👉 The <b>dataset property</b> is part of the DOM (Document Object
               Model) API, which provides access to the structured representation
@@ -552,7 +545,7 @@
             of the "editButton" are very similar):
           </p>
           <br /><br />
-          <div class="bg-info p-5 rounded">
+          <div class="info-boxes-color p-5 rounded">
             <p class="fs-5">
               👉<b>removeButton.dataset.action = "remove";</b> sets a custom
               data attribute called "action" on the <b>removeButton</b>. Data
