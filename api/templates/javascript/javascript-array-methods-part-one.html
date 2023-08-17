@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Learn Javascript Array Methods Interactively - Part 1 | Dev Blog
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--Open Graph tags-->
+    <meta property="og:type" content="article" />
+    <meta
+      name="title"
+      property="og:title"
+      content="Javascript Array Methods Part 1"
+    />
+    <meta
+      name="description"
+      property="og:description"
+      content="In this article you'll quickly understand some array methods in javascript by testing them interactively"
+    />
+    <meta property="og:article:author" content="vanesascode" />
+    <meta property="og:article:published_time" content="2023-08-13T09:00:00Z" />
+
+    <!--structured data markup-->
+    <script type="application/ld+json">
+      {
+        "@context": "https://devschool-vanesascode.vercel.app/blog/typescript-index-signatures",
+        "@type": "javascript tutorial",
+        "name": "Learn Javascript Array Methods Interactively - Part 1",
+        "author": {
+          "@type": "Person",
+          "name": "vanesascode"
+        },
+        "datePublished": "2023-08-17",
+        "description": "In this article you'll quickly understand some array methods in javascript by testing them interactively"
+      }
+    </script>
+
+    <!--FAVICON ICO-->
+    <link rel="icon" type="image/x-icon" href="../static/favicon.ico2.jpg" />
+
+    <!--BOOTSTRAP-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--FONTAWESOME-->
+    <script
+      src="https://kit.fontawesome.com/b3cb0b9144.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='transitions.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='responsive.css') }}"
+    />
+  </head>
+
+  <body style="overflow-x: hidden">
+    <!--NAV-->
+    {% include "school/nav.html" %}
+
+    <div class="container px-4 pt-150">
+      <!--breadcrumb navigation-->
+      <div class="pb-80">
+        <p>
+          <a
+            href="{{ url_for('blog') }}"
+            class="text-secondary"
+            style="text-decoration: none"
+            ><span class="underline">Blog home</span></a
+          ><b class="text-secondary"> &#8594; </b
+          ><a
+            href="{{ url_for('blog') }}#javascript"
+            style="text-decoration: none"
+            ><span class="underline text-secondary">Javascript</span></a
+          ><b class="text-secondary"> &#8594; </b
+          ><span>Learn Javascript Array Methods Interactively - Part 1</span>
+        </p>
+      </div>
+
+      <div class="row pb-100 gap-5">
+        <!--ARTICLE DESCRIPTION WHEN BIG-->
+        <div class="d-none d-md-block col-2 px-3">
+          <div>
+            <div class="pb-3">
+              <p><b>4 min read</b></p>
+            </div>
+
+            <div class="pb-3">
+              <p class="mb-0"><b>Published</b></p>
+              <p>17 Aug 2023</p>
+            </div>
+
+            <a
+              href="{{ url_for('school') }}#about"
+              style="text-decoration: none"
+            >
+              <div class="underline pb-3">
+                <p class="mb-0"><b>Author</b></p>
+                <p>vanesascode</p>
+              </div>
+            </a>
+
+            <a
+              href="{{ url_for('blog') }}#javascript"
+              style="text-decoration: none"
+            >
+              <div class="underline pb-3">
+                <p class="mb-0"><b>Category</b></p>
+                <p>Javascript</p>
+              </div>
+            </a>
+          </div>
+          <div class="pt-5">{% include "blog/latest-articles-bar.html" %}</div>
+        </div>
+
+        <!--ARTICLE CONTENT-->
+
+        <div class="col-12 col-md-8 px-md-4">
+          <h1 class="blog-title">
+            Learn Javascript Array Methods Interactively
+            <span class="text-secondary">- Part 1</span>
+          </h1>
+
+          <!--ARTICLE DESCRIPTION WHEN SMALL-->
+          <div class="d-block d-md-none pt-4">
+            <div class="pb-md-3">
+              <p><b>4 min read</b></p>
+            </div>
+            <div class="d-flex gap-5">
+              <div class="pb-md-3">
+                <p class="mb-0"><b>Published</b></p>
+                <p>17 Aug 2023</p>
+              </div>
+
+              <a
+                href="{{ url_for('school') }}#about"
+                style="text-decoration: none"
+              >
+                <div class="underline pb-md-3">
+                  <p class="mb-0"><b>Author</b></p>
+                  <p>vanesascode</p>
+                </div>
+              </a>
+            </div>
+            <a
+              href="{{ url_for('blog') }}#javascript"
+              style="text-decoration: none"
+            >
+              <div class="underline">
+                <p class="mb-0"><b>Category</b></p>
+                <p>Javascript</p>
+              </div>
+            </a>
+          </div>
+          <!--ARTICLE CONTINUES-->
+          <br /><br />
+          <p class="fs-5">
+            In this article and the next ones, we'll dive into all the methods
+            that you can use with arrays in JavaScript. And interactively, so
+            you can understand them quickly and forever!
+          </p>
+          <br /><br />
+          <img
+            src="../../static/blog/prototype-array.webp"
+            alt="product catalog"
+            class="img-fluid rounded"
+            max-height="350px"
+          />
+
+          <div class="d-flex gap-3 my-5">
+            <a
+              href="https://twitter.com/intent/tweet?url={{ request.url }}"
+              target="_blank"
+            >
+              <i class="fa-brands fa-twitter fa-xl" style="color: #000000"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.url }}"
+              target="_blank"
+            >
+              <i class="fa-brands fa-linkedin fa-xl" style="color: #000000"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}"
+              target="_blank"
+            >
+              <i class="fa-brands fa-facebook fa-xl" style="color: #000000"></i>
+            </a>
+          </div>
+          <br /><br />
+
+          <!--ARTICLE CONTINUES-->
+
+          <h2 class="blog-subtitle">Why array methods?</h2>
+          <br /><br />
+
+          <p class="fs-5">
+            Arrays are an essential data structure in JavaScript, providing a
+            way to <b>store and manipulate collections of values</b>.
+          </p>
+          <br /><br />
+          <p class="fs-5">
+            JavaScript provides a rich set of <b>built-in array methods</b> that
+            empower developers to perform various operations efficiently.
+            Understanding and utilizing these methods can greatly simplify your
+            code and make it more expressive.
+          </p>
+          <br /><br />
+
+          <h2 class="blog-subtitle">Where can you find them?</h2>
+          <br /><br />
+
+          <p class="fs-5">
+            If you want to see all the array methods in JavaScript, you can log
+            the <b>Array.prototype</b> object in the console: <br /><br />
+
+            <script src="https://gist.github.com/vanesascode/f87fe6674f381de93e84cfb1ba29c2ce.js"></script>
+          </p>
+          <br /><br />
+
+          <div class="bg-info p-5 rounded">
+            <p class="fs-5">
+              👉 The <b>Array.prototype</b> object in JavaScript is the
+              prototype object for all arrays. It contains properties and
+              methods that are inherited by all array instances created in
+              JavaScript.
+            </p>
+            <br /><br />
+            <p class="fs-5">
+              When you create an array using the array literal syntax ([]) or
+              the Array constructor, the newly created array object inherits
+              properties and methods from the Array.prototype object. This means
+              that you can access and use those properties and methods on any
+              array instance.
+            </p>
+          </div>
+          <br /><br />
+          <p class="fs-5">So let's start:</p>
+          <br /><br />
+
+          <h2 class="blog-subtitle">Today's array methods:</h2>
+          <br /><br />
+
+          <!--method 1-->
+
+          <h3 class="fw-bold">
+            1. Removing/adding elements at the end of the array
+          </h3>
+          <br /><br />
+
+          <p class="fs-5">
+            POP and PUSH, some of the most popular ones.
+            <b>Click on the buttons to apply the corresponding method: </b>
+          </p>
+          <br /><br />
+
+          <div class="container bg-warning p-5 rounded text-center">
+            <p class="form-label fs-5 fw-bold">
+              <span>let</span>
+              <span style="color: blue">numbersArray</span> = [<span
+                id="numbersArray"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+
+            <button onclick="popMethodExecute()" class="btn btn-dark mt-4 me-2">
+              yourArray.pop()
+            </button>
+            <button onclick="pushMethodExecute()" class="btn btn-dark mt-4">
+              yourArray.push(7)
+            </button>
+          </div>
+          <br /><br /><br />
+
+          <!--method 2-->
+
+          <h3 class="fw-bold">
+            2. Removing/adding elements at the beginning of the array
+          </h3>
+          <br /><br />
+
+          <p class="fs-5">SHIFT and UNSHIFT, wellknown as well!</p>
+          <br /><br />
+
+          <div class="container bg-warning p-5 rounded text-center">
+            <p class="form-label fs-5 fw-bold">
+              <span>let</span>
+              <span style="color: blue">namesArray</span> = [<span
+                id="namesArray"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+
+            <button
+              onclick="shiftMethodExecute()"
+              class="btn btn-dark mt-4 me-2"
+            >
+              namesArray.shift()
+            </button>
+            <button
+              onclick="unshiftMethodExecute()"
+              class="btn btn-dark mt-4 me-2"
+            >
+              namesArray.unshift('Clara')
+            </button>
+          </div>
+          <br /><br /><br />
+
+          <!--method 3-->
+          <h3 class="fw-bold">
+            3. Create a new array that contains a shallow copy of a portion of
+            an existing array.
+            <span style="text-decoration: underline"
+              >It does not modify the original array.</span
+            >
+          </h3>
+          <br /><br />
+
+          <p class="fs-5">
+            The slice() method takes two optional parameters: <b>start</b> and
+            <b>end</b>.
+
+            <br /><br />
+            The start parameter specifies the index at which to start extracting
+            elements (inclusive), and the end parameter specifies the index at
+            which to stop extracting elements (exclusive).
+
+            <br /><br />If <b>no end parameter</b> is provided, slice() extracts
+            elements from the start index until the end of the array.
+          </p>
+          <br /><br />
+          <p class="fs-5">
+            <b
+              >Add a number to the parameters and then click the buttons to
+              apply the corresponding method:
+            </b>
+          </p>
+          <br /><br />
+          <!--original array-->
+          <div class="container bg-warning p-5 rounded text-center">
+            <p class="form-label fs-5 fw-bold mb-5">
+              <span>let</span>
+              <span style="color: blue">originalArray</span> = [<span
+                id="originalSliceArray"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+            <!--copy one array-->
+            <p class="form-label fs-5 fw-bold">
+              let
+              <span style="color: blue">copyArrayOneParameter</span> = [<span
+                id="copySliceArrayOne"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+            <div class="d-flex justify-content-center">
+              <button onclick="sliceMethodExecuteOne()" class="btn btn-dark">
+                originalArray.slice</button
+              ><span class="fw-bold fs-4">(</span
+              ><input
+                type="number"
+                id="sliceParameterOneOne"
+                style="max-width: 50px; border-radius: 5px"
+                class="bg-dark text-white border border-warning"
+              /><span class="fw-bold fs-4">)</span>
+            </div>
+            <!--copy two array-->
+            <p class="form-label fs-5 fw-bold mt-5">
+              let <span style="color: blue">copyArrayTwoParameters</span> =
+              [<span
+                id="copySliceArrayTwo"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+            <div class="d-flex justify-content-center">
+              <button onclick="sliceMethodExecuteTwo()" class="btn btn-dark">
+                originalArray.slice</button
+              ><span class="fw-bold fs-4">(</span
+              ><input
+                type="number"
+                id="sliceParameterTwoOne"
+                class="bg-dark text-white border border-warning"
+                style="max-width: 50px; border-radius: 5px"
+              /><span class="fw-bold fs-4">,</span
+              ><input
+                type="number"
+                id="sliceParameterTwoTwo"
+                class="bg-dark text-white border border-warning"
+                style="max-width: 50px; border-radius: 5px"
+              /><span class="fw-bold fs-4">)</span>
+            </div>
+          </div>
+          <br /><br /><br />
+
+          <div class="bg-info p-5 rounded">
+            <p class="fs-5">
+              👉 In programming, the term <b>shallow</b> refers to a type of
+              copy or clone that creates a new object or array, but the values
+              within that object or array are still references to the original
+              values:
+              <b
+                >If you modify one of the objects in the new array, it will also
+                affect the corresponding object in original array</b
+              >
+            </p>
+
+            <script src="https://gist.github.com/vanesascode/56c928800e5205f01ce17b5c33132afe.js"></script>
+          </div>
+          <br /><br /><br />
+
+          <!--method 4-->
+          <h3 class="fw-bold">
+            4. Change the contents of an array by removing, replacing, or adding
+            elements in place.
+            <span style="text-decoration: underline">
+              It modifies the original array and returns a new array containing
+              the removed elements.</span
+            >
+          </h3>
+          <br /><br />
+          <p class="fs-5">
+            The splice() method takes in multiple parameters:
+            <br /><br />
+            <b>- start:</b> The index at which to start modifying the array. If
+            there is only one parameter, the splice method will remove all
+            elements from that start index to the end of the array. <br /><br />
+            <b>- deleteCount (optional):</b> The number of elements to remove
+            starting from the start index. If set to 0, no elements will be
+            removed. <br /><br />
+            <b>- item1 , item2 , ... (optional):</b> Elements to add to the
+            original array at the start index.
+          </p>
+          <br /><br />
+
+          <!--one parameter-->
+          <div class="container bg-warning p-5 rounded text-center">
+            <p class="fs-3 mb-5">One parameter:</p>
+            <p class="form-label fs-5 fw-bold mb-3">
+              let
+              <span style="color: blue">originalArray</span> = [<span
+                id="originalSpliceArrayOne"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+            <p class="form-label fs-5 fw-bold mb-5">
+              let <span style="color: blue">newArray</span> = [<span
+                id="newArraySpliceOneParameter"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+            <div class="d-flex justify-content-center">
+              <button onclick="SpliceMethodExecuteOne()" class="btn btn-dark">
+                originalArray.splice</button
+              ><span class="fw-bold fs-4">(</span>
+              <input
+                type="number"
+                id="spliceParameterOneOne"
+                style="max-width: 50px; border-radius: 5px"
+                class="bg-dark text-white border border-warning"
+              /><span class="fw-bold fs-4">)</span>
+            </div>
+          </div>
+          <br /><br /><br />
+          <!--two parameter-->
+          <div class="container bg-warning p-5 rounded text-center">
+            <p class="fs-3 mb-5">Two parameters:</p>
+            <p class="form-label fs-5 fw-bold mb-3">
+              let
+              <span style="color: blue">originalArray</span> = [<span
+                id="originalSpliceArrayTwo"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+            <p class="form-label fs-5 fw-bold mb-5">
+              let <span style="color: blue">newArray</span> = [<span
+                id="newArraySpliceTwoParameters"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+            <div class="d-flex justify-content-center">
+              <button onclick="SpliceMethodExecuteTwo()" class="btn btn-dark">
+                originalArray.splice</button
+              ><span class="fw-bold fs-4">(</span>
+              <input
+                type="number"
+                id="spliceParameterTwoOne"
+                style="max-width: 50px; border-radius: 5px"
+                class="bg-dark text-white border border-warning"
+              /><span class="fw-bold fs-4">,</span
+              ><input
+                type="number"
+                id="spliceParameterTwoTwo"
+                style="max-width: 50px; border-radius: 5px"
+                class="bg-dark text-white border border-warning"
+              /><span class="fw-bold fs-4">)</span>
+            </div>
+          </div>
+          <br /><br />
+
+          <!--three or more parameter-->
+          <div
+            class="container bg-warning rounded text-center py-5 px-2 p-md-5"
+          >
+            <div class="px-5 px-md-0">
+              <p class="fs-3">Three or more parameters:</p>
+              <p class="mb-5">
+                You can write numbers or strings in the 3rd and 4th parameters
+              </p>
+              <p class="form-label fs-5 fw-bold mb-3">
+                let
+                <span style="color: blue">originalArray</span> = [<span
+                  id="originalSpliceArrayThree"
+                  style="color: rgb(227, 59, 87)"
+                ></span
+                >]
+              </p>
+              <p class="form-label fs-5 fw-bold mb-5">
+                let <span style="color: blue">newArray</span> = [<span
+                  id="newArraySpliceFourParameters"
+                  style="color: rgb(227, 59, 87)"
+                ></span
+                >]
+              </p>
+            </div>
+            <div class="d-flex justify-content-center flex-wrap">
+              <button onclick="SpliceMethodExecuteThree()" class="btn btn-dark">
+                originalArray.splice</button
+              ><span class="fw-bold fs-4">(</span>
+              <input
+                type="number"
+                id="spliceParameterFourOne"
+                style="max-width: 50px; border-radius: 5px"
+                class="bg-dark text-white border border-warning"
+              /><span class="fw-bold fs-4">,</span
+              ><input
+                type="number"
+                id="spliceParameterFourTwo"
+                style="max-width: 50px; border-radius: 5px"
+                class="bg-dark text-white border border-warning"
+              /><span class="fw-bold fs-4">,</span
+              ><input
+                type="text"
+                id="spliceParameterFourThree"
+                style="max-width: 80px; border-radius: 5px"
+                class="bg-dark text-white border border-warning mt-3 mt-md-0"
+              /><span class="fw-bold fs-4 mt-3 mt-md-0">,</span
+              ><input
+                type="text"
+                id="spliceParameterFourFour"
+                style="max-width: 80px; border-radius: 5px"
+                class="bg-dark text-white border border-warning mt-3 mt-md-0"
+              /><span class="fw-bold fs-4 mt-3 mt-md-0">)</span>
+            </div>
+          </div>
+          <br /><br /><br />
+
+          <!--method 5-->
+          <h3 class="fw-bold">5. Access Items in the Array</h3>
+          <br /><br />
+
+          <p class="fs-5">
+            Ok, it is not a method! But it is important to know how to access
+            items. So if you didn't know this yet, now you do!
+            <b>Click on the buttons to apply the corresponding code: </b>
+          </p>
+          <br /><br />
+
+          <div
+            class="container bg-warning py-5 px-2 p-md-5 rounded text-center"
+          >
+            <p class="form-label fs-5 fw-bold px-5 px-md-0">
+              <span>let</span>
+              <span style="color: blue">computerArray</span> = [<span
+                id="computerArray"
+                style="color: rgb(227, 59, 87)"
+              ></span
+              >]
+            </p>
+            <div class="px-5 px-md-0">
+              <button
+                onclick="accessCeroExecute()"
+                class="btn btn-dark mt-4 me-2"
+              >
+                computerArray[0]
+              </button>
+              <button
+                onclick="accessOneExecute()"
+                class="btn btn-dark mt-4 me-2"
+              >
+                computerArray[1]
+              </button>
+              <button
+                onclick="accessTwoExecute()"
+                class="btn btn-dark mt-4 me-2"
+              >
+                computerArray[2]
+              </button>
+            </div>
+            <button onclick="accessLastExecute()" class="btn btn-dark mt-4">
+              computerArray[computerArray.length-1]
+            </button>
+            <div class="bg-light mt-4 col-6 mx-auto">
+              <span class="text-light">.</span>
+              <div
+                id="computerArrayResult"
+                class="fs-5 fw-bold text-center"
+              ></div>
+              <span class="text-light">.</span>
+            </div>
+          </div>
+          <br /><br /><br />
+          <p class="fs-5">
+            We'll see more methods in the next articles. I hope you enjoyed it
+            and it was useful to reinforce your knowledge of array methods!
+          </p>
+        </div>
+      </div>
+
+      <!--LATEST ARTICLES BAR-->
+      <div class="p-5 container bg-warning d-block d-md-none">
+        {% include "blog/latest-articles-bar.html" %}
+      </div>
+    </div>
+    <!--FOOTER-->
+    {% include "footer.html" %}
+  </body>
+
+  <script>
+    //ACCESS ITEMS
+
+    const computerArray = [
+      "'computer'",
+      "'keyboard'",
+      "'mouse'",
+      "'chair'",
+      "'monitor'",
+    ];
+
+    document.getElementById("computerArray").innerHTML =
+      computerArray.join(", ");
+
+    function accessCeroExecute() {
+      document.getElementById("computerArrayResult").innerHTML =
+        computerArray[0];
+    }
+
+    function accessOneExecute() {
+      document.getElementById("computerArrayResult").innerHTML =
+        computerArray[1];
+    }
+
+    function accessTwoExecute() {
+      document.getElementById("computerArrayResult").innerHTML =
+        computerArray[2];
+    }
+
+    function accessLastExecute() {
+      document.getElementById("computerArrayResult").innerHTML =
+        computerArray[computerArray.length - 1];
+    }
+
+    //POP/PUSH
+    const numbersArray = [1, 2, 3, 4, 5, 6];
+
+    document.getElementById("numbersArray").innerHTML = numbersArray.join(", ");
+
+    function popMethodExecute() {
+      numbersArray.pop();
+      document.getElementById("numbersArray").innerHTML =
+        numbersArray.join(", ");
+    }
+
+    function pushMethodExecute() {
+      numbersArray.push(7);
+      document.getElementById("numbersArray").innerHTML =
+        numbersArray.join(", ");
+    }
+
+    //SHIFT/UNSHIFT
+
+    const namesArray = ["'walter'", "'liz'", "'alice'", "'amy'", "'sara'"];
+
+    document.getElementById("namesArray").innerHTML = namesArray.join(", ");
+
+    function shiftMethodExecute() {
+      namesArray.shift();
+      document.getElementById("namesArray").innerHTML = namesArray.join(", ");
+    }
+
+    function unshiftMethodExecute() {
+      namesArray.unshift("Clara");
+      document.getElementById("namesArray").innerHTML = namesArray.join(", ");
+    }
+
+    //SLICE
+
+    const originalSliceArray = [
+      "'harry'",
+      "'ron'",
+      "'hermione'",
+      "'draco'",
+      "'ginny'",
+    ];
+
+    document.getElementById("originalSliceArray").innerHTML =
+      originalSliceArray.join(", ");
+
+    function sliceMethodExecuteOne() {
+      const sliceParameterOneOne = document.getElementById(
+        "sliceParameterOneOne"
+      ).value;
+
+      const slicedArray = originalSliceArray.slice(sliceParameterOneOne);
+      document.getElementById("copySliceArrayOne").innerHTML =
+        slicedArray.join(", ");
+    }
+
+    function sliceMethodExecuteTwo() {
+      const sliceParameterTwoOne = document.getElementById(
+        "sliceParameterTwoOne"
+      ).value;
+      const sliceParameterTwoTwo = document.getElementById(
+        "sliceParameterTwoTwo"
+      ).value;
+      const slicedArray = originalSliceArray.slice(
+        sliceParameterTwoOne,
+        sliceParameterTwoTwo
+      );
+      document.getElementById("copySliceArrayTwo").innerHTML =
+        slicedArray.join(", ");
+    }
+
+    //SPLICE
+
+    //one parameter
+
+    const originalSpliceArrayOne = [
+      "'apple'",
+      "'banana'",
+      "'cherry'",
+      "'pear'",
+      "'elderberry'",
+      "'kiwi'",
+    ];
+
+    document.getElementById("originalSpliceArrayOne").innerHTML =
+      originalSpliceArrayOne.join(", ");
+
+    function SpliceMethodExecuteOne() {
+      const spliceParameterOneOne = document.getElementById(
+        "spliceParameterOneOne"
+      ).value;
+      const splicedArrayOne = originalSpliceArrayOne.splice(
+        spliceParameterOneOne
+      );
+      document.getElementById("originalSpliceArrayOne").innerHTML =
+        originalSpliceArrayOne.join(", ");
+      document.getElementById("newArraySpliceOneParameter").innerHTML =
+        splicedArrayOne.join(", ");
+    }
+
+    //two parameters
+
+    const originalSpliceArrayTwo = [
+      "'apple'",
+      "'banana'",
+      "'cherry'",
+      "'pear'",
+      "'elderberry'",
+      "'kiwi'",
+    ];
+
+    document.getElementById("originalSpliceArrayTwo").innerHTML =
+      originalSpliceArrayTwo.join(", ");
+
+    function SpliceMethodExecuteTwo() {
+      const spliceParameterTwoOne = document.getElementById(
+        "spliceParameterTwoOne"
+      );
+      const spliceParameterTwoTwo = document.getElementById(
+        "spliceParameterTwoTwo"
+      );
+      const splicedArrayTwo = originalSpliceArrayTwo.splice(
+        spliceParameterTwoOne.value,
+        spliceParameterTwoTwo.value
+      );
+      document.getElementById("originalSpliceArrayTwo").innerHTML =
+        originalSpliceArrayTwo.join(", ");
+
+      document.getElementById("newArraySpliceTwoParameters").innerHTML =
+        splicedArrayTwo.join(", ");
+    }
+
+    //three or more parameters
+
+    const originalSpliceArrayThree = [
+      "'apple'",
+      "'banana'",
+      "'cherry'",
+      "'pear'",
+      "'elderberry'",
+      "'kiwi'",
+    ];
+
+    document.getElementById("originalSpliceArrayThree").innerHTML =
+      originalSpliceArrayThree.join(", ");
+
+    function SpliceMethodExecuteThree() {
+      const spliceParameterFourOne = document.getElementById(
+        "spliceParameterFourOne"
+      );
+      const spliceParameterFourTwo = document.getElementById(
+        "spliceParameterFourTwo"
+      );
+      const spliceParameterFourThree = document.getElementById(
+        "spliceParameterFourThree"
+      );
+      const spliceParameterFourFour = document.getElementById(
+        "spliceParameterFourFour"
+      );
+      const splicedArrayThree = originalSpliceArrayThree.splice(
+        spliceParameterFourOne.value,
+        spliceParameterFourTwo.value,
+        spliceParameterFourThree.value,
+        spliceParameterFourFour.value
+      );
+      document.getElementById("originalSpliceArrayThree").innerHTML =
+        originalSpliceArrayThree.join(", ");
+
+      document.getElementById("newArraySpliceFourParameters").innerHTML =
+        splicedArrayThree.join(", ");
+    }
+  </script>
+</html>

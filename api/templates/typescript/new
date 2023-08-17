@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Typescript Utility Types: A practical example with Record <T> </T>></p>
+    <form id="objectForm">
+      <label for="studentName">Student Name:</label>
+      <select id="studentName" required>
+        <option value="Sara">Sara</option>
+        <option value="Kelly">Kelly</option>
+        <option value="John">John</option>
+        <option value="Jane">Jane</option>
+        <option value="Walter">Walter</option>
+      </select>
+
+      <label for="grade">Grade:</label>
+
+      <select id="grade" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="U">U</option>
+      </select>
+
+      <button type="submit">Create Object</button>
+    </form>
+    <div id="finalGrades"></div>
+
+    <script src="js/run.js" defer></script>
+  </body>
+</html>
+
+
+
+
+
+
+/////////////////////////////////////////////////////
+//This code can be useful in scenarios where you need to represent and work with student grades in a type-safe manner, ensuring that only valid values are assigned and accessed.
+
+type Students = "Sara" | "Kelly" | "John" | "Jane" | "Walter";
+type LetterGrades = "A" | "B" | "C" | "D" | "U";
+
+const finalGrades: Record<Students, LetterGrades> = {} as Record<
+  Students,
+  LetterGrades
+>;
+
+const form = document.getElementById("objectForm") as HTMLFormElement;
+const studentNameInput = document.getElementById(
+  "studentName"
+) as HTMLInputElement;
+const gradeSelect = document.getElementById("grade") as HTMLSelectElement;
+const finalGradesDiv = document.getElementById("finalGrades") as HTMLDivElement;
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const studentName = studentNameInput.value as Students;
+  const grade = gradeSelect.value as LetterGrades;
+
+  finalGrades[studentName] = grade;
+
+  if (finalGradesDiv) {
+    finalGradesDiv.innerHTML = Object.entries(finalGrades)
+      .map(([student, grade]) => `<li>${student}: ${grade}</li>`)
+      .join("");
+  }
+
+  form.reset();
+});

@@ -67,6 +67,10 @@ def javascriptclassesbooklist():
 def typescriptindexsignatures():
     return render_template("typescript/typescript-index-signatures.html")
 
+@app.route("/blog/javascript-array-methods-part-one")
+def javascriptarraymethodspartone():
+    return render_template("javascript/javascript-array-methods-part-one.html")
+
 
 @app.route("/apply")
 def apply():
