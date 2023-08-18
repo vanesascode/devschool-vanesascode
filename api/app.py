@@ -71,6 +71,10 @@ def typescriptindexsignatures():
 def javascriptarraymethodspartone():
     return render_template("javascript/javascript-array-methods-part-one.html")
 
+@app.route("/blog/javascript-array-methods-part-two")
+def javascriptarraymethodsparttwo():
+    return render_template("javascript/javascript-array-methods-part-two.html")
+
 
 @app.route("/apply")
 def apply():

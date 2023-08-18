@@ -27,11 +27,41 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a
-            class="nav-link text-dark mx-4 text-nowrap resaltar"
-            href="{{ url_for('blog') }}"
-            >Blog</a
-          >
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link active dropdown-toggle"
+              href="{{ url_for('blog') }}"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Blog
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="{{ url_for('blog') }}#javascript"
+                  >Javascript</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="{{ url_for('blog') }}#typescript"
+                  >Typescript</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="{{ url_for('blog') }}"
+                  >Tailwind</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="{{ url_for('blog') }}"
+                  >Latest articles</a
+                >
+              </li>
+            </ul>
+          </li>
+
           <a
             class="nav-link text-dark mx-4 text-nowrap resaltar"
             href="{{ url_for('apply') }}"

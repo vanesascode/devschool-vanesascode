@@ -187,6 +187,9 @@
         <form
           action="https://formsubmit.co/vanesascode@gmail.com"
           method="POST"
+          target="_blank"
+          id="subscribe-form"
+          style="display: block"
         >
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label"
@@ -194,7 +197,7 @@
             >
             <input
               type="email"
-              name="email"
+              name="subscribe-email"
               required
               target="_blank"
               class="form-control"
@@ -227,12 +230,25 @@
           </div>
           <button type="submit" class="btn btn-primary image-up">Submit</button>
         </form>
+        <!--Subscribe to the newsletter thanks MODAL-->
+        <div
+          style="display: none"
+          id="subscribe-modal"
+          class="bg-light text-dark p-3 rounded"
+        >
+          <h3>Thank you for <br />subscribing</h3>
+          One you have followed the <br />FomSubmit.co instructions,
+          <br />
+          we will have successfully <br />received your email
+          <address class="br"></address>
+          <div class="d-flex justify-content-end">
+            <button onClick="closeSubscribeModal()" class="btn btn-primary">
+              Close
+            </button>
+          </div>
+        </div>
       </li>
     </div>
-
-    <!-- We have successfully received your request. We have sent you an email so that you can finish the subscription process to our newsletter. -->
-
-    <!-- href="mailto:namotoninja@gmail.com?subject=Question%20about%20Dev%20Jobs&body=My%20name%3A%0D%0A%0D%0AMy%20question%3A" -->
   </div>
 
   <!--BOTTOM LINKS-->
@@ -321,4 +337,24 @@
   const thisYear = new Date().getFullYear();
   year.setAttribute("data-year", thisYear); //It sets the "data-year" attribute of the "year" element to the value of "thisYear" (not really necessary, just to learn)
   year.textContent = thisYear;
+
+  //MODAL:
+
+  // When the user subscribes, open the modal
+
+  let form = document.getElementById("subscribe-form");
+  let modal = document.getElementById("subscribe-modal");
+
+  form.onsubmit = send;
+
+  function send() {
+    modal.style.display = "block";
+    form.style.display = "none";
+  }
+
+  function closeSubscribeModal() {
+    modal.style.display = "none";
+    form.style.display = "block";
+    form.reset();
+  }
 </script>

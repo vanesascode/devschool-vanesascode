@@ -46,13 +46,1017 @@
       type="text/css"
       href="{{ url_for('static', filename='colors-responsive.css') }}"
     />
+
+    <style>
+      .invalid {
+        border: solid 1px red;
+      }
+    </style>
   </head>
 
-  <body>
+  <body class="pt-5">
     <!--NAV-->
-    {% include "apply/nav.html" %}
+    {% include "school/nav.html" %}
 
+    <!--title-->
+    <div
+      class="text-center container-fluid pt-100 pb-50 px-5"
+      style="
+        background: linear-gradient(
+          0deg,
+          rgb(20, 4, 110) 0%,
+          rgba(0, 212, 255, 1) 100%
+        );
+      "
+    >
+      <h1
+        class="display-5"
+        style="font-family: 'Josefin Sans', sans-serif; font-weight: 500"
+        id="title"
+      >
+        &#8249; Apply to
+        <span style="color: white">Dev School</span>
+        &#8250;
+      </h1>
+    </div>
+    <!--subtitle-->
+    <div class="container mx-auto mt-3">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        ⚠ This is
+        <b>fictional form</b>. It is a practical example of all the HTML inputs
+        available and their code with JavaScript.
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+
+    <!--enrollment form-->
+    <div class="container bg-white">
+      <form
+        action="https://formsubmit.co/vanesascode@gmail.com"
+        method="POST"
+        target="_blank"
+        id="student-form"
+      >
+        <!--1ST ROW-->
+        <div class="row my-sm-3">
+          <!--Name-->
+          <div class="col-12 col-sm-4 my-3">
+            <label for="name" class="form-label" title="Please enter your name"
+              >Name:</label
+            >
+            <input
+              type="text"
+              name="name"
+              id="name"
+              title="Please enter your name"
+              autofocus
+              class="form-control"
+              pattern="[a-zA-Z]+"
+              oninvalid="this.setCustomValidity('Please enter only letters.')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'surname')"
+            />
+            <div id="alert-name" style="display: none; color: red" class="mt-1">
+              Please, enter your name.
+            </div>
+          </div>
+          <!--Surname-->
+          <div class="col-12 col-sm-4 my-3">
+            <label
+              for="surname"
+              class="form-label"
+              title="Please enter your surname"
+              >Surname:</label
+            >
+            <input
+              type="text"
+              id="surname"
+              name="surname"
+              title="Please enter your surname"
+              class="form-control"
+              pattern="[a-zA-Z]+"
+              oninvalid="this.setCustomValidity('Please enter only letters.')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'telephone')"
+            />
+            <div
+              id="alert-surname"
+              style="display: none; color: red"
+              class="mt-1"
+            >
+              Please, enter your surname.
+            </div>
+          </div>
+          <!--Telephone-->
+          <div class="col-12 col-sm-4 my-3">
+            <label
+              for="telephone"
+              class="form-label"
+              title="Please enter your phone number (numbers only)"
+              >Telephone number:</label
+            >
+            <input
+              type="tel"
+              class="form-control"
+              id="telephone"
+              name="telephone"
+              pattern="[0-9]+"
+              title="Please enter your phone number (numbers only)"
+              oninvalid="this.setCustomValidity('Please enter numbers only')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'email')"
+            />
+            <div
+              id="alert-telephone"
+              style="display: none; color: red"
+              class="mt-1"
+            >
+              Please, enter your phone number.
+            </div>
+          </div>
+        </div>
+
+        <!--2ND ROW-->
+        <div class="row my-sm-3">
+          <!--Email-->
+          <div class="col-12 col-sm-4 my-3">
+            <label
+              for="email"
+              class="form-label"
+              title="Please enter your email"
+              >Email:</label
+            >
+            <input
+              type="email"
+              name="email"
+              id="email"
+              title="Please enter your email"
+              autofocus
+              class="form-control"
+              pattern="[a-zA-Z]+"
+              oninvalid="this.setCustomValidity('Please enter a proper email.')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'password')"
+            />
+            <div
+              id="alert-email"
+              style="display: none; color: red"
+              class="mt-1"
+            >
+              Please, enter your email.
+            </div>
+          </div>
+          <!--Password-->
+          <div class="col-12 col-sm-4 my-3">
+            <label
+              for="password"
+              class="form-label"
+              title="Please enter at least 8 characters"
+              >Create a password:</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              minlength="8"
+              size="8"
+              oninvalid="this.setCustomValidity('Please enter at least 8 characters')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'passwordconfirmation')"
+              title="Please enter at least 8 characters"
+              class="form-control"
+            />
+            <div
+              id="alert-password"
+              style="display: none; color: red"
+              class="mt-1"
+            >
+              Please, enter a password that has at least 8 characters and
+              contains at least:
+              <ul>
+                <li>one uppercase letter</li>
+                <li>one lowercase letter</li>
+                <li>one number</li>
+                <li>one special character</li>
+              </ul>
+            </div>
+          </div>
+          <!--Password confirmation-->
+          <div class="col-12 col-sm-4 my-3">
+            <label
+              for="passwordconfirmation"
+              class="form-label"
+              title="Please repeat the same password"
+            >
+              Confirm password:</label
+            >
+            <input
+              type="password"
+              id="passwordconfirmation"
+              name="passwordconfirmation"
+              minlength="8"
+              oninvalid="this.setCustomValidity('Please repeat the same password')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'subscribe')"
+              title="Please repeat the same password"
+              size="8"
+              class="form-control"
+            />
+            <div
+              id="alert-passwordconfirmation"
+              style="display: none; color: red"
+              class="mt-1"
+            >
+              Please, repeat the same password.
+            </div>
+          </div>
+        </div>
+
+        <!--3RD ROW-->
+        <div class="row my-sm-3">
+          <!--read only example-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="mockinput"
+              class="form-label"
+              title="This is a mock form question that will be read only, we know you want to!"
+              >You're sure you want to become a developer, right?</label
+            >
+            <input
+              class="form-control"
+              type="text"
+              name="mockinput"
+              value="Yes!"
+              readonly
+              id="mockinput"
+              title="This is a mock form question that will be read only, we know you want to!"
+            />
+            <div
+              id="alert-mockinput"
+              style="display: none; color: rgb(0, 102, 255)"
+              class="mt-1"
+            >
+              This is a mock question! 😂
+              <br />
+              We know you want to become a developer!
+            </div>
+          </div>
+          <!--range example-->
+          <div class="col-12 my-3 col-sm-8">
+            <label
+              for="level"
+              title="Please move the slider to tell us your aproximate general knowledge on programming"
+              >Tell us how much do you think you know about programming in
+              general(between 0 and 100):</label
+            >
+            <input
+              type="range"
+              id="level"
+              name="level"
+              min="0"
+              max="100"
+              style="width: 100%"
+              oninput="showValue(this.value)"
+              title="Please move the slider to tell us your aproximate general knowledge on programming"
+            />
+            <p class="form-text" style="display: inline-block">Your level:</p>
+            <span id="valueDisplay">50</span>
+          </div>
+        </div>
+
+        <!--4TH ROW-->
+        <div class="row my-sm-3">
+          <!--radio example-->
+          <div class="col-12 my-3 col-sm-4">
+            <p
+              class="form-label"
+              title="Please select how you learned about us"
+            >
+              How did you learn about us?
+            </p>
+            <div>
+              <input
+                type="radio"
+                name="learnaboutus"
+                id="google"
+                class="form-check-input"
+                onclick="removeOtherRadioTextarea()"
+                title="Please select how you learned about us"
+              />
+              <label
+                for="google"
+                class="form-check-label"
+                title="Please select how you learned about us"
+                >Google</label
+              >
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="learnaboutus"
+                id="socialmedia"
+                class="form-check-input"
+                onclick="removeOtherRadioTextarea()"
+                title="Please select how you learned about us"
+              />
+              <label
+                for="socialmedia"
+                title="Please select how you learned about us"
+                class="form-check-label"
+                >Social media</label
+              >
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="learnaboutus"
+                id="friends"
+                class="form-check-input"
+                onclick="removeOtherRadioTextarea()"
+                title="Please select how you learned about us"
+              />
+              <label
+                for="friends"
+                title="Please select how you learned about us"
+                class="form-check-label"
+                >Friends</label
+              >
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="learnaboutus"
+                id="other-radio-input"
+                class="form-check-input"
+                onclick="appearOtherRadioTextarea()"
+                title="Please select how you learned about us"
+              />
+              <label
+                for="other-radio-input"
+                class="form-check-label"
+                title="Please select how you learned about us"
+                >Other</label
+              >
+              <textarea
+                type="text"
+                rows="3"
+                cols="40"
+                name="telluslearnaboutus-textarea"
+                id="other-radio-textarea"
+                placeholder="Tell us how you learned about us"
+                style="display: none"
+                class="form-control"
+                title="Please select how you learned about us"
+              ></textarea>
+              <div id="alert-radios" class="mt-1"></div>
+            </div>
+          </div>
+          <!--checkbox example-->
+          <div class="col-12 my-3 col-sm-8">
+            <p title="Please select all the languages you want to learn">
+              Select all the languages you want to learn
+            </p>
+            <div class="row">
+              <div class="col-12 col-sm-3">
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="javaScript"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="javaScript"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >JavaScript</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="typescript"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="typescript"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >Typescript</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="python"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="python"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >Python</label
+                  >
+                </div>
+              </div>
+              <div class="col-12 col-sm-3">
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="html"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="html"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >HTML</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="css"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                    s
+                  />
+                  <label
+                    for="css"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >CSS</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="java"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="java"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >Java</label
+                  >
+                </div>
+              </div>
+              <div class="col-12 col-sm-3">
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="c++"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="c++"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >C++</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="c#"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="c#"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >C#</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="ruby"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="ruby"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >Ruby</label
+                  >
+                </div>
+              </div>
+              <div class="col-12 col-sm-3">
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="php"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="php"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >PHP</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="swift"
+                    onclick="removeOtherCheckbox()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="swift"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >Swift</label
+                  >
+                </div>
+
+                <div>
+                  <input
+                    type="checkbox"
+                    name="languages"
+                    id="other-checkbox-input"
+                    onclick="appearOtherCheckboxTextarea()"
+                    class="form-check-input"
+                    title="Please select all the languages you want to learn"
+                  />
+                  <label
+                    for="other-checkbox-input"
+                    class="form-check-label"
+                    title="Please select all the languages you want to learn"
+                    >Others</label
+                  >
+                </div>
+              </div>
+            </div>
+            <textarea
+              id="other-checkbox-textarea"
+              type="text"
+              rows="3"
+              style="display: none"
+              name="telluslanguages-textarea"
+              placeholder="Tell us what other things you want to learn"
+              class="form-control mt-3"
+              title="Please select all the languages you want to learn"
+            ></textarea>
+            <div id="alert-checkboxes" class="mt-1"></div>
+          </div>
+        </div>
+
+        <!--5TH ROW-->
+        <div class="row my-sm-3">
+          <!--select example-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="classes"
+              class="form-label"
+              title="Choose a method to learn"
+              >How would you like to learn?</label
+            >
+            <select
+              id="classes"
+              name="classes"
+              class="form-select"
+              oninvalid="this.setCustomValidity('Please choose one option')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'browser')"
+            >
+              <option value="" title="Choose a method to learn">
+                Choose one option
+              </option>
+              <option
+                value="online"
+                title="Choose a method to learn"
+                id="online"
+              >
+                Online classes
+              </option>
+              <option
+                value="inperson"
+                title="Choose a method to learn"
+                id="inperson"
+              >
+                In-person classes
+              </option>
+              <option
+                value="hybrid"
+                title="Choose a method to learn"
+                id="hybrid"
+              >
+                Hybrid classes
+              </option>
+            </select>
+            <div id="alert-classes" style="display: none; color: red">
+              Please choose a method to learn.
+            </div>
+          </div>
+          <!--datalist examplee-->
+          <div class="col-12 my-3 col-sm-4">
+            <p class="form-label" title="Choose a prefered browser">
+              Click to choose a prefered browser:
+            </p>
+            <input
+              list="browsers"
+              name="browser"
+              class="form-control"
+              title="Choose a prefered browser"
+              id="browser"
+              oninvalid="this.setCustomValidity('Please choose an option')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'datemin')"
+            />
+            <datalist id="browsers">
+              <option value="Microsoft Edge"></option>
+              <option value="Firefox"></option>
+              <option value="Chrome"></option>
+              <option value="Opera"></option>
+              <option value="Safari"></option>
+            </datalist>
+            <div id="alert-browser" style="display: none; color: red">
+              Choose a prefered browser.
+            </div>
+          </div>
+          <!--min max attributes in dates-->
+          <!--You can also use max and min max for specific days or months e.g. min="2024-09-01" -->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="datemin"
+              class="form-label"
+              title="Choose a week to start studying"
+              >When would you like to start studying?</label
+            >
+            <input
+              type="week"
+              id="datestart"
+              name="datestart"
+              min="2023-W35"
+              class="form-control"
+              title="Choose a week to start studying"
+              oninvalid="this.setCustomValidity('Please choose a week')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'quantityclasses')"
+            />
+            <div id="dateminHelp" class="form-text">
+              Enter a date after 01-09-2023
+            </div>
+            <div id="alert-datestart" style="display: none; color: red">
+              Choose a week to start studying.
+            </div>
+          </div>
+        </div>
+
+        <!--6TH ROW-->
+        <div class="row my-sm-3">
+          <!--numerical input-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="quantityclasses"
+              class="form-label"
+              title="Set a number of classes you'd like to have per week"
+              >How many classes would you like to have per week?</label
+            >
+            <input
+              class="form-control"
+              type="number"
+              id="quantityclasses"
+              name="quantityclasses"
+              min="1"
+              max="5"
+              title="Set a number of classes you'd like to have per week"
+              oninvalid="this.setCustomValidity('Please choose a number')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'quantityhours')"
+            />
+            <div id="dateminHelp" class="form-text">
+              Quantity (between 1 and 5)
+            </div>
+            <div id="alert-quantityclasses" style="display: none; color: red">
+              Set a number of classes you'd like to have per week.
+            </div>
+          </div>
+          <!--number steps min max attributes-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="quantity"
+              class="form-label"
+              title="Tells us how many hours you expect to be able to study every week"
+              >How many hours are you going to study every week?</label
+            >
+            <input
+              class="form-control"
+              type="number"
+              id="quantityhours"
+              name="quantityhours"
+              min="0"
+              max="100"
+              step="5"
+              value="15"
+              title="Tells us how many hours you expect to be able to study every week"
+              oninvalid="this.setCustomValidity('Please choose a number')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'preferedtime')"
+            />
+            <div
+              id="alert-quantityhours"
+              style="display: none; color: rgb(0, 102, 255)"
+              class="mt-1"
+            >
+              Be realistic! 😂
+            </div>
+          </div>
+          <!--time input-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="preferedtime"
+              class="form-label"
+              title="Tells us an aprox time that would be good for you to start the classes"
+              >What would be a perfect time for you to start a class?</label
+            >
+            <input
+              type="time"
+              id="preferedtime"
+              name="preferedtime"
+              class="form-control"
+              title="Tells us an aprox time that would be good for you to start the classes"
+              oninvalid="this.setCustomValidity('Please choose a time')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'interviewday')"
+            />
+            <div id="alert-preferedtime" style="display: none; color: red">
+              Tells us an aprox time that would be good for you to start the
+              classes.
+            </div>
+          </div>
+        </div>
+
+        <!--7TH ROW-->
+        <div class="row my-sm-3">
+          <!--Datetime-local-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="interviewday"
+              class="form-label"
+              title="Tell us a day and time you'd be able to have an interview with us"
+            >
+              Tell us a day and time you'd be able to have an interview with us
+              before starting the classes:</label
+            >
+            <input
+              type="datetime-local"
+              id="interviewday"
+              name="interviewday"
+              class="form-control"
+              title="Tell us a day and time you'd be able to have an interview with us"
+              oninvalid="this.setCustomValidity('Please choose a day and time')"
+              oninput="this.setCustomValidity('')"
+              oninput="validateInput(this, 'file')"
+            />
+            <div id="alert-interviewday" style="display: none; color: red">
+              Tell us a day and time you'd be able to have an interview with us.
+            </div>
+          </div>
+          <!--File input-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="file"
+              class="form-label"
+              title="Send us some previous programming certificates if you have them"
+              >Send us some previous programming certificates if you have
+              them:</label
+            >
+            <input
+              type="file"
+              id="file"
+              name="file"
+              class="form-control"
+              title="Send us some previous programming certificates if you have them"
+            />
+            <div
+              id="alert-file"
+              style="display: none; color: rgb(0, 102, 255)"
+              class="mt-1"
+            >
+              Common, show us what you know! 😁
+            </div>
+          </div>
+          <!--URl input-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="website"
+              class="form-label"
+              title="Add your personal website or your Linkedin if you have one:"
+              >Add your personal website or your Linkedin if you have
+              one:</label
+            >
+            <input
+              type="url"
+              id="linkedin"
+              name="linkedin"
+              class="form-control"
+              title="Add your personal website or your Linkedin if you have one:"
+            />
+            <div
+              id="alert-linkedin"
+              style="display: none; color: rgb(0, 102, 255)"
+              class="mt-1"
+            >
+              The more online you are, the better! 💪
+            </div>
+          </div>
+        </div>
+
+        <!--8TH ROW-->
+        <div class="row my-sm-3">
+          <!--color input-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="favcolor"
+              class="form-label"
+              title="Please select your favorite color if you like"
+            >
+              Click to select your favorite color if you like:</label
+            >
+            <input
+              type="color"
+              id="favcolor"
+              name="favcolor"
+              value="#0d6efd"
+              class="form-control"
+              title="Please select your favorite color"
+            />
+            <div
+              id="alert-favcolor"
+              style="display: none; color: rgb(0, 102, 255)"
+              class="mt-1"
+            >
+              That's a beautiful color 🌸
+            </div>
+          </div>
+          <!--date input-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="birthday"
+              class="form-label"
+              title="Please tell us your birthday if you like"
+            >
+              Tell us when is your birthday if you like</label
+            >
+            <input
+              type="date"
+              id="birthday"
+              name="birthday"
+              class="form-control"
+              title="Please tell us your birthday"
+            />
+            <div
+              id="alert-birthday"
+              style="display: none; color: red"
+              class="mt-1"
+            >
+              We'd like to know your age.
+            </div>
+          </div>
+          <!--month input-->
+          <div class="col-12 my-3 col-sm-4">
+            <label
+              for="famonth"
+              class="form-label"
+              title="What is your favourite month of the year?"
+            >
+              What is your favourite month of the year?</label
+            >
+            <input
+              type="month"
+              id="favmonth"
+              name="favmonth"
+              class="form-control"
+              title="What is your favourite month of the year?"
+            />
+            <div
+              id="alert-favmonth"
+              style="display: none; color: rgb(0, 102, 255)"
+              class="mt-1"
+            >
+              Winter months are the best, don't you think? more time at home
+              coding! ❄️
+            </div>
+          </div>
+        </div>
+
+        <!--9TH ROW-->
+        <div class="row my-sm-3">
+          <!--textarea example-->
+          <div class="col-12 my-3"></div>
+          <label for="comments" class="form-label"
+            >Tell us more about you:</label
+          >
+          <textarea
+            placeholder="For example: I'm the kind of person that..."
+            name="comments"
+            id="comments"
+            class="form-control"
+            rows="5"
+          ></textarea>
+          <div
+            id="alert-comments"
+            style="display: none; color: red"
+            class="mt-1"
+          >
+            Please, tell us something about you, we are curious 😊
+          </div>
+        </div>
+
+        <!--FormSubmit Advanced Features:-->
+        <!--the thanks email the sender receives-->
+        <input
+          type="hidden"
+          name="_autoresponse"
+          value="Thank you for contacting us. We will get back to you as soon as possible."
+        />
+        <!--the style in which I see the email that formsubmit sends me-->
+        <input type="hidden" name="_template" value="table" />
+
+        <!--BUTTONS-->
+        <div class="my-sm-3">
+          <!--button-->
+          <div class="my-5 d-flex justify-content-center gap-3 text-center">
+            <button
+              type="submit"
+              class="btn btn-dark btn-lg image-up"
+              id="send"
+            >
+              Send
+            </button>
+            <!--Another option:  <input type="submit" value="Submit"> -->
+            <button type="reset" class="btn btn-outline-dark btn-lg image-up">
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
     <!--FOOTER-->
     {% include "footer.html" %}
+
+    <script
+      src="{{ url_for('static', filename='applyJavascript/blueMessages.js') }}  "
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='applyJavascript/checkboxes.js') }}  "
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='applyJavascript/radios.js') }}  "
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='applyJavascript/otherFeatures.js') }}  "
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='applyJavascript/redMessages.js') }}  "
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='applyJavascript/selectInputs.js') }}  "
+      type="text/javascript"
+    ></script>
   </body>
 </html>
