@@ -51,8 +51,6 @@ If you don't have an environment:
 1. In the terminal run: `python app.py` If you are in VSCode, within the file app.py just click on the triangle button on the top right.
 2. Open http://localhost:4000/ in the browser.
 
-## To know all the pip
-
 ## Route handlers
 
 This is our main route handler, since we only have a page in this app:
@@ -67,12 +65,47 @@ When a user accesses the root URL ("/"), the home() function is executed.
 
 The function returns the rendered template "home.html" using the render_template() function from Flask. It passes the JOBS variable (the name of the database, in fact) as a parameter to the template, which can be accessed within the template. Additionally, it passes the value "Dev" as the company_name parameter to the template.
 
+## MongoDB Atlas database
+
+First create a new cluster, a database and a collection in your MongoDB Atlas account.
+Click on "connect" and in the section of drivers you have some instructions (check them in case the ones here are old already):
+
+- Install: `python -m pip install pymongo`
+- Follow the instructions to get a connection.
+
+### .env
+
+Then, you can install `pip install python-dotenv` to make your connection string save. Create an `.env` file and import it in the `app.py` :
+
+```
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Connect to MongoDB using the URI: Retrieving the MongoDB URI from the environment
+mongodb_uri = os.getenv("MONGODB_URI")
+```
+
+Instead of using `uri` as the instructions in the MongoDB docs tells you, you'll be using `mongodb_uri` in your code, if that is the name you gave to your variable in the .env file when you recorded your connection string there.
+
+Remember to put your .env file in the `.gitignore` file.
+
 ## Deployment
 
 Prepare your Flask application:
 
 - [x] Fit everything in an API folder
-- [x] In the root folder create a requirements.txt file (inside write `flask`)
+- [x] In the root folder create a requirements.txt file. Inside write:
+
+```
+Flask
+pymongo
+python-dotenv
+
+```
+
 - [x] In the root folder create a vercel.json file (make it look like the one in this project)
 
 Prepare Vercel:

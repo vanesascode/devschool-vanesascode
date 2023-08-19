@@ -1,7 +1,59 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request, redirect
 
 # Flask instance
 app = Flask(__name__)
+
+# Import MongoClient & Api
+from pymongo import MongoClient
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Connect to MongoDB using the URI: Retrieving the MongoDB URI from the environment
+mongodb_uri = os.getenv("MONGODB_URI")
+
+# Create a new client and connect to the server
+client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
+
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
+
+# Connect to the database
+db = client["devschool-blog-comments"]
+
+# Access to the collection
+comments_collection = db["comments"]
+
+# Define a route to handle the submission of comments
+@app.route("/submit_comment", methods=["POST"])
+def submit_comment():
+    # Get the comment data from the request form
+    comment = request.form.get("comment")
+
+    # Insert the comment into the collection
+    comment_doc = {"comment": comment}
+    result = comments_collection.insert_one(comment_doc)
+
+    # Redirect back to the article page
+    return redirect("/blog/typescript-index-signatures")
+
+@app.route("/blog/typescript-index-signatures")
+def typescriptindexsignatures():
+    # Retrieve the comments from the collection
+    comments = comments_collection.find()
+    # Pass the comments to the article template for rendering
+    return render_template("typescript/typescript-index-signatures.html", comments=comments)
+
+
+# JOBS LIST ( expected to take it to an external cloud database)
 
 JOBS = [
     {
@@ -42,14 +94,21 @@ JOBS = [
     },
 ]
 
-# route decorators: 
+# Route decorators: 
+
+# HOME PAGE
+
 @app.route("/")
 def school():
     return render_template("school/index-school.html")
 
+# JOBS PAGE
+
 @app.route("/jobs")
 def jobs():
     return render_template("jobs/index-jobs.html", jobs=JOBS)
+
+# BLOG ARTICLES
 
 @app.route("/blog")
 def blog():
@@ -63,10 +122,6 @@ def javascriptinterviewquestions():
 def javascriptclassesbooklist():
     return render_template("javascript/javascript-classes-booklist.html")
 
-@app.route("/blog/typescript-index-signatures")
-def typescriptindexsignatures():
-    return render_template("typescript/typescript-index-signatures.html")
-
 @app.route("/blog/javascript-array-methods-part-one")
 def javascriptarraymethodspartone():
     return render_template("javascript/javascript-array-methods-part-one.html")
@@ -75,6 +130,11 @@ def javascriptarraymethodspartone():
 def javascriptarraymethodsparttwo():
     return render_template("javascript/javascript-array-methods-part-two.html")
 
+@app.route("/blog/typescript-record-utiliy-type")
+def typescriptrecordutiliytype():
+    return render_template("typescript/typescript-record-utiliy-type.html")
+
+# FORM AND PRIVACY POLICY:
 
 @app.route("/apply")
 def apply():
@@ -84,12 +144,14 @@ def apply():
 def privacypolicy():
     return render_template("privacy-policy.html")
 
+# API WITH JOBS LIST:
 
 @app.route("/api/jobs")
 def list_jobs():
 
     return jsonify(JOBS)
 
+# TO RUN THE APP: 
 
 if __name__ == "__main__":
     app.run(debug=True, port=4000)

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Typescript: A practical example with the Record Utiliy Type. | Dev Blog
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--Open Graph tags-->
+    <meta property="og:type" content="article" />
+    <meta
+      name="title"
+      property="og:title"
+      content="Typescript: A practical example with the Record Utiliy Type."
+    />
+    <meta
+      name="description"
+      property="og:description"
+      content="In this article we're going to see what is the Record Utility Type
+      and some examples to understand it, including a mini grades app. Also learn about the optional operator and assertions."
+    />
+    <meta property="og:article:author" content="vanesascode" />
+    <meta property="og:article:published_time" content="2023-08-22T09:00:00Z" />
+
+    <!--structured data markup-->
+    <script type="application/ld+json">
+      {
+        "@context": "https://devschool-vanesascode.vercel.app/blog/typescript-record-utiliy-type",
+        "@type": "typescript tutorial",
+        "name": "Typescript: A practical example with the Record Utiliy Type.",
+        "author": {
+          "@type": "Person",
+          "name": "vanesascode"
+        },
+        "datePublished": "2023-08-22",
+        "description": "In this article we're going to see what is the Record Utility Type
+        and some examples to understand it, including a mini grades app. Also learn about the optional operator and assertions.",
+      }
+    </script>
+
+    <!--FAVICON ICO-->
+    <link rel="icon" type="image/x-icon" href="../static/favicon.ico2.jpg" />
+
+    <!--BOOTSTRAP-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--FONTAWESOME-->
+    <script
+      src="https://kit.fontawesome.com/b3cb0b9144.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='transitions.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='colors-responsive.css') }}"
+    />
+  </head>
+
+  <body style="overflow-x: hidden">
+    <!--NAV-->
+    {% include "school/nav.html" %}
+
+    <div class="container px-4 pt-150">
+      <!--breadcrumb navigation-->
+      <div class="pb-80">
+        <p>
+          <a
+            href="{{ url_for('blog') }}"
+            class="text-secondary"
+            style="text-decoration: none"
+            ><span class="underline">Blog home</span></a
+          ><b class="text-secondary"> &#8594; </b
+          ><a
+            href="{{ url_for('blog') }}#typescript"
+            style="text-decoration: none"
+            ><span class="underline text-secondary">Typescript</span></a
+          ><b class="text-secondary"> &#8594; </b
+          ><span
+            >Typescript: A practical example with the Record Utiliy Type.</span
+          >
+        </p>
+      </div>
+
+      <div class="row pb-100 gap-5">
+        <!--ARTICLE DESCRIPTION WHEN BIG-->
+        <div class="d-none d-md-block col-2 px-3">
+          <div>
+            <div class="pb-3">
+              <p><b>4 min read</b></p>
+            </div>
+
+            <div class="pb-3">
+              <p class="mb-0"><b>Published</b></p>
+              <p>22 Aug 2023</p>
+            </div>
+
+            <a
+              href="{{ url_for('school') }}#about"
+              style="text-decoration: none"
+            >
+              <div class="underline pb-3">
+                <p class="mb-0"><b>Author</b></p>
+                <p>vanesascode</p>
+              </div>
+            </a>
+            <a
+              href="{{ url_for('blog') }}#typescript"
+              style="text-decoration: none"
+            >
+              <div class="underline pb-3">
+                <p class="mb-0"><b>Category</b></p>
+                <p>Typescript</p>
+              </div>
+            </a>
+          </div>
+          <div class="pt-5">{% include "blog/latest-articles-bar.html" %}</div>
+        </div>
+
+        <!--ARTICLE CONTENT-->
+
+        <div class="col-12 col-md-8 px-md-4">
+          <h1 class="blog-title">
+            Typescript record utiliy type.
+            <span class="d-none d-md-block">A practical example.</span>
+            <span class="d-block d-md-none fs-1 mt-3"
+              >A practical example.</span
+            >
+          </h1>
+
+          <!--ARTICLE DESCRIPTION WHEN SMALL-->
+          <div class="d-block d-md-none pt-4">
+            <div class="pb-md-3">
+              <p><b>4 min read</b></p>
+            </div>
+            <div class="d-flex gap-5">
+              <div class="pb-md-3">
+                <p class="mb-0"><b>Published</b></p>
+                <p>22 Aug 2023</p>
+              </div>
+
+              <a
+                href="{{ url_for('school') }}#about"
+                style="text-decoration: none"
+              >
+                <div class="underline pb-md-3">
+                  <p class="mb-0"><b>Author</b></p>
+                  <p>vanesascode</p>
+                </div>
+              </a>
+            </div>
+            <a
+              href="{{ url_for('blog') }}#typescript"
+              style="text-decoration: none"
+            >
+              <div class="underline">
+                <p class="mb-0"><b>Category</b></p>
+                <p>Typescript</p>
+              </div>
+            </a>
+          </div>
+
+          <!--ARTICLE CONTINUES-->
+
+          <br /><br />
+          <p class="fs-5">
+            In this article we're going to see what is the Record Utility Type
+            and some examples to understand it, including a mini grades app.
+          </p>
+          <br /><br />
+          <img
+            src="../../static/blog/grades-app.jpg"
+            alt="product catalog"
+            class="img-fluid"
+            max-height="400px"
+          />
+
+          <div class="d-flex gap-3 my-5">
+            <a
+              href="https://twitter.com/intent/tweet?url={{ request.url }}"
+              target="_blank"
+            >
+              <i class="fa-brands fa-twitter fa-xl" style="color: #000000"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.url }}"
+              target="_blank"
+            >
+              <i class="fa-brands fa-linkedin fa-xl" style="color: #000000"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}"
+              target="_blank"
+            >
+              <i class="fa-brands fa-facebook fa-xl" style="color: #000000"></i>
+            </a>
+          </div>
+          <br />
+          <h2 class="blog-subtitle">What is the Record Utility Type?</h2>
+          <br /><br />
+          <p class="fs-5">
+            The Record Utility Type is used to create a new type with specified
+            keys mapped to a specific value type. It takes
+            <b>two type parameters: K for the keys and V for the values.</b>
+          </p>
+          <br /><br />
+          <p class="fs-5">Here you can see a very easy example:</p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/e37b47f83535f2abb3b466abca3910fc.js"></script>
+          <br /><br />
+
+          <p class="fs-5">
+            In this example, 'NumberDictionary' is a type that represents an
+            object with string keys and number values.
+          </p>
+          <br /><br />
+          <p class="fs-5">
+            However,
+            <b
+              >the Record utility type can hold any type for both the keys and
+              the values.</b
+            >
+            This includes type aliases and literal types, such as string
+            literals, number literals, boolean literals, and even symbol
+            literals.
+          </p>
+          <br /><br />
+          <h2 class="blog-subtitle">Example: Mini Grades App</h2>
+
+          <br /><br />
+
+          <p class="fs-5">
+            In the following code snippet we have two <b>union types</b>, one
+            for our students, and another one for the grades. We do so because
+            we don't want to make typos in our school report:
+          </p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/2a9cdbf7d1e9baed1255317225b0e6fa.js"></script>
+
+          <br /><br />
+
+          <p class="fs-5">
+            So, we can create the following <b>Record type:</b>
+          </p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/e1719aee4de289f13afacb707eaf11a8.js"></script>
+          <br /><br />
+
+          <p class="fs-5">
+            Here you can play with this grades app, as a visual reperesentation
+            of the Record type we have created. Select a student from the first
+            list and then select a grade from the second list:
+          </p>
+          <br /><br />
+          <!--FORM-->
+          <div class="container bg-warning px-3 py-5 px-md-5 rounded">
+            <div class="d-flex gap-3">
+              <div class="flex-grow-1">
+                <select id="studentName" class="form-select fs-3">
+                  <option value="Sara">Sara</option>
+                  <option value="Kelly">Kelly</option>
+                  <option value="John">John</option>
+                  <option value="Jane">Jane</option>
+                  <option value="Walter">Walter</option>
+                  <option value="Sua">Sua</option>
+                  <option value="Lis">Lis</option>
+                  <option value="Clara">Clara</option>
+                  <option value="Mia">Mia</option>
+                  <option value="David">David</option>
+                </select>
+                <select id="grade" class="form-select fs-3">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                  <option value="F">F</option>
+                </select>
+              </div>
+
+              <button id="resetButton" class="btn btn-dark fs-3">Reset</button>
+            </div>
+            <div>
+              <div
+                id="finalGrades"
+                style="list-style: none"
+                class="mt-3 fs-3"
+              ></div>
+            </div>
+          </div>
+          <br /><br />
+          <br /><br />
+          <h3 class="fw-bold">Html section:</h3>
+          <br /><br />
+          <p class="fs-5">
+            Here you can see the Html part of the grades app, so you can see
+            where the IDs are placed:
+          </p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/20a5143525ff3a22461c3bce36c1a5e2.js"></script>
+          <br /><br />
+          <h3 class="fw-bold">Typescript section:</h3>
+
+          <br /><br />
+          <p class="fs-5">
+            First we declare some variables and
+            <b>assign the values from the DOM</b>
+            that we are going to need. Then, we add event listeners to the
+            inputs and the button. At first, I wasn't sure if I was going to add
+            a reset button, that is why I added an optional operator to the
+            resetButton variable:
+          </p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/51368583df3859a19db30f8a7e5ccc6a.js"></script>
+          <br /><br />
+          <div class="info-boxes-color p-5 rounded">
+            <p class="fs-5">
+              👉 The <b>optional chaining operator (?)</b> is used to access
+              properties or call methods on an object that may be null or
+              undefined. It allows you to safely navigate through a chain of
+              properties or method calls without causing an error if one of the
+              intermediate steps is null or undefined.<br /><br />
+            </p>
+
+            <p class="fs-5">
+              By using <b>resetButton?.addEventListener</b>, it ensures that the
+              addEventListener method is only called if resetButton is not null
+              or undefined. If resetButton is null or undefined, the expression
+              will simply evaluate to undefined and no error will be thrown.
+            </p>
+          </div>
+          <br /><br />
+          <p class="fs-5">
+            Then, we create the functions that make possible that the objects
+            created are printed in the HTML or are reseted. Notice the use of
+            <b>as</b>:
+          </p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/13372aee51b93335566817fe240a45ac.js"></script>
+          <br /><br />
+          <div class="info-boxes-color p-5 rounded">
+            <p class="fs-5">
+              👉 The <b>as</b> keyword is used for <b>type assertions</b> or
+              type casting in TypeScript.<br /><br />
+            </p>
+
+            <p class="fs-5">
+              <b>Type assertions</b> are used when the developer knows more
+              about the types than TypeScript can infer automatically. They are
+              a way to override the type inference or provide additional type
+              information to the compiler.
+            </p>
+            <br /><br />
+            <p class="fs-5">
+              However, it's important to use type assertions carefully and make
+              sure that the assertion is correct, as incorrect type assertions
+              can lead to runtime errors or type-related bugs.
+            </p>
+          </div>
+
+          <br /><br />
+          <h2 class="blog-subtitle">Conclusion</h2>
+          <br /><br />
+          <p class="fs-5">
+            As we have seen, the Record type utility in TypeScript is useful for
+            creating <b>objects with specific key-value pair mappings</b>. It
+            ensures type safety and improves code readability by enforcing the
+            specified types for keys and values. It helps create well-typed
+            dictionaries and lookup tables, making your code more robust and
+            maintainable.
+          </p>
+          <br /><br />
+          <p class="fs-5">Here is the complete code of the Typescript part:</p>
+          <br /><br />
+          <script src="https://gist.github.com/vanesascode/82a1abb37d4f7097da0cbe57a10bf6ac.js"></script>
+        </div>
+      </div>
+    </div>
+    <!--LATEST ARTICLES BAR-->
+    <div class="p-5 container bg-warning d-block d-md-none">
+      {% include "blog/latest-articles-bar.html" %}
+    </div>
+
+    <!--FOOTER-->
+    {% include "footer.html" %}
+
+    <script>
+      "use strict";
+      //TYPES:
+      // GENERAL VARIABLES:
+      const finalGrades = {};
+      const studentSelect = document.getElementById("studentName");
+      const gradeSelect = document.getElementById("grade");
+      const finalGradesDiv = document.getElementById("finalGrades");
+      const resetButton = document.getElementById("resetButton");
+      // EVENT LISTENERS:
+      studentSelect.addEventListener("input", updateFinalGrades);
+      gradeSelect.addEventListener("change", updateFinalGrades);
+      resetButton?.addEventListener("click", resetForm);
+      // FUNCTION TO UPDATE FINAL GRADES:
+      function updateFinalGrades() {
+        const studentName = studentSelect.value;
+        const grade = gradeSelect.value;
+        finalGrades[studentName] = grade;
+        if (finalGradesDiv) {
+          finalGradesDiv.innerHTML = Object.entries(finalGrades)
+            .map(([student, grade]) => `<li><b> ${student}: </b> ${grade}</li>`)
+            .join("");
+        }
+      }
+      // FUNCTION TO RESET FORM:
+      function resetForm() {
+        if (finalGradesDiv) {
+          finalGradesDiv.innerHTML = "";
+        }
+        Object.keys(finalGrades).forEach((key) => delete finalGrades[key]);
+        if (studentSelect) {
+          studentSelect.value = "";
+        }
+        if (gradeSelect) {
+          gradeSelect.value = "";
+        }
+      }
+    </script>
+  </body>
+</html>

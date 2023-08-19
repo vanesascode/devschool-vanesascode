@@ -114,7 +114,7 @@
         <div class="d-none d-md-block col-2 px-3">
           <div>
             <div class="pb-3">
-              <p><b>9 min read</b></p>
+              <p><b>6 min read</b></p>
             </div>
 
             <div class="pb-3">
@@ -154,7 +154,7 @@
           <!--ARTICLE DESCRIPTION WHEN SMALL-->
           <div class="d-block d-md-none pt-4">
             <div class="pb-md-3">
-              <p><b>4 min read</b></p>
+              <p><b>6 min read</b></p>
             </div>
             <div class="d-flex gap-5">
               <div class="pb-md-3">
@@ -550,9 +550,39 @@
           <p class="fs-5">Here is the complete code of the Typescript part:</p>
           <br /><br />
           <script src="https://gist.github.com/vanesascode/ffec9adf55f23aecb1bd6ae6955ca69a.js"></script>
+
+          <br /><br /><br />
+
+          <!--RENDER COMMENTS-->
+
+          <h3 class="fw-bold">Comments</h3>
+          <br />
+          <p>Start a discussion, not a fire. Post with kidness.</p>
+          <br />
+          {% for comment in comments %}
+
+          <p class="fs-5 border p-4 rounded">{{ comment.comment }}</p>
+          {% endfor %}
+          <br /><br />
+
+          <!-- WRITE COMMENTS-->
+
+          <h3 class="fw-bold">Add a Comment</h3>
+          <br />
+          <form method="POST" action="/submit_comment">
+            <textarea
+              name="comment"
+              placeholder="Enter your comment"
+              class="form-control mb-4 fs-5 p-4"
+            ></textarea>
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+
     <!--LATEST ARTICLES BAR-->
     <div class="p-5 container bg-warning d-block d-md-none">
       {% include "blog/latest-articles-bar.html" %}
