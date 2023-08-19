@@ -185,30 +185,23 @@
         <div class="row my-sm-3">
           <!--Email-->
           <div class="col-12 col-sm-4 my-3">
-            <label
-              for="email"
-              class="form-label"
-              title="Please enter your email"
-              >Email:</label
-            >
+            <label for="email" class="form-label">Email:</label>
             <input
+              id="email"
               type="email"
               name="email"
-              id="email"
-              title="Please enter your email"
-              autofocus
-              class="form-control"
-              pattern="[a-zA-Z]+"
-              oninvalid="this.setCustomValidity('Please enter a proper email.')"
+              title="Please enter a valid email address"
+              oninvalid="this.setCustomValidity('Please enter a valid email address')"
               oninput="this.setCustomValidity('')"
-              oninput="validateInput(this, 'password')"
+              oninput="validateInput(this, 'email')"
+              class="form-control"
             />
             <div
               id="alert-email"
               style="display: none; color: red"
               class="mt-1"
             >
-              Please, enter your email.
+              Please, enter a proper email.
             </div>
           </div>
           <!--Password-->
@@ -1016,15 +1009,11 @@
         <div class="my-sm-3">
           <!--button-->
           <div class="my-5 d-flex justify-content-center gap-3 text-center">
-            <button
-              type="submit"
-              class="btn btn-dark btn-lg image-up"
-              id="send"
-            >
+            <button type="submit" class="btn btn-primary btn-lg" id="send">
               Send
             </button>
             <!--Another option:  <input type="submit" value="Submit"> -->
-            <button type="reset" class="btn btn-outline-dark btn-lg image-up">
+            <button type="reset" class="btn btn-outline-primary btn-lg">
               Reset
             </button>
           </div>

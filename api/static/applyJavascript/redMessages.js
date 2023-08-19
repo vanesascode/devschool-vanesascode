@@ -63,7 +63,7 @@ telephoneInput.addEventListener("input", function (e) {
 
 const emailInput = document.getElementById("email");
 const emailAlert = document.getElementById("alert-email");
-const emailRegex = /\S+@\S+\.\S+/;
+const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 emailInput.addEventListener("input", function (e) {
   removeInputErrors(emailInput, emailAlert, emailRegex);
 });
@@ -77,7 +77,7 @@ passwordInput.addEventListener("input", function (e) {
 
 const commentsInput = document.getElementById("comments");
 const commentsAlert = document.getElementById("alert-comments");
-const commentsRegex = /^[A-Za-z0-9]+$/;
+const commentsRegex = /^[A-Za-z0-9]/;
 commentsInput.addEventListener("input", function (e) {
   removeInputErrors(commentsInput, commentsAlert, commentsRegex);
 });
@@ -98,14 +98,3 @@ const passwordconfirmationAlert = document.getElementById("alert-passwordconfirm
 passwordconfirmationInput.addEventListener("input", function (e) {
   removeInputErrorsConfirmationPassword(passwordconfirmationInput, passwordconfirmationAlert, passwordInput);
 });
-
-
-
-
-
-
-
-
-
-
-
