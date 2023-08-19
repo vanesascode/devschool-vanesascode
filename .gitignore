@@ -1,1 +1,5 @@
+# Ignore vercel folder with important ID
 .vercel
+
+# Ignore .env file
+.env
