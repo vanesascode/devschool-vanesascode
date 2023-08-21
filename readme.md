@@ -117,14 +117,7 @@ Instead of using `@app.route` as we do in the app.py file, we use `@postroutes_b
 Prepare your Flask application:
 
 - [x] Fit everything in an API folder
-- [x] In the root folder create a requirements.txt file. Inside write:
-
-```
-Flask
-pymongo
-python-dotenv
-
-```
+- [x] In the root folder create a requirements.txt file. You can automatically create it with this command: `pip freeze > requirements.txt`
 
 - [x] In the root folder create a vercel.json file (make it look like the one in this project)
 

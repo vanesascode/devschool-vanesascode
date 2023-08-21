@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify, request, redirect
+from flask import Blueprint, request, redirect
 from datetime import datetime
 from database import typescriptindexsignaturescomments_collection, javascriptclassescomments_collection, javascriptarraymethodspartonecomments_collection, typescriptrecordutilitytypecomments_collection, javascriptarraymethodsparttwocomments_collection
 
