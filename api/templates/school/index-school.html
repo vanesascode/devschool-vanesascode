@@ -157,7 +157,7 @@
                 src="../../static/blog/subscribe-modal.webp"
                 alt="woman asking to subscribe to the newsletter"
                 class="img-fluid"
-                width="150px"
+                width="220px"
               />
             </div>
             <h3 class="modal-title ms-3 mb-2">
@@ -221,27 +221,29 @@
     </div>
 
     <script>
-      // document.addEventListener("DOMContentLoaded", function () {
-      //   const modal = document.getElementById("subscriptionModal");
-      //   const closeBtn = document.getElementById("closeBtn");
-      //   const subscriptionForm = document.getElementById("subscriptionForm");
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("subscriptionModal");
+        const closeBtn = document.getElementById("closeBtn");
+        const subscriptionForm = document.getElementById("subscriptionForm");
 
-      //   // Check if the modal should be displayed
-      //   const hasModalBeenShown = localStorage.getItem("modalShown");
+        // Check if the modal should be displayed
+        const hasModalBeenShown = localStorage.getItem("modalShown");
 
-      //   if (!hasModalBeenShown) {
-      //     modal.style.display = "block";
-      //     localStorage.setItem("modalShown", "true");
-      //   }
+        if (!hasModalBeenShown) {
+          modal.style.display = "block";
+          localStorage.setItem("modalShown", "true");
+        }
 
-      //   closeBtn.addEventListener("click", function () {
-      //     modal.style.display = "none";
-      //   });
+        // Closing the modal with the X button
+        closeBtn.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
 
-      //   subscriptionForm.addEventListener("submit", function () {
-      //     modal.style.display = "none";
-      //   });
-      // });
+        // Closing the modal when submitting the form
+        subscriptionForm.addEventListener("submit", function () {
+          modal.style.display = "none";
+        });
+      });
     </script>
   </body>
 </html>
