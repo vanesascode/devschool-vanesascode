@@ -4,6 +4,10 @@
   background-color: rgb(173, 171, 239);
 }
 
+.info-text-color {
+  color: rgb(173, 171, 239);
+}
+
 /*MEDIA QUERIES */
 
 body {

@@ -119,6 +119,11 @@
             <div class="pb-3">
               <p><b>4 min read</b></p>
             </div>
+            <div class="pb-3">
+              <p>
+                <b>{{ typescriptrecordutilitytypecomments|length }} comments</b>
+              </p>
+            </div>
 
             <div class="pb-3">
               <p class="mb-0"><b>Published</b></p>
@@ -160,8 +165,18 @@
 
           <!--ARTICLE DESCRIPTION WHEN SMALL-->
           <div class="d-block d-md-none pt-4">
-            <div class="pb-md-3">
-              <p><b>4 min read</b></p>
+            <div class="pb-md-3 d-flex gap-5">
+              <div class="pb-md-3">
+                <p><b>4 min read</b></p>
+              </div>
+              <div>
+                <p class="ps-2">
+                  <b
+                    >{{ typescriptrecordutilitytypecomments|length }}
+                    comments</b
+                  >
+                </p>
+              </div>
             </div>
             <div class="d-flex gap-5">
               <div class="pb-md-3">
@@ -403,6 +418,79 @@
           <p class="fs-5">Here is the complete code of the Typescript part:</p>
           <br /><br />
           <script src="https://gist.github.com/vanesascode/82a1abb37d4f7097da0cbe57a10bf6ac.js"></script>
+          <br /><br /><br />
+          <!--COMMENTS-->
+          <div class="container">
+            <!--RENDER COMMENTS-->
+
+            <h3>
+              {{ typescriptrecordutilitytypecomments|length }}
+              <span class="info-text-color fw-bolder">thoughts</span> on
+              "Typescript: A practical example with the Record Utiliy Type"
+            </h3>
+            <br />
+
+            {% for typescriptrecordutilitytypecomment in
+            typescriptrecordutilitytypecomments %}
+            <div class="py-3 border-bottom">
+              <div class="d-flex gap-3 my-3">
+                <div>
+                  <img
+                    src="../../static/blog/blog-comment.webp "
+                    alt="microphone-speak-your-thoughts"
+                    class="rounded-circle img-fluid"
+                    style="width: 60px; height: 60px"
+                  />
+                </div>
+                <div>
+                  <div class="align-middle">
+                    <p class="mb-0 fs-5">
+                      <strong
+                        >{{ typescriptrecordutilitytypecomment.name }}</strong
+                      >
+                    </p>
+                    <p class="mb-0 fs-6">
+                      {{ typescriptrecordutilitytypecomment.posted_at }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <p class="fs-5">
+                {{ typescriptrecordutilitytypecomment.comment }}
+              </p>
+            </div>
+
+            {% endfor %}
+            <br /><br /><br />
+
+            <!-- WRITE COMMENTS-->
+
+            <h3>Add a Comment</h3>
+            <p>Always be kind to other readers ❤️</p>
+            <br />
+            <form
+              method="POST"
+              action="/submit_typescriptrecordutilitytypecomment"
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                class="form-control mb-4 fs-5 py-3"
+              />
+              <textarea
+                name="comment"
+                placeholder="Enter your comment"
+                class="form-control mb-4 fs-5 py-3"
+              ></textarea>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-dark">Submit</button>
+              </div>
+            </form>
+          </div>
+
+          <!--end of other divs-->
         </div>
       </div>
     </div>

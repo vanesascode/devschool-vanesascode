@@ -126,5 +126,122 @@
     </div>
     <!--FOOTER-->
     {% include "footer.html" %}
+
+    <!-- Subscribe Modal when user first opens website-->
+
+    <div
+      id="subscriptionModal"
+      class="modal"
+      tabindex="-1"
+      style="
+        background-color: rgba(255, 255, 255, 0.6);
+        /* backdrop-filter: blur(20px); */
+      "
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!--Close button-->
+          <div class="d-flex justify-content-end pt-3 pe-3">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              id="closeBtn"
+            ></button>
+          </div>
+          <!--Header-->
+          <div class="modal-header pt-0 px-4">
+            <div class="px-2">
+              <img
+                src="../../static/blog/subscribe-modal.webp"
+                alt="woman asking to subscribe to the newsletter"
+                class="img-fluid"
+                width="150px"
+              />
+            </div>
+            <h3 class="modal-title ms-3 mb-2">
+              Subscribe to the Dev School newsletter and don't miss out!
+            </h3>
+          </div>
+          <!--Body-->
+          <div class="modal-body bg-warning px-4">
+            <p style="font-size: 11px" class="py-2">
+              <em
+                ><b>Subscribe</b> to Dev School to receive updates on new blog
+                posts! Don't worry, your information won't be sold to any third
+                parties. It will only be used to keep you updated about this
+                blog.</em
+              >
+            </p>
+            <form
+              id="subscriptionForm"
+              action="https://formsubmit.co/vanesascode@gmail.com"
+              method="POST"
+              target="_blank"
+            >
+              <!-- Input email -->
+              <input
+                type="email"
+                name="email"
+                placeholder="Email address"
+                required
+                class="form-control mb-1"
+              />
+              <!--Privacy policy checkbox-->
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="exampleCheck1"
+                  required
+                />
+
+                <label class="form-check-label" for="exampleCheck1"
+                  >I accept the
+                  <a
+                    href="{{ url_for('privacypolicy') }}"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="fw-bold"
+                    style="text-decoration: none"
+                    ><span class="underline">privacy policy</span></a
+                  ></label
+                >
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-dark mb-4">
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   const modal = document.getElementById("subscriptionModal");
+      //   const closeBtn = document.getElementById("closeBtn");
+      //   const subscriptionForm = document.getElementById("subscriptionForm");
+
+      //   // Check if the modal should be displayed
+      //   const hasModalBeenShown = localStorage.getItem("modalShown");
+
+      //   if (!hasModalBeenShown) {
+      //     modal.style.display = "block";
+      //     localStorage.setItem("modalShown", "true");
+      //   }
+
+      //   closeBtn.addEventListener("click", function () {
+      //     modal.style.display = "none";
+      //   });
+
+      //   subscriptionForm.addEventListener("submit", function () {
+      //     modal.style.display = "none";
+      //   });
+      // });
+    </script>
   </body>
 </html>

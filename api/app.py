@@ -1,57 +1,14 @@
 from flask import Flask, render_template, jsonify, request, redirect
+from database import typescriptindexsignaturescomments_collection, db, javascriptclassescomments_collection, javascriptarraymethodspartonecomments_collection, typescriptrecordutilitytypecomments_collection, javascriptarraymethodsparttwocomments_collection
+from postroutes import postroutes_blueprint 
+
+from datetime import datetime
 
 # Flask instance
 app = Flask(__name__)
 
-# Import MongoClient & Api
-from pymongo import MongoClient
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
-from dotenv import load_dotenv
-import os
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Connect to MongoDB using the URI: Retrieving the MongoDB URI from the environment
-mongodb_uri = os.getenv("MONGODB_URI")
-
-# Create a new client and connect to the server
-client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
-
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)
-
-# Connect to the database
-db = client["devschool-blog-comments"]
-
-# Access to the collection
-comments_collection = db["comments"]
-
-# Define a route to handle the submission of comments
-@app.route("/submit_comment", methods=["POST"])
-def submit_comment():
-    # Get the comment data from the request form
-    comment = request.form.get("comment")
-
-    # Insert the comment into the collection
-    comment_doc = {"comment": comment}
-    result = comments_collection.insert_one(comment_doc)
-
-    # Redirect back to the article page
-    return redirect("/blog/typescript-index-signatures")
-
-@app.route("/blog/typescript-index-signatures")
-def typescriptindexsignatures():
-    # Retrieve the comments from the collection
-    comments = comments_collection.find()
-    # Pass the comments to the article template for rendering
-    return render_template("typescript/typescript-index-signatures.html", comments=comments)
-
+# Register the routes blueprint
+app.register_blueprint(postroutes_blueprint)
 
 # JOBS LIST ( expected to take it to an external cloud database)
 
@@ -94,47 +51,23 @@ JOBS = [
     },
 ]
 
-# Route decorators: 
+############### WEBSITE ROUTES #################
 
-# HOME PAGE
+#### HOME PAGE
 
 @app.route("/")
 def school():
     return render_template("school/index-school.html")
 
-# JOBS PAGE
+
+#### JOBS PAGE
 
 @app.route("/jobs")
 def jobs():
     return render_template("jobs/index-jobs.html", jobs=JOBS)
 
-# BLOG ARTICLES
 
-@app.route("/blog")
-def blog():
-    return render_template("blog/index-blog.html")
-
-@app.route("/blog/javascript-interview-questions")
-def javascriptinterviewquestions():
-    return render_template("javascript/javascript-interview-questions.html")
-
-@app.route("/blog/javascript-classes-booklist")
-def javascriptclassesbooklist():
-    return render_template("javascript/javascript-classes-booklist.html")
-
-@app.route("/blog/javascript-array-methods-part-one")
-def javascriptarraymethodspartone():
-    return render_template("javascript/javascript-array-methods-part-one.html")
-
-@app.route("/blog/javascript-array-methods-part-two")
-def javascriptarraymethodsparttwo():
-    return render_template("javascript/javascript-array-methods-part-two.html")
-
-@app.route("/blog/typescript-record-utiliy-type")
-def typescriptrecordutiliytype():
-    return render_template("typescript/typescript-record-utiliy-type.html")
-
-# FORM AND PRIVACY POLICY:
+#### FORM AND PRIVACY POLICY:
 
 @app.route("/apply")
 def apply():
@@ -144,14 +77,60 @@ def apply():
 def privacypolicy():
     return render_template("privacy-policy.html")
 
-# API WITH JOBS LIST:
 
-@app.route("/api/jobs")
-def list_jobs():
+#### BLOG ARTICLES
 
-    return jsonify(JOBS)
 
-# TO RUN THE APP: 
+# BLOG MAIN PAGE
+
+@app.route("/blog")
+def blog():
+    return render_template("blog/index-blog.html")
+
+
+# TYPESCRIPT INDEX SIGNATURES
+
+@app.route("/blog/typescript-index-signatures")
+def typescriptindexsignatures():
+    # Retrieve the comments from the collection
+    # convert the Cursor object to a list before passing it to the template (so I can count comments in the article dynamically)
+    typescriptindexsignaturescomments = list(typescriptindexsignaturescomments_collection.find())
+    # Pass the comments to the article template for rendering
+    return render_template("typescript/typescript-index-signatures.html", typescriptindexsignaturescomments=typescriptindexsignaturescomments)
+
+# JAVASCRIPT CLASSES
+
+@app.route("/blog/javascript-classes-booklist")
+def javascriptclassesbooklist():
+    javascriptclassescomments = list(javascriptclassescomments_collection.find())
+    return render_template("javascript/javascript-classes-booklist.html", javascriptclassescomments=javascriptclassescomments)
+
+# JAVASCRIPT ARRAY METHODS PART ONE
+
+@app.route("/blog/javascript-array-methods-part-one")
+def javascriptarraymethodspartone():
+    javascriptarraymethodspartonecomments = list(javascriptarraymethodspartonecomments_collection.find())
+    return render_template("javascript/javascript-array-methods-part-one.html", javascriptarraymethodspartonecomments=javascriptarraymethodspartonecomments)
+
+
+# TYPESCRIPT RECORD UTILITY TYPE
+
+@app.route("/blog/typescript-record-utiliy-type")
+def typescriptrecordutiliytype():
+    typescriptrecordutilitytypecomments = list(typescriptrecordutilitytypecomments_collection.find())
+    return render_template("typescript/typescript-record-utiliy-type.html", typescriptrecordutilitytypecomments=typescriptrecordutilitytypecomments)
+
+
+# JAVASCRIPT ARRAY METHODS PART TWO
+
+@app.route("/blog/javascript-array-methods-part-two")
+def javascriptarraymethodsparttwo():
+    javascriptarraymethodsparttwocomments = list(javascriptarraymethodsparttwocomments_collection.find())
+    return render_template("javascript/javascript-array-methods-part-two.html", javascriptarraymethodsparttwocomments=javascriptarraymethodsparttwocomments)
+
+
+
+######################## TO RUN THE APP IN DEVELOPMENT MODE ############################ 
 
 if __name__ == "__main__":
     app.run(debug=True, port=4000)

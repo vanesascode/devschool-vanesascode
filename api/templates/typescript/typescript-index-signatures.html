@@ -114,7 +114,12 @@
         <div class="d-none d-md-block col-2 px-3">
           <div>
             <div class="pb-3">
-              <p><b>6 min read</b></p>
+              <p class="mb-0"><b>6 min read</b></p>
+            </div>
+            <div class="pb-3">
+              <p>
+                <b>{{ typescriptindexsignaturescomments|length }} comments</b>
+              </p>
             </div>
 
             <div class="pb-3">
@@ -131,6 +136,7 @@
                 <p>vanesascode</p>
               </div>
             </a>
+
             <a
               href="{{ url_for('blog') }}#typescript"
               style="text-decoration: none"
@@ -153,11 +159,19 @@
 
           <!--ARTICLE DESCRIPTION WHEN SMALL-->
           <div class="d-block d-md-none pt-4">
-            <div class="pb-md-3">
-              <p><b>6 min read</b></p>
+            <div class="pb-md-3 d-flex gap-5">
+              <div>
+                <p><b>6 min read</b></p>
+              </div>
+              <div>
+                <p class="ps-2">
+                  <b>{{ typescriptindexsignaturescomments|length }} comments</b>
+                </p>
+              </div>
             </div>
+
             <div class="d-flex gap-5">
-              <div class="pb-md-3">
+              <div>
                 <p class="mb-0"><b>Published</b></p>
                 <p>14 Aug 2023</p>
               </div>
@@ -166,7 +180,7 @@
                 href="{{ url_for('school') }}#about"
                 style="text-decoration: none"
               >
-                <div class="underline pb-md-3">
+                <div class="underline">
                   <p class="mb-0"><b>Author</b></p>
                   <p>vanesascode</p>
                 </div>
@@ -552,33 +566,76 @@
           <script src="https://gist.github.com/vanesascode/ffec9adf55f23aecb1bd6ae6955ca69a.js"></script>
 
           <br /><br /><br />
+          <!--COMMENTS-->
+          <div class="container">
+            <!--RENDER COMMENTS-->
 
-          <!--RENDER COMMENTS-->
+            <h3>
+              {{ typescriptindexsignaturescomments|length }}
+              <span class="info-text-color fw-bolder">thoughts</span> on
+              "Typescript Index Signatures: a Practical Example."
+            </h3>
+            <br />
 
-          <h3 class="fw-bold">Comments</h3>
-          <br />
-          <p>Start a discussion, not a fire. Post with kidness.</p>
-          <br />
-          {% for comment in comments %}
+            {% for typescriptindexsignaturescomment in
+            typescriptindexsignaturescomments %}
+            <div class="py-3 border-bottom">
+              <div class="d-flex gap-3 my-3">
+                <div>
+                  <img
+                    src="../../static/blog/blog-comment.webp "
+                    alt="microphone-speak-your-thoughts"
+                    class="rounded-circle img-fluid"
+                    style="width: 60px; height: 60px"
+                  />
+                </div>
+                <div>
+                  <div class="align-middle">
+                    <p class="mb-0 fs-5">
+                      <strong
+                        >{{ typescriptindexsignaturescomment.name }}</strong
+                      >
+                    </p>
+                    <p class="mb-0 fs-6">
+                      {{ typescriptindexsignaturescomment.posted_at }}
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-          <p class="fs-5 border p-4 rounded">{{ comment.comment }}</p>
-          {% endfor %}
-          <br /><br />
-
-          <!-- WRITE COMMENTS-->
-
-          <h3 class="fw-bold">Add a Comment</h3>
-          <br />
-          <form method="POST" action="/submit_comment">
-            <textarea
-              name="comment"
-              placeholder="Enter your comment"
-              class="form-control mb-4 fs-5 p-4"
-            ></textarea>
-            <div class="d-flex justify-content-end">
-              <button type="submit" class="btn btn-dark">Submit</button>
+              <p class="fs-5">{{ typescriptindexsignaturescomment.comment }}</p>
             </div>
-          </form>
+
+            {% endfor %}
+            <br /><br /><br />
+
+            <!-- WRITE COMMENTS-->
+
+            <h3>Add a Comment</h3>
+            <p>Always be kind to other readers ❤️</p>
+            <br />
+            <form
+              method="POST"
+              action="/submit_typescriptindexsignaturescomment"
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                class="form-control mb-4 fs-5 py-3"
+              />
+              <textarea
+                name="comment"
+                placeholder="Enter your comment"
+                class="form-control mb-4 fs-5 py-3"
+              ></textarea>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-dark">Submit</button>
+              </div>
+            </form>
+          </div>
+
+          <!--end of other divs-->
         </div>
       </div>
     </div>
