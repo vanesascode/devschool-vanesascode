@@ -9,7 +9,7 @@ postroutes_blueprint = Blueprint("postroutes", __name__)
 
 ################## BLOG COMMENTS ###################
 
-# Define the postroutes to handle the submission of comments:
+# The postroutes to handle the submission of comments:
 
 ### TYPESCRIPT INDEX SIGNATURES:
 @postroutes_blueprint.route("/submit_typescriptindexsignaturescomment", methods=["POST"])
