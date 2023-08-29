@@ -22,7 +22,7 @@ Install pip:
 
 Then, you create an environment (imagine you want to call it 'myenv'):
 
-- [x] run: `pip install pipenv
+- [x] run: `pip install pipenv`
 - [x] `pipenv shell` (it creates a `pipfile`)
 - [x] `pipenv install` (Install all dependencies of your project)
 
@@ -72,7 +72,7 @@ The function returns the rendered template "home.html" using the render_template
 First create a new cluster, a database and a collection in your MongoDB Atlas account.
 Click on "connect" and in the section of drivers you have some instructions (check them in case the ones here are old already):
 
-- Install: `python -m pip install pymongo`
+- Install: `pip install pymongo`
 - Follow the instructions to get a connection.
 
 ### .env
@@ -93,24 +93,6 @@ mongodb_uri = os.getenv("MONGODB_URI")
 Instead of using `uri` as the instructions in the MongoDB docs tells you, you'll be using `mongodb_uri` in your code, if that is the name you gave to your variable in the .env file when you recorded your connection string there.
 
 Remember to put your .env file in the `.gitignore` file.
-
-## `database.py` file
-
-I separated the database-related code into its own file, so I didn’t clutter my app.py file that much.
-
-## `postroutes.py` file
-
-I also separated the post routes for the database into its own file with the Flask's `Blueprint` feature.
-
-In the routes.py file, you must `from flask import Blueprint`.
-
-And in the app.py file, you must `from api.routes import routes_blueprint` and register the blueprint:
-
-```
-app.register_blueprint(routes_blueprint)
-```
-
-Instead of using `@app.route` as we do in the app.py file, we use `@postroutes_blueprint.route`.
 
 ## Deployment
 
