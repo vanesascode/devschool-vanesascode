@@ -1,14 +1,14 @@
-# Dev School: fictional coding school with blog by vanesascode (UNDER CONSTRUCTION)
+# Dev School: fictional coding school with blog by vanesascode
 
-### Site using Python Flask stack and rendered with Vercel
+### Educational site using Python Flask stack and rendered with Vercel
 
-ONGOING project for a complete website in which I keep sharing new knowlege about programming and development.
+![image](https://github.com/vanesascode/devschool-vanesascode/assets/131259155/44a9d7df-e0a5-4dfe-9796-2b95982aa94a)
 
-See here the [PROGRESS](https://devschool-vanesascode.vercel.app/)
+Fictional school website in which I share real articles about programming.
+
+Visit the [SITE](https://devschool-vanesascode.vercel.app/)
 
 # 💥 BACKEND 💥
-
-### This is a totally "self-managed" database and backend management.
 
 Flask is a lightweight web framework in Python.
 
